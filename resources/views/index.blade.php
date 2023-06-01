@@ -2,6 +2,7 @@
 @section('content')
 <!-- banner section start -->
 {{-- hi there --}}
+{{-- hi --}}
       <div class="banner_section layout_padding">
          <div class="container">
             <div class="row">
@@ -261,7 +262,7 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <h1 class="contact_taital">Get In Touch</h1>
+                  {{-- <h1 class="contact_taital">Get In Touch</h1> --}}
                </div>
             </div>
          </div>

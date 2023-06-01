@@ -23,6 +23,9 @@ public function update(Request $request, Lessor $lessor)
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'phone_number' => 'required',
+            'address' => 'required',
+            'city' => 'required',
         ]);
 
         $lessor->update($validatedData);

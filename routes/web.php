@@ -25,6 +25,11 @@ use App\Http\Controllers\Auth\RegiestrationController;
 */
 
 
+Route::get('/', function () {
+    return view('index');
+});
+
+
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
