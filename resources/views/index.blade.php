@@ -3,6 +3,7 @@
 <!-- banner section start -->
 {{-- hi there --}}
 {{-- hi --}}
+{{-- hi bahaaew --}}
       <div class="banner_section layout_padding">
          <div class="container">
             <div class="row">
