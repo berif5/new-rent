@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image'
     ];
 
     /**
@@ -49,5 +50,19 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+/**
+ * Get the URL of the user's profile image.
+ *
+ * @return string|null
+ */
+public function getProfileImage()
+{
+    if ($this->image) {
+        // Adjust the path based on your image location and naming convention
+        return asset('images/profiles/' . $this->image);
+    }
+    
+    return null;
+}
 
 }

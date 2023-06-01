@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Auth\RegiestrationController;
 
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -133,3 +134,8 @@ Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show']
 Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
 Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
 Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+
+// user profile
+
+
+Route::get('/user', [UserController::class, 'show'])->name('user.profile');
