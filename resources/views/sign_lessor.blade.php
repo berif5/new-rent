@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mail_section_1">
-                    <form action="sign_lesson" method="POST">
+                    <form action="sign_lessor" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="name" class="text-light">Name:</label>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone" class="text-light">Phone:</label>
-                            <input type="number" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+                            <input type="number" class="form-control" id="phone_number" placeholder="Enter your phone" name="phone_number">
                             <small class="text-danger">
                                 @error('phone_number')
                                     {{ $message}}

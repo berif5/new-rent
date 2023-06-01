@@ -15,7 +15,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 
 
-use App\Http\Controllers\Auth\RegiestrationController;
+use App\Http\Controllers\Auth\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,14 +96,14 @@ Route::get('sign', function () {
     return view('sign_user');
 });
 
-Route::post('sign', [RegiestrationController::class , 'sign_action']);
+Route::post('sign', [RegistrationController::class , 'sign_action']);
 
 
-Route::get('sign_lesson', function () {
-    return view('sign_lesson');
+Route::get('sign_lessor', function () {
+    return view('sign_lessor');
 });
 
-Route::post('sign_lesson', [RegiestrationController::class , 'sign_lesson']);
+Route::post('sign_lessor', [RegistrationController::class , 'sign_lessor']);
 
 Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
@@ -133,3 +133,10 @@ Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show']
 Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
 Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
 Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::post('/login', [RegistrationController::class, 'login'])->name('login');
