@@ -11,7 +11,7 @@
                      <div class="carousel-inner">
                         <div class="carousel-item active">
                            <div class="banner_taital_main">
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1>
+                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
@@ -22,8 +22,8 @@
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1>
-                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1> --}}
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
                                  <div class="contact_bt"><a href="#">Read More</a></div>
@@ -33,8 +33,8 @@
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1>
-                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1> --}}
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
                                  <div class="contact_bt"><a href="#">Read More</a></div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="col-md-6">
                      <div class="about_taital_box">
-                        <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1>
+                        {{-- <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1> --}}
                         <h1 class="about_taital">About <span style="color: #007495;">Us</span></h1>
                         <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
                         <div class="readmore_btn"><a href="#">Read More</a></div>
@@ -128,101 +128,37 @@
          </div>
       </div>
       <!-- gallery section start -->
-      <div class="gallery_section layout_padding">
-         <div class="container">
+    <!-- gallery section start -->
+    <div class="gallery_section layout_padding">
+        <div class="container">
             <div class="row">
-               <div class="col-md-12">
-                  <h1 class="gallery_taital">Our best offers</h1>
-               </div>
+                <div class="col-md-12">
+                    <h1 class="gallery_taital">Our best offers</h1>
+                </div>
             </div>
             <div class="gallery_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-1.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-2.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-3.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-               </div>
+                <div class="row mt-4">
+                    @foreach ($products as $product)
+                        <div class="col-md-4">
+                            <div class="gallery_box">
+                                <div class="gallery_img">
+                                    <img id="image_product" src="{{ $product->image1 }}" >
+                                 </div>
+                                <h3 class="types_text">{{ $product->product_name }}</h3>
+                                <p class="looking_text">Start per day ${{ $product->product_price }}</p>
+                                <div class="read_bt"><a href="#">Book Now</a></div>
+                                <div class="read_bt">
+                                 <a href="{{ route('singleproduct', $product->id) }}">Read more</a>
+                             </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <div class="gallery_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-1.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-2.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-3.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- gallery section end -->
-      <!-- choose section start -->
-      <div class="choose_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="choose_taital">WHY CHOOSE US</h1>
-               </div>
-            </div>
-            <div class="choose_section_2">
-               <div class="row">
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-1.png"></div>
-                     <h4 class="safety_text">SAFETY & SECURITY</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-2.png"></div>
-                     <h4 class="safety_text">Online Booking</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-3.png"></div>
-                     <h4 class="safety_text">Best Drivers</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+        </div>
+    </div>
+    <!-- gallery section end -->
       <!-- choose section end -->
       <!-- client section start -->
       <div class="client_section layout_padding">
@@ -326,7 +262,7 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <h1 class="contact_taital">Get In Touch</h1>
+                  {{-- <h1 class="contact_taital">Get In Touch</h1> --}}
                </div>
             </div>
          </div>

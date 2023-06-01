@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\HomeController;
 
 
 use App\Http\Controllers\Auth\RegiestrationController;
@@ -25,17 +26,17 @@ use App\Http\Controllers\Auth\RegiestrationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 
-
-
-
-// Home Page
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index');
-})->name('home');
+});
+
+
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
 
 
 // About Page
@@ -74,6 +75,10 @@ Route::get('/contact', function () {
 
 
 // Route::get('/lessor', 'LessorController@index')->name('lessor.index');
+// Route::get('/', 'HomeController@index')->name('index');
+
+
+
 Route::get('/lessor', [LessorController::class, 'index'])->name('lessor.index');
 
 Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('lessor.update');

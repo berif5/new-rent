@@ -70,7 +70,9 @@
                     @foreach ($products as $product)
                         <div class="col-md-4">
                             <div class="gallery_box">
-                                <div class="gallery_img"><img src="{{ $product->image1 }}"></div>
+                                <div class="gallery_img">
+                                    <img src="{{ $product->image1 }}" width="400" height="290">
+                                 </div>
                                 <h3 class="types_text">{{ $product->product_name }}</h3>
                                 <p class="looking_text">Start per day ${{ $product->product_price }}</p>
                                 <div class="read_bt"><a href="#">Book Now</a></div>
@@ -83,35 +85,6 @@
                     @endforeach
                 </div>
             </div>
-
-            {{-- <div class="gallery_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-1.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-2.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="gallery_box">
-                        <div class="gallery_img"><img src="images/img-3.png"></div>
-                        <h3 class="types_text">Toyota car</h3>
-                          <p class="looking_text">Start per day $4500</p>
-                        <div class="read_bt"><a href="#">Book Now</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div> --}}
         </div>
     </div>
     <!-- gallery section end -->
