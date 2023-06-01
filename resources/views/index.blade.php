@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('content')
 <!-- banner section start -->
+{{-- hi there --}}
       <div class="banner_section layout_padding">
          <div class="container">
             <div class="row">
