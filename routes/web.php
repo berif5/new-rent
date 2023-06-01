@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\LessorDashboardController;
+use App\Http\Controllers\ProductDashboardController;
 
 use App\Http\Controllers\ProductController;
 
@@ -104,3 +106,23 @@ Route::get('/singleproduct/{id}', [ProductController::class, 'show'])->name('sin
 Route::post('/submit-rating', 'ProductController@submitRating');
 Route::post('/get-ratings', 'ProductController@getRatings');
 
+Route::resource('/admin/layout1', AdminController::class)->names([
+    'index' => 'admin.layout1.index'
+]);
+Route::get('/userdashboard', [UserDashboardController::class, 'index'])->name('userdashboard.index');
+Route::get('/userdashboard/{id}', [UserDashboardController::class, 'show'])->name('userdashboard.show');
+Route::get('/userdashboard/{id}/edit', [UserDashboardController::class, 'edit'])->name('userdashboard.edit');
+Route::put('/userdashboard/{id}', [UserDashboardController::class, 'update'])->name('userdashboard.update');
+Route::delete('/userdashboard/{id}', [UserDashboardController::class, 'destroy'])->name('userdashboard.destroy');
+// Route::get('/admin', [AdminController::class, 'index'])->name('admin.layout1.index');
+Route::get('/lessordashboard', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');
+Route::get('/lessordashboard/{id}', [LessorDashboardController::class, 'show'])->name('lessordashboard.show');
+Route::get('/lessordashboard/{id}/edit', [LessorDashboardController::class, 'edit'])->name('lessordashboard.edit');
+Route::put('/lessordashboard/{id}', [LessorDashboardController::class, 'update'])->name('lessordashboard.update');
+Route::delete('/lessordashboard/{id}', [LessorDashboardController::class, 'destroy'])->name('lessordashboard.destroy');
+
+Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
+Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
+Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
+Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
+Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
