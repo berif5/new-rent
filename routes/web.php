@@ -23,9 +23,9 @@ use App\Http\Controllers\Auth\RegiestrationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
 
 

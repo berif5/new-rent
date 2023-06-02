@@ -81,14 +81,45 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 profile">
-            <h3>Lessor Profile</h3>
-            <a href="#" >Edit Profile</a>
-
+        <div class="col-md-6 profile">
+            <a href="#" id="editProfileBtn">Edit Profile</a>
             <img src="{{ $lessor->image }}" alt="User Image">
-            <h2>{{ $lessor->name }}</h2>
-            <p>Email: {{ $lessor->email }}</p>
-            <!-- Add more fields as needed -->
+            {{-- <h2 id="nameField">{{ $lessor->name }}</h2>
+            <p id="emailField">Email: {{ $lessor->email }}</p>
+            <p id="phoneField">Phone: {{ $lessor->phone_number }}</p>
+            <p id="addressField">Address: {{ $lessor->city }} - {{ $lessor->address }}</p> --}}
+
+            <form id="editProfileForm" action="{{ route('lessor.update', ['lessor' => $lessor->id]) }}" method="POST" >
+                @csrf
+                @method('PUT')
+                {{-- <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ $lessor->name }}" class="form-control"><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ $lessor->email }}" class="form-control"><br>
+                <label for="phone_number">Phone:</label>
+                <input type="text" id="phone_number" name="phone_number" value="{{ $lessor->phone_number }}" class="form-control"><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="{{ $lessor->address }}" class="form-control"><br>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="{{ $lessor->city }}" class="form-control"><br> --}}
+                <div class="mb-3 row">
+                    {{-- <label for="staticEmail" class="col-sm-2 col-form-label">Email</label> --}}
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $lessor->email }}">
+                        <input type="text" class="form-control" id="editableEmail" value="{{ $lessor->email }}" style="display: none;">
+                    </div>
+                </div>
+
+
+                <button type="submit" id="saveProfileBtn" style="display: none;" class="mybutton">Save</button>
+            </form>
+        </div>
+
+
+
+        <div class="col-md-6 profile">
+            <h3>My Total Properties: <?= count($properties) ?></h3>
+            <h3>Average Rating: </h3>
         </div>
     </div>
     <div class="row">
@@ -106,7 +137,6 @@
                 <div class="row">
 
                 @foreach($properties as $property)
-                {{-- <li>{{ $property->product_name }}</li> --}}
                 <div class="col-md-4 cardd">
                     <div class="gallery_box">
                        <div class="gallery_img"><img src="{{ $property->image1 }}"></div>
@@ -165,7 +195,7 @@
                     <label for="product_type">Product Type</label>
                     <input type="text" class="form-control" id="product_type" name="product_type" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="image1">Image 1</label>
                     <input type="text" class="form-control" id="image1" name="image1">
@@ -183,4 +213,26 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('editProfileBtn').addEventListener('click', function(event) {
+        // event.preventDefault();
+
+        // Hide the information fields
+        // document.getElementById('phoneField').style.display = 'none';
+        // document.getElementById('addressField').style.display = 'none';
+        // document.getElementById('emailField').style.display = 'none';
+        // document.getElementById('nameField').style.display = 'none';
+
+
+        // Show the edit profile form
+        // document.getElementById('editProfileForm').style.display = 'block';
+        document.getElementById('saveProfileBtn').style.display = 'block';
+
+        // Hide the plain text email
+    document.getElementById('staticEmail').style.display = 'none';
+
+// Show the editable email input field
+document.getElementById('editableEmail').style.display = 'block';
+    });
+</script>
 @endsection

@@ -67,7 +67,7 @@
                   </div>
                   <div class="col-md-6">
                      <div class="about_taital_box">
-                        <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1>
+                        {{-- <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1> --}}
                         <h1 class="about_taital">About <span style="color: #007495;">Us</span></h1>
                         <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
                         <div class="readmore_btn"><a href="#">Read More</a></div>
@@ -324,7 +324,7 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <h1 class="contact_taital">Get In Touch</h1>
+                  {{-- <h1 class="contact_taital">Get In Touch</h1> --}}
                </div>
             </div>
          </div>
