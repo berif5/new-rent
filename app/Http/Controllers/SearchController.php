@@ -14,7 +14,8 @@ class SearchController extends Controller
         $categoryId = $request->input('category');
         $status = $request->input('status');
         // $price = $request->input('price');
-
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
         // Query the products based on the selected criteria
         $products = Product::query();
 
@@ -28,6 +29,9 @@ class SearchController extends Controller
             $products->where('status', false);
         }
 
+        if ($minPrice && $maxPrice) {
+            $products->whereBetween('product_price', [$minPrice, $maxPrice]);
+        }
         // ... add more conditions based on your requirements
 
         $products = $products->get();
