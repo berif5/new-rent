@@ -9,11 +9,6 @@ use App\Http\Controllers\ReviewdashboardController;
 use App\Http\Controllers\BookingdashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 186671f07ea39cf75b5a342c17b3ddf38a26eb0b
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
