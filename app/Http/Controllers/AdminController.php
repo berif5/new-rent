@@ -11,6 +11,11 @@ class AdminController extends Controller
         return view('admin.layout1.index');
     }
 
+    public function showProfile()
+    {
 
+
+        return view('admin.layout1.app-profile');
+    }
 
 }

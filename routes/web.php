@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\LessorDashboardController;
 use App\Http\Controllers\ProductDashboardController;
-
+use App\Http\Controllers\ReviewdashboardController;
+use App\Http\Controllers\BookingdashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LessorController;
@@ -131,3 +132,10 @@ Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show']
 Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
 Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
 Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+ Route::get('/app-profile', [AdminController::class, 'showProfile'])->name('app-profile');
+
+ Route::get('/reviewdashboard', [ReviewdashboardController::class, 'index'])->name('reviewdashboard.index');
+ Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
+ Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
+
+ Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
