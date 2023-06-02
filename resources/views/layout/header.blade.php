@@ -74,6 +74,9 @@
                      <li class="nav-item">
                         <a class="nav-link" href="sign">Sign up</a>
                      </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                   </form>

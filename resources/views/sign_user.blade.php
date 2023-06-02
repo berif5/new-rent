@@ -1,8 +1,8 @@
 @extends('layout.master')
 @section('content')
-
+<br> <br> 
 <div class="container">
-     
+
     <div class="contact_section_2">
         <div class="row">
             <div class="col-md-12">

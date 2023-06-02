@@ -197,11 +197,11 @@
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
-                                        <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                         <li>
+                       <a href="{{ route('app-profile') }}"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void()">
+                                           {{-- <a href="{{ route('app-profile') }}"><i class="icon-user"></i> <span>Profile</span></a> --}}
                                                 <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
                                             </a>
                                         </li>
@@ -218,7 +218,7 @@
                     </ul>
                 </div>
             </div>
-        </div> --}}
+        </div>
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -238,6 +238,7 @@
                             <li><a href="{{ route('userdashboard.index') }}">User dashboard</a></li>
                            <li><a href="{{ route('lessordashboard.index') }}">Lessor dashboard</a></li>
                            <li><a href="{{ route('productdashboard.index') }}">Product dashboard</a></li>
+                           <li><a href="{{ route('reviewdashboard.index') }}">Review dashboard</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -276,6 +277,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">Profile</a></li>
+
                             <li><a href="./app-calender.html">Calender</a></li>
                         </ul>
                     </li>
@@ -283,21 +285,21 @@
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
                         </a>
-                        {{-- <ul aria-expanded="false">
+                      <ul aria-expanded="false">
                             <li><a href="./chart-flot.html">Flot</a></li>
                             <li><a href="./chart-morris.html">Morris</a></li>
                             <li><a href="./chart-chartjs.html">Chartjs</a></li>
                             <li><a href="./chart-chartist.html">Chartist</a></li>
                             <li><a href="./chart-sparkline.html">Sparkline</a></li>
                             <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul> --}}
+                        </ul>
                     </li>
                     <li class="nav-label">UI Components</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
                         </a>
-                        {{-- <ul aria-expanded="false">
+                         <ul aria-expanded="false">
                             <li><a href="./ui-accordion.html">Accordion</a></li>
                             <li><a href="./ui-alert.html">Alert</a></li>
                             <li><a href="./ui-badge.html">Badge</a></li>
@@ -313,15 +315,15 @@
                             <li><a href="./ui-popover.html">Popover</a></li>
                             <li><a href="./ui-progressbar.html">Progressbar</a></li>
                             <li><a href="./ui-tab.html">Tab</a></li>
-                            <li><a href="./ui-typography.html">Typography</a></li> --}}
-                        <!-- </ul>
+                            <li><a href="./ui-typography.html">Typography</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
                         </a>
                         <ul aria-expanded="false"> -->
-                            {{-- <li><a href="./uc-nestedable.html">Nestedable</a></li>
+                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
                             <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
                             <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
                             <li><a href="./uc-toastr.html">Toastr</a></li>
@@ -336,14 +338,14 @@
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                        </a> --}}
-                        {{-- <ul aria-expanded="false">
+                        </a>
+                        <ul aria-expanded="false">
                             <li><a href="./form-basic.html">Basic Form</a></li>
                             <li><a href="./form-validation.html">Form Validation</a></li>
                             <li><a href="./form-step.html">Step Form</a></li>
                             <li><a href="./form-editor.html">Editor</a></li>
                             <li><a href="./form-picker.html">Picker</a></li>
-                        </ul> --}}
+                        </ul>
                     </li>
                     <li class="nav-label">Table</li>
                     <li>
@@ -360,7 +362,7 @@
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
                         </a>
-                        {{-- <ul aria-expanded="false">
+                       <ul aria-expanded="false">
                             <li><a href="./page-login.html">Login</a></li>
                             <li><a href="./page-register.html">Register</a></li>
                             <li><a href="./page-lock.html">Lock Screen</a></li>
@@ -371,7 +373,7 @@
                                     <li><a href="./page-error-400.html">Error 400</a></li>
                                     <li><a href="./page-error-500.html">Error 500</a></li>
                                     <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul> --}}
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -424,7 +426,7 @@
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                             </div>
                         </div>
-                    {{-- </div>
+                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-4">
                             <div class="card-body">
@@ -439,11 +441,11 @@
                     </div>
                 </div>
 
-                {{-- <div class="row">
+             <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-12">
-                                {{-- <div class="card">
+                               <div class="card">
                                     <div class="card-body pb-0 d-flex justify-content-between">
                                         <div>
                                             <h4 class="mb-1">Product Sales</h4>
@@ -477,15 +479,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
 
 
-                {{-- <div class="row">
+              <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="card">
                                 <div class="card-body">
@@ -553,8 +555,8 @@
                         </div>
                     </div>
 
-                <div class="row"> --}}
-                    {{-- <div class="col-lg-3 col-sm-6">
+                <div class="row">
+                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -565,8 +567,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
-                    {{-- <div class="col-lg-3 col-sm-6">
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -577,8 +579,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
-                    {{-- <div class="col-lg-3 col-sm-6">
+                    </div>
+                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -589,8 +591,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
-                    {{-- <div class="col-lg-3 col-sm-6">
+                    </div>
+                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -601,11 +603,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
                 </div>
 
-                {{-- <div class="row">
+               <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -734,9 +736,9 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
-                {{-- <div class="row">
+              <div class="row">
                     <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6">
 
                         <div class="card">
@@ -841,7 +843,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
 
 

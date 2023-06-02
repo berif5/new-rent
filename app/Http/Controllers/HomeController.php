@@ -25,7 +25,7 @@ class HomeController extends Controller
         $type = $request->input('status');
         $startPrice = Product::min('product_price');
         $endPrice = Product::max('product_price');
-
+        
         $query = Product::query();
 
         if ($category) {

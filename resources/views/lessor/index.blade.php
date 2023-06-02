@@ -84,32 +84,35 @@
         <div class="col-md-6 profile">
             <a href="#" id="editProfileBtn">Edit Profile</a>
             <img src="{{ $lessor->image }}" alt="User Image">
-            {{-- <h2 id="nameField">{{ $lessor->name }}</h2>
-            <p id="emailField">Email: {{ $lessor->email }}</p>
+            <h2 id="nameField">{{ $lessor->name }}</h2>
+            {{-- <p id="emailField">Email: {{ $lessor->email }}</p>
             <p id="phoneField">Phone: {{ $lessor->phone_number }}</p>
             <p id="addressField">Address: {{ $lessor->city }} - {{ $lessor->address }}</p> --}}
 
             <form id="editProfileForm" action="{{ route('lessor.update', ['lessor' => $lessor->id]) }}" method="POST" >
                 @csrf
                 @method('PUT')
-                {{-- <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="{{ $lessor->name }}" class="form-control"><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="{{ $lessor->email }}" class="form-control"><br>
-                <label for="phone_number">Phone:</label>
-                <input type="text" id="phone_number" name="phone_number" value="{{ $lessor->phone_number }}" class="form-control"><br>
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" value="{{ $lessor->address }}" class="form-control"><br>
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" value="{{ $lessor->city }}" class="form-control"><br> --}}
                 <div class="mb-3 row">
-                    {{-- <label for="staticEmail" class="col-sm-2 col-form-label">Email</label> --}}
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
                     <div class="col-sm-10">
                         <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $lessor->email }}">
-                        <input type="text" class="form-control" id="editableEmail" value="{{ $lessor->email }}" style="display: none;">
+                        <input type="text" name="email" class="form-control" id="editableEmail" value="{{ $lessor->email }}" style="display: none;">
                     </div>
                 </div>
-
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="staticPhone" value="{{ $lessor->phone_number }}">
+                        <input type="text" name="phone_number" class="form-control" id="editablePhone" value="{{ $lessor->phone_number }}" style="display: none;">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="{{ $lessor->address }}">
+                        <input type="text" name="address" class="form-control" id="editableAddress" value="{{ $lessor->address }}" style="display: none;">
+                    </div>
+                </div>
 
                 <button type="submit" id="saveProfileBtn" style="display: none;" class="mybutton">Save</button>
             </form>
@@ -139,7 +142,7 @@
                 @foreach($properties as $property)
                 <div class="col-md-4 cardd">
                     <div class="gallery_box">
-                       <div class="gallery_img"><img src="{{ $property->image1 }}"></div>
+                       <div class="gallery_img"><img src="{{ $property->image1 }}" width="100%" height="100%"></div>
                        <h3 class="types_text">{{ $property->product_name }}</h3>
                          <p class="looking_text">{{ $property->product_description }}</p>
                        <div class="read_bt"><a href="#">{{ $property->product_price }} JD</a></div>
@@ -162,6 +165,8 @@
             <h3>Add New Property</h3>
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="lessors_id" id="lessor_id" value="{{ $lessor->id }}">
+
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
                     <input type="text" class="form-control" id="product_name" name="product_name" required>
@@ -230,9 +235,15 @@
 
         // Hide the plain text email
     document.getElementById('staticEmail').style.display = 'none';
+    document.getElementById('staticPhone').style.display = 'none';
+    document.getElementById('staticAddress').style.display = 'none';
+
 
 // Show the editable email input field
 document.getElementById('editableEmail').style.display = 'block';
+document.getElementById('editablePhone').style.display = 'block';
+document.getElementById('editableAddress').style.display = 'block';
+
     });
 </script>
 @endsection
