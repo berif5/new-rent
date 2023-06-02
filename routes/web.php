@@ -13,6 +13,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingController;
+
 
 
 use App\Http\Controllers\Auth\RegistrationController;
@@ -145,3 +147,23 @@ Route::get('login', function () {
 });
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
+
+
+
+// for Booking
+
+// Route::get('/booking', function () {
+//     return view('booking');
+// });
+
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+
+// Route::post('/booking', 'BookingController@store')->name('booking.store');
+
+Route::get('/booking/success', function () {
+    return view('booking.success');
+})->name('booking.success');
+
+
+//

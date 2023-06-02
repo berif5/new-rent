@@ -61,8 +61,12 @@ public function getProfileImage()
         // Adjust the path based on your image location and naming convention
         return asset('images/profiles/' . $this->image);
     }
-    
+
     return null;
+}
+
+function bookings(){
+    return $this->hasMany(Booking::class);
 }
 
 }
