@@ -160,6 +160,10 @@ Route::get('login', function () {
     return view('login');
 });
 
+
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+
+
+ Route::post('/logout', [RegistrationController::class, 'logout']);

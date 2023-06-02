@@ -118,5 +118,14 @@ class RegistrationController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+
+
+    public function logout()
+{   
+    Auth::logout();
+    
+    // Redirect the user to the desired page after logout
+    return redirect('/index');
+}
 }
 

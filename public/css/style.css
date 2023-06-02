@@ -243,6 +243,7 @@ button {
     font-size: 17px;
     color: #fefefd;
     margin: 0px 5px;
+    background: none;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,

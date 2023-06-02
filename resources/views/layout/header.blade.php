@@ -77,6 +77,13 @@
                      <li class="nav-item">
                         <a class="nav-link" href="login">Login</a>
                      </li>
+
+                     <li class="nav-item">
+                        <form action="logout" method="POST">
+                           @csrf
+                           <button class="nav-link" > Logout </button>
+                        </form>
+                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                   </form>
