@@ -7,6 +7,8 @@ use App\Http\Controllers\LessorDashboardController;
 use App\Http\Controllers\ProductDashboardController;
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
+
 
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
