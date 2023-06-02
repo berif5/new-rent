@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/chartist/css/chartist.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    
 
 </head>
 
