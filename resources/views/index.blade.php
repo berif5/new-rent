@@ -1,7 +1,14 @@
 @extends('layout.master')
 @section('content')
 <!-- banner section start -->
-
+<style>
+.price{color: white}
+#max_price_label, #min_price_label{color: white}
+input[type="range"] {
+  accent-color: gray;
+  cursor: pointer;
+}
+</style>
       <div class="banner_section layout_padding">
          <div class="container">
             <div class="row">
@@ -79,55 +86,60 @@
          </div>
       </div>
       <!-- about section end -->
+      <div class="search_section">
+
       <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
-           <div class="search_section">
-              <div class="row">
-                 <div class="col-md-12">
-                    <h1 class="search_taital">Search Your Best Offers</h1>
-                    <p class="search_text">Using 'Content here, content here', making it look like readable</p>
-                    <!-- select box section start -->
-                    <div class="container">
-                       <div class="select_box_section">
-                          <div class="select_box_main">
-                             <div class="row">
-                                <div class="col-md-3 select-outline">
-                                   <select name="category" id="categorySelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                      <option value="" disabled selected>Any Category</option>
-                                      @foreach($categories as $category)
-                                      <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                      @endforeach
-                                   </select>
-                                </div>
-                                <div class="col-md-3 select-outline">
-                                   <select name="status" id="statusSelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                      <option value="" disabled selected>Any Status</option>
-                                      <option value="1">Available</option>
-                                      <option value="0">Unavailable</option>
-                                   </select>
-                                </div>
-                                <div class="col-md-3 select-outline">
-                                   <select id="priceSelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                      <option value="" disabled selected>Price</option>
-                                      <option value="1">Option 1</option>
-                                      <option value="2">Option 2</option>
-                                      <option value="3">Option 3</option>
-                                   </select>
-                                </div>
-                                <div class="col-md-3">
-                                   <div class="search_btn"><button id="searchBtn" type="submit">Search Now</button></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
+          {{-- <div class="search_section"> --}}
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="search_taital">Search Your Best Offers</h1>
+                <p class="search_text">Using 'Content here, content here', making it look like readable</p>
+                <!-- select box section start -->
+                <div class="container">
+                  <div class="select_box_section">
+                    <div class="select_box_main">
+                      <div class="row">
+                        <div class="col-md-3 select-outline">
+                          <select name="category" id="categorySelect" class="form-select">
+                            <option value="" disabled selected>Any Category</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="col-md-3 select-outline">
+                          <select name="status" id="statusSelect" class="form-select">
+                            <option value="" disabled selected>Any Status</option>
+                            <option value="1">Available</option>
+                            <option value="0">Unavailable</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4 select-outline">
+                          <label for="min_price"  class="form-label price">Minimum Price:</label>
+                          <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
+                          <span id="min_price_label"></span>
+                                <br>
+                          <label for="max_price" class="form-label price">Maximum Price:</label>
+                          <input type="range" class="form-range" id="max_price" name="max_price" min="0" max="300" step="20" value="300" class="form-range">
+                          <span id="max_price_label"></span>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="search_btn"><button id="searchBtn" type="submit" class="btn btn-light">Search Now</button></div>
+                        </div>
+                      </div>
                     </div>
-                    <!-- select box section end -->
-                 </div>
+                  </div>
+                </div>
+                <!-- select box section end -->
               </div>
-           </div>
+            </div>
+          {{-- </div> --}}
         </div>
-     </form>
+      </form>
+      </div>
+
 
     <!-- gallery section start -->
     <div class="gallery_section layout_padding">
@@ -270,6 +282,25 @@
 
       </div>
       <!-- contact section end -->
+<script>
+    function updateRangeValue(inputId, labelId) {
+  var input = document.getElementById(inputId);
+  var label = document.getElementById(labelId);
+  label.textContent = input.value;
+}
 
+// Attach event listeners to the range inputs
+var minPriceInput = document.getElementById('min_price');
+var maxPriceInput = document.getElementById('max_price');
+
+minPriceInput.addEventListener('input', function() {
+  updateRangeValue('min_price', 'min_price_label');
+});
+
+maxPriceInput.addEventListener('input', function() {
+  updateRangeValue('max_price', 'max_price_label');
+});
+
+</script>
       @endsection
 
