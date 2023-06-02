@@ -69,7 +69,7 @@ class RegistrationController extends Controller
         
         $lessor->save();
         // dd(redirect('index'));
-        return redirect('welcome');
+        return redirect('lessor.index');
     }
 
     public function login(Request $request){
@@ -110,7 +110,7 @@ class RegistrationController extends Controller
             Auth::login($lessor);
             $request->session()->regenerate();
 
-            return "yaa3";
+            return redirect()->intended('/lessor');  
 
          }
         // Authentication failed, redirect back with error message

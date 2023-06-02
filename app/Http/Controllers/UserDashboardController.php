@@ -32,7 +32,7 @@ class UserDashboardController extends Controller
         $user->email = $request->input('email');
         $user->password = $request->input('password');
         $user->image = $request->input('image');
-     
+
 
         $user->save();
 
@@ -48,4 +48,7 @@ class UserDashboardController extends Controller
         return redirect()->route('userdashboard.index')
             ->with('success', 'User deleted successfully');
     }
+
+
+    
 }

@@ -30,10 +30,11 @@
                             <td>{{ $product->status }}</td>
                             <td>{{ $product->product_type }}</td>
                             <td>{{ $product->category_id}}</td>
-                            <td>{{ $product->image1 }}</td>
-                            <td>{{ $product->image2 }}</td>
-                            <td>{{ $product->image3 }}</td>
-                            <td>{{ $product->lessors_id }}</td>
+                            <td><img src="{{ $product->image1 }}" alt="product image" width="100" height="100"></td>
+                            <td><img src="{{ $product->image2 }}" alt="product image" width="100" height="100"></td>
+                            <td><img src="{{ $product->image3 }}" alt="product image" width="100" height="100"></td>
+
+                            <td>{{ $product->lessor_id }}</td>
                             <td>
                                 <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
                                 <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>

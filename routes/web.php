@@ -5,11 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\LessorDashboardController;
 use App\Http\Controllers\ProductDashboardController;
-
+use App\Http\Controllers\ReviewdashboardController;
+use App\Http\Controllers\BookingdashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
-
-
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
@@ -18,6 +17,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -141,8 +142,11 @@ Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show']
 Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
 Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
 Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+ Route::get('/app-profile', [AdminController::class, 'showProfile'])->name('app-profile');
 
-// user profile
+ Route::get('/reviewdashboard', [ReviewdashboardController::class, 'index'])->name('reviewdashboard.index');
+ Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
+ Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
 
 
 
@@ -155,3 +159,5 @@ Route::get('login', function () {
 });
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
+ Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
+ Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
