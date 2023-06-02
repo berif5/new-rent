@@ -18,6 +18,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -145,3 +147,6 @@ Route::get('login', function () {
 });
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
+
+
+Route::post('/search', [SearchController::class, 'search'])->name('search');
