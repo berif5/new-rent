@@ -92,7 +92,6 @@
             <form id="editProfileForm" action="{{ route('lessor.update', ['lessor' => $lessor->id]) }}" method="POST" >
                 @csrf
                 @method('PUT')
-
                 <div class="mb-3 row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
                     <div class="col-sm-10">
@@ -166,6 +165,8 @@
             <h3>Add New Property</h3>
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="lessors_id" id="lessor_id" value="{{ $lessor->id }}">
+
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
                     <input type="text" class="form-control" id="product_name" name="product_name" required>
