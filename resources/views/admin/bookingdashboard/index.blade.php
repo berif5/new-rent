@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Users
+           bookings
         </div>
         <div class="card-body">
             <table class="table">
@@ -30,13 +30,13 @@
                             <td>{{ $booking->booking_status }}</td>
 
                             <td>
-                                <a href="{{ route('userdashboard.show', $user->id) }}" class="btn btn-primary">View</a>
+                                <a href="{{ route('bookingdashboard.show', $booking->id) }}" class="btn btn-primary">View</a>
                                 {{-- <a href="{{ route('userdashboard.edit', $user->id) }}" class="btn btn-success">Edit</a> --}}
-                                <form action="{{ route('userdashboard.destroy', $user->id) }}" method="POST" style="display: inline">
+                                {{-- <form action="{{ route('bookingdashboard.destroy', $user->id) }}" method="POST" style="display: inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                </form> --}}
                             </td>
                         </tr>
                     @endforeach

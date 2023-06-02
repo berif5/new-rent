@@ -19,7 +19,13 @@ class BookingdashboardController extends Controller
         $bookings = Booking::all();
 
         // Pass the reservations to the view
-        return view('admin.bookingdashboard.index', compact('booking'));
+        return view('admin.bookingdashboard.index', compact('bookings'));
+    }
+    public function show($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('booking.show', compact('booking'));
     }
 
 }
