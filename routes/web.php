@@ -71,6 +71,10 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+
 // lessor Page
 // Route::get('/lessor', function () {
 //     return view('lessor.index');
@@ -108,6 +112,9 @@ Route::post('sign_lessor', [RegistrationController::class , 'sign_lessor']);
 
 Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
+Route::get('/index', [ProductController::class, 'index'])->name('index');
+
+
 Route::get('/singleproduct/{id}', [ProductController::class, 'show'])->name('singleproduct');
 
 
@@ -138,7 +145,10 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
 // user profile
 
 
-Route::get('/user', [UserController::class, 'show'])->name('user.profile');
+
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
 Route::get('login', function () {
     return view('login');
