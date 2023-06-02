@@ -1,8 +1,7 @@
 @extends('layout.master')
 @section('content')
 <!-- banner section start -->
-{{-- hi there --}}
-{{-- hi --}}
+
       <div class="banner_section layout_padding">
          <div class="container">
             <div class="row">
@@ -80,54 +79,56 @@
          </div>
       </div>
       <!-- about section end -->
-      <div class="search_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="search_taital">Search Your Best Cars</h1>
-                  <p class="search_text">Using 'Content here, content here', making it look like readable</p>
-                  <!-- select box section start -->
-                  <div class="container">
-                     <div class="select_box_section">
-                        <div class="select_box_main">
-                           <div class="row">
-                              <div class="col-md-3 select-outline">
-                                 <select class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                    <option value="" disabled selected>Any Brand</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
-                              </div>
-                              <div class="col-md-3 select-outline">
-                                 <select class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                    <option value="" disabled selected>Any type</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
-                              </div>
-                              <div class="col-md-3 select-outline">
-                                 <select class="mdb-select md-form md-outline colorful-select dropdown-primary">
-                                    <option value="" disabled selected>Price</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
-                              </div>
-                              <div class="col-md-3">
-                                 <div class="search_btn"><a href="#">Search Now</a></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- select box section end -->
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- gallery section start -->
+      <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="container">
+           <div class="search_section">
+              <div class="row">
+                 <div class="col-md-12">
+                    <h1 class="search_taital">Search Your Best Offers</h1>
+                    <p class="search_text">Using 'Content here, content here', making it look like readable</p>
+                    <!-- select box section start -->
+                    <div class="container">
+                       <div class="select_box_section">
+                          <div class="select_box_main">
+                             <div class="row">
+                                <div class="col-md-3 select-outline">
+                                   <select name="category" id="categorySelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
+                                      <option value="" disabled selected>Any Category</option>
+                                      @foreach($categories as $category)
+                                      <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                      @endforeach
+                                   </select>
+                                </div>
+                                <div class="col-md-3 select-outline">
+                                   <select name="status" id="statusSelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
+                                      <option value="" disabled selected>Any Status</option>
+                                      <option value="1">Available</option>
+                                      <option value="0">Unavailable</option>
+                                   </select>
+                                </div>
+                                <div class="col-md-3 select-outline">
+                                   <select id="priceSelect" class="mdb-select md-form md-outline colorful-select dropdown-primary">
+                                      <option value="" disabled selected>Price</option>
+                                      <option value="1">Option 1</option>
+                                      <option value="2">Option 2</option>
+                                      <option value="3">Option 3</option>
+                                   </select>
+                                </div>
+                                <div class="col-md-3">
+                                   <div class="search_btn"><button id="searchBtn" type="submit">Search Now</button></div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- select box section end -->
+                 </div>
+              </div>
+           </div>
+        </div>
+     </form>
+
     <!-- gallery section start -->
     <div class="gallery_section layout_padding">
         <div class="container">
@@ -136,7 +137,7 @@
                     <h1 class="gallery_taital">Our best offers</h1>
                 </div>
             </div>
-            <div class="gallery_section_2">
+            <div class="gallery_section_2" id="gallerySection">
                 <div class="row mt-4">
                     @foreach ($products as $product)
                         <div class="col-md-4">
@@ -269,5 +270,6 @@
 
       </div>
       <!-- contact section end -->
+
       @endsection
 

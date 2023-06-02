@@ -9,12 +9,20 @@ use App\Http\Controllers\ReviewdashboardController;
 use App\Http\Controllers\BookingdashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 186671f07ea39cf75b5a342c17b3ddf38a26eb0b
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 
 
-use App\Http\Controllers\Auth\RegiestrationController;
+use App\Http\Controllers\Auth\RegistrationController;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,14 +103,14 @@ Route::get('sign', function () {
     return view('sign_user');
 });
 
-Route::post('sign', [RegiestrationController::class , 'sign_action']);
+Route::post('sign', [RegistrationController::class , 'sign_action']);
 
 
-Route::get('sign_lesson', function () {
-    return view('sign_lesson');
+Route::get('sign_lessor', function () {
+    return view('sign_lessor');
 });
 
-Route::post('sign_lesson', [RegiestrationController::class , 'sign_lesson']);
+Route::post('sign_lessor', [RegistrationController::class , 'sign_lessor']);
 
 Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
