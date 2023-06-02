@@ -12,6 +12,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingController;
+
 
 
 use App\Http\Controllers\Auth\RegistrationController;
