@@ -1,7 +1,9 @@
 @extends('admin.layout1.master')
 @section('content')
-<div class="container">
-    <div class="card">
+{{-- <div class="container"> --}}
+    <div class="row">
+      <div class="card col">
+
         <div class="card-header">
            proudcts
         </div>
@@ -51,5 +53,5 @@
         </div>
     </div>
 </div>
-
+{{-- </div> --}}
 @endsection

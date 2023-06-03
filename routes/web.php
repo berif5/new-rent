@@ -155,8 +155,12 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
 
 
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user.profile');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
 
-Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
+
+
+// Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
 Route::get('login', function () {
     return view('login');

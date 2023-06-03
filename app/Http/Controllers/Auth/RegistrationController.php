@@ -35,7 +35,7 @@ class RegistrationController extends Controller
 
         $user->role_id = 1; // Assign user rule ID
         $user->save();
-        return redirect('index');
+        return redirect('/');
     }
 
 

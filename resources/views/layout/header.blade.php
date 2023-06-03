@@ -61,20 +61,19 @@
                 </li>
                 @else
 
-                {{-- @auth --}}
-
-                @if(auth()->check() && auth()->user()->role->id == '1')
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome, {{ auth()->user()->name }}!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.profile', ['id' => auth()->user()->id]) }}">Profile</a>
-                </li>
-                @else
+<li>{{ auth()->user()->role_id }}</li>
+                @if(auth()->user()->role_id == 3)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('lessor.index') }}">Profile</a>
                  </li>
-                 @endif
+
+
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.profile', ['id' => auth()->user()->id]) }}">Profile</a>
+                </li>
+                @endif
+
 
                 <li class="nav-item">
                    <form action="{{ route('logout') }}" method="POST">
