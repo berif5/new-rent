@@ -96,10 +96,7 @@ class RegistrationController extends Controller
             // Authentication successful, store user data in session
             Auth::login($user);
             $request->session()->regenerate();
-             if(Auth::login($user)){
-
-
-             }
+            
             return redirect()->intended('/');
 
 
