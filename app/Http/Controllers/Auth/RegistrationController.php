@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Lessor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User; 
+use App\Models\User;
 
 
 class RegistrationController extends Controller
@@ -28,17 +28,17 @@ class RegistrationController extends Controller
         $user->email = $req->input('email');
         $user->password = Hash::make($req->password);
 
-        
 
-      
+
+
 
 
         $user->role_id = 1; // Assign user rule ID
         $user->save();
-        return redirect('index');
+        return redirect('/');
     }
 
-       
+
 
     public function sign_lessor(Request $req){
         // dd("yes");
@@ -52,7 +52,7 @@ class RegistrationController extends Controller
             'confirm_password' => 'required|same:password',
 
         ]);
-       
+
 
         $lessor = new Lessor();
 
@@ -63,13 +63,13 @@ class RegistrationController extends Controller
         $lessor->city = $req->input('city');
         $lessor->password = Hash::make($req->password);
 
- 
+
 
         $lessor->role_id = 3; // Assign user rule ID
-        
+
         $lessor->save();
         // dd(redirect('index'));
-        return redirect('welcome');
+        return redirect('lessor.index');
     }
 
     public function login(Request $request){
@@ -78,7 +78,7 @@ class RegistrationController extends Controller
             'email' => 'required|email',
         ]);
 
-        
+
         $user = User::where('name', $credentials['name'])
         ->where('email', $credentials['email'])->where('role_id' , 1)
         ->first();
@@ -88,7 +88,7 @@ class RegistrationController extends Controller
         ->first();
 
         $lessor = Lessor::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])
+        ->where('email', $credentials['email'])->where('role_id' , 3)
         ->first();
 
         // Authenticate the user
@@ -97,7 +97,9 @@ class RegistrationController extends Controller
             Auth::login($user);
             $request->session()->regenerate();
 
-            return "yaa";
+            // return "yaa";
+            return view('user.profile',['user' => $user]);
+
         }  //redirect()->intended('/dashboard')
         elseif ($admin) {
             // Authentication successful, store user data in session
@@ -110,13 +112,25 @@ class RegistrationController extends Controller
             Auth::login($lessor);
             $request->session()->regenerate();
 
-            return "yaa3";
+            return redirect()->intended('/lessor');
 
          }
         // Authentication failed, redirect back with error message
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
 

@@ -27,7 +27,8 @@
                             <td>{{ $lessor->phone_number }}</td>
                             <td>{{ $lessor->address }}</td>
                             <td>{{ $lessor->city }}</td>
-                            <td>{{ $lessor->image }}</td>
+                            <td><img src="{{ $lessor->image }}" alt="user img" width="50px" height="50px"></td>
+
                             <td>
                                 <a href="{{ route('lessordashboard.show', $lessor->id) }}" class="btn btn-primary">View</a>
                                 <a href="{{ route('lessordashboard.edit', $lessor->id) }}" class="btn btn-success">Edit</a>
