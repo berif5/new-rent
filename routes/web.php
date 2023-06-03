@@ -13,7 +13,7 @@ use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Controllers\AppProfileController;
 
 
 use App\Http\Controllers\Auth\RegistrationController;
@@ -171,4 +171,8 @@ Route::post('/booking', [BookingController::class, 'store'])->name('booking.stor
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
- Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');// pagination userdashboard
+ Route::get('/lessors', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');//pagination lssordashboard
+ Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
+ Route::get('/products', [ProductDashboardController::class, 'index'])->name('productdashboard.index');//pagination product
+ Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');

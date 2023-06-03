@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProductDashboardController extends Controller
 {
     public function index()
-    {
+    {$products = Product::paginate(4);
         $products = Product::all();
         return view('admin.productdashboard.index', compact('products'));
     }
