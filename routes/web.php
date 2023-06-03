@@ -16,6 +16,7 @@ use App\Http\Controllers\BookingController;
 
 
 
+
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
@@ -173,3 +174,6 @@ Route::get('/booking/success', function () {
 //
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+
+
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
