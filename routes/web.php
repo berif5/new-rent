@@ -15,7 +15,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 
 
-
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
@@ -72,6 +71,10 @@ Route::get('/client', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
 
 
 Route::get('/index', function () {
@@ -167,3 +170,11 @@ Route::post('/login', [RegistrationController::class, 'login'])->name('login');
 
 
  Route::post('/logout', [RegistrationController::class, 'logout']);
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+//  Route::get('/singleproduct/{id}', [ProductController::class, 'show']);
+
+
+Route::get('/map', function () {
+    return view('map');
+});

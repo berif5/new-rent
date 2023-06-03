@@ -97,8 +97,8 @@ class RegistrationController extends Controller
             Auth::login($user);
             $request->session()->regenerate();
 
-            return "yaa";
-        }  //redirect()->intended('/dashboard')
+            return redirect()->intended('/index');
+        }  
         elseif ($admin) {
             // Authentication successful, store user data in session
             Auth::login($admin);

@@ -290,6 +290,8 @@ input[type="range"] {
          </div>
 
       </div>
+      <div id="map" style="height: 400px;"></div>
+
       <!-- contact section end -->
 <script>
     function updateRangeValue(inputId, labelId) {
