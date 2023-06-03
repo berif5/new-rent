@@ -52,28 +52,27 @@
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">Home</a>
                      </li>
-                     <li class="nav-item">
+                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About</a>
-                     </li>
-                     <li class="nav-item">
+                     </li> --}}
+                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('services') }}">Services</a>
-                     </li>
+                     </li> --}}
                      {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('vehicles') }}">Vehicles</a>
                      </li> --}}
-                     <li class="nav-item">
+                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('vehicle') }}">Vehicles</a>
-                        {{-- <a class="nav-link" href="{{ route('gallery') }}">Gallery</a> --}}
-                     </li>
+                     </li> --}}
                      {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                     </li> --}}
-                     <li class="nav-item">
+                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('client') }}">Client</a>
-                     </li>
-                     <li class="nav-item">
+                     </li> --}}
+                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('lessor.index') }}">Lessor</a>
-                     </li>
+                     </li> --}}
                      <li class="nav-item">
                         <a class="nav-link" href="sign">Sign up</a>
                      </li>
@@ -82,7 +81,7 @@
                      </li>
 
                      <li class="nav-item">
-                        <form action="logout" method="POST">
+                        <form action="{{ route('logout') }}" method="POST">
                            @csrf
                            <button class="nav-link" > Logout </button>
                         </form>

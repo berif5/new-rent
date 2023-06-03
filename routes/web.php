@@ -150,6 +150,7 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
  Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
  Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
 
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 
 Route::get('/user/{id}', [UserController::class, 'show']);
@@ -160,10 +161,11 @@ Route::get('login', function () {
     return view('login');
 });
 
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
 
 
- Route::post('/logout', [RegistrationController::class, 'logout']);
+ Route::post('/logout', [RegistrationController::class, 'logout'])->name('logout');;
