@@ -96,17 +96,16 @@ Route::get('/lessor', [LessorController::class, 'index'])->name('lessor.index');
 
 Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('lessor.update');
 
-Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
-Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
+
 
 // Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
 Route::group(['middleware' => 'user'], function () {
-    
+
     Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
     Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
-   
-  
+
+
 });
 
 Route::get('sign', function () {
@@ -188,6 +187,30 @@ Route::get('login', function () {
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
+ Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
+ Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+
+
+
+ Route::get('/property/{id}/edit', [PropertyController::class, 'edit'])->name('property.edit');
+ Route::delete('/property/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+ Route::put('/property/{id}/update', [PropertyController::class, 'update'])->name('property.update');
+ Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
+Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
+
+
+
+
+// productedashboard
+Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
+Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
+Route::get('/admin/productdashboard/create', [ProductDashboardController::class, 'create'])->name('productdashboard.create');
+Route::post('/productdashboard', [ProductDashboardController::class, 'store'])->name('productdashboard.store');
+Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
+Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
+Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index'])->name('admin.productdashboard.index');
 
 //  Route::get('admin.bookingdashboard.index', function () {
 //     return view('admin.bookingdashboard.index');
