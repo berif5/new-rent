@@ -13,13 +13,14 @@ class Review extends Model
         'product_id',
         'review_text',
         'rating',
+        'image'
     ];
-    
+
     protected $table = 'reviews';
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function product()
@@ -27,5 +28,5 @@ class Review extends Model
         return $this->belongsTo(Product::class);
     }
 
-    
+
 }

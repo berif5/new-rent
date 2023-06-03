@@ -143,3 +143,4 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
 
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
