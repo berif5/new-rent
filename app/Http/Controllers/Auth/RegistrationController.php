@@ -107,9 +107,6 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
 
             return redirect()->back();
         }
-
-            // return redirect()->intended(route('admin.layout1.index'));
-        }
          elseif ($lessor){
             Auth::login($lessor);
             $request->session()->regenerate();

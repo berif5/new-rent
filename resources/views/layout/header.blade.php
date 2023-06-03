@@ -48,8 +48,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('public')}}/css/sb-admin-2.min.css" rel="stylesheet">
-   
-                
+
+
    </head>
    <body>
       <!-- header section start -->
@@ -84,7 +84,7 @@
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('lessor.index') }}">Lessor</a>
                      </li>
-                     
+
                         @guest
                      <li class="nav-item">
                          <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -115,7 +115,7 @@
       </div>
       <!-- header section end -->
      <!-- header section start -->
-<div class="header_section">
+{{-- <div class="header_section">
     <div class="container">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}"></a>
@@ -141,13 +141,13 @@
     {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('lessor.index') }}">Profile</a>
     </li> --}}
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('user.profile', ['id' => auth()->user()->id]) }}">Profile</a>
-    </li>
+    </li> --}}
 
 
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                    <form action="{{ route('logout') }}" method="POST">
                       @csrf
                       <button class="nav-link" >Logout</button>
@@ -160,7 +160,7 @@
           </div>
        </nav>
     </div>
- </div>
+ </div>  --}}
  <!-- header section end -->
 
       <div class="call_text_main">

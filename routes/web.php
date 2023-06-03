@@ -237,7 +237,7 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
 Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index'])->name('admin.productdashboard.index');
 
 //  Route::get('admin.bookingdashboard.index', function () {
-//     return view('admin.bookingdashboard.index');
+//     return view('admin.bookingdashboard.index'); payment
 // });
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');

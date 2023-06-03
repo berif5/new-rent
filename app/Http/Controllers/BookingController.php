@@ -16,10 +16,10 @@ public function store(Request $request)
         $validatedData = $request->validate([
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date',
-            // 'name_on_card' => 'required',
-            // 'card_number' => 'required|digits_between:12,19',
-            // 'cvc' => 'required',
-            // 'expiration_month' => 'required',
+            'name_on_card' => 'required',
+            'card_number' => 'required|digits_between:12,19',
+            'cvc' => 'required',
+            'expiration_month' => 'required',
 
         ]);
 
@@ -33,6 +33,13 @@ public function store(Request $request)
     // You may need to calculate the total price based on your business logic
     $booking->total_price = $request->input('total_price');
 
+
+    $bookingData = [
+        'name_on_card' => $validatedData['name_on_card'],
+        'card_number' => $validatedData['card_number'],
+        'cvc' => $validatedData['cvc'],
+        'expiration_month' => $validatedData['expiration_month'],
+    ];
 
     // $booking->name_on_card = $validatedData['name_on_card'];
     // $booking->card_number = $validatedData['card_number'];

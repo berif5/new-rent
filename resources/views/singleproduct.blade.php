@@ -20,13 +20,13 @@
                         <img src="{{ asset($product->image3) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px; ">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <button class="carousel-control-prev bg-white" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span  class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden ">Next</span>
                 </button>
             </div>
         </div>
@@ -74,7 +74,7 @@
 
                         {{-- <button type="submit" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Book Now</button> --}}
 
-                        <div style="width: 200px;">
+                        {{-- <div style="width: 200px;">
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
                                 <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="name" name="name_on_card" placeholder="Enter your name">
@@ -95,9 +95,9 @@
                                 <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="cvv" name="cvc" placeholder="Enter CVV">
                                 <small id="cvvError" style="color: red;"></small>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        {{-- <div style="width: 200px; ">
+                        <div style="width: 200px; ">
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
                                 <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="name" name="name_on_card" placeholder="Enter your name">
@@ -126,18 +126,28 @@
                                 <small style="color: red;">{{ $message }}</small>
                                 @enderror
                             </div>
-                        </div> --}}
+                        </div>
 
 
                         <button onclick="validatePayment()" type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
                     </form>
                 @endguest
             @endif
+            @livewireScripts
 
+            {{-- لما يزبط السيشن يفترض هاي تشتغل --}}
+            @if (session('success'))
+        <script>
+            window.onload = function() {
+                alert("{{ session('success') }}");
+            }
+        </script>
+    @endif
+
+          </div>
         </div>
     </div>
-</div>
-@livewire('product-ratings', ['product' => $product], key($product->id))
+    @livewire('product-ratings', ['product' => $product], key($product->id))
 
   {{--  --}}
 
@@ -230,7 +240,7 @@
 {{--  --}}
 
 
-<script>
+{{-- <script>
     function validatePayment() {
         // Clear previous error messages
         document.getElementById('nameError').textContent = '';
@@ -272,8 +282,8 @@
             // Your code to submit the form or perform further actions
             // ...
         }
-    }
-</script>
+    } --}}
+{{-- </script> --}}
 
 @endsection
 
