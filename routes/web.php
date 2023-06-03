@@ -13,6 +13,7 @@ use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -166,9 +167,9 @@ Route::post('/booking', [BookingController::class, 'store'])->name('booking.stor
 
 // Route::post('/booking', 'BookingController@store')->name('booking.store');
 
-Route::get('/booking/success', function () {
-    return view('booking.success');
-})->name('booking.success');
+// Route::get('/booking/success', function () {
+//     return view('booking.success');
+// })->name('booking.success');
 
 
 //
@@ -177,3 +178,15 @@ Route::get('/booking/success', function () {
 
 
  Route::post('/search', [SearchController::class, 'search'])->name('search');
+
+//  Route::get('/payment/{booking_id}', [PaymentController::class, 'showPayment'])->name('payment');
+
+
+// Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
+// Route::get('/payment/success', function () {
+//     return "Payment Successful!";
+// })->name('payment.success');
+
+// Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+
+

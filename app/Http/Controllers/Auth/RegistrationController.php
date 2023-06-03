@@ -104,7 +104,7 @@ class RegistrationController extends Controller
             Auth::login($admin);
             $request->session()->regenerate();
 
-            return "yaa2";
+            return redirect()->back();
         }
          elseif ($lessor){
             Auth::login($lessor);
