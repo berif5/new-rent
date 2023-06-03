@@ -33,5 +33,9 @@ class Product extends Model
     {
         return $this->belongsTo(Lessor::class);
     }
+    public function ratings()
+    {
+        return $this->hasMany('App\Models\Rating');
+    }
 }
 

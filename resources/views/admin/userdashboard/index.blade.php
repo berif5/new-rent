@@ -23,6 +23,7 @@
                             {{-- <td>{{ $user->password }}</td> --}}
                             <td><img src="{{ $user->image }}" alt="" style="width: 100px"></td>
                             
+                            <td><img src="{{ $user->image }}" alt="user img" width="50px" height="50px"></td>
                             <td>
                                 <a href="{{ route('userdashboard.show', $user->id) }}" class="btn btn-primary">View</a>
                                 <a href="{{ route('userdashboard.edit', $user->id) }}" class="btn btn-success">Edit</a>
@@ -36,6 +37,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                {{ $users->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 </div>

@@ -28,6 +28,33 @@ class UserController extends Controller
 
     return view('user.edit', compact('user'));
 }
+public function update(Request $request, $id)
+{
+    // Validate the form data
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'address' => 'required',
+        'phone' => 'required',
+        'email'=>'required',
+        'image'=>'required'
+    ]);
+
+    // Find the user by ID
+    $user = User::findOrFail($id);
+
+    // Update the user's information
+    $user->name = $request->input('name');
+    $user->address = $request->input('address');
+    $user->phone = $request->input('phone');
+    $user->email = $request->input('email');
+    $user->image = $request->input('image');
+
+    $user->save();
+
+    // Redirect back to the profile page
+    return redirect()->route('user.profile', ['id' => $id])->with('success', 'Profile updated successfully.');
+}
+
 
 }
 
