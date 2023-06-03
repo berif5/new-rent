@@ -4,13 +4,18 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <p class="copyright_text">2023 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a></p>
+                  <p class="copyright_text">2023 All Rights Reserved.</p>
                </div>
             </div>
          </div>
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
+      {{-- <script src="{{asset('js/map.js')}}"></script> --}}
+      <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+      <script src="{{ asset('js/card.js') }}"></script>
+      <script src="{{ asset('js/jquery.payform.min.js') }}"></script>
+      <script src="{{ asset('js/e-payment.js') }}"></script>
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>

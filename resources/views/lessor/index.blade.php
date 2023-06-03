@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.lessormaster')
 
 @section('content')
 <style>
@@ -89,6 +89,7 @@
             <p id="phoneField">Phone: {{ $lessor->phone_number }}</p>
             <p id="addressField">Address: {{ $lessor->city }} - {{ $lessor->address }}</p> --}}
 
+            {{-- edit profile form --}}
             <form id="editProfileForm" action="{{ route('lessor.update', ['lessor' => $lessor->id]) }}" method="POST" >
                 @csrf
                 @method('PUT')
@@ -121,8 +122,9 @@
 
 
         <div class="col-md-6 profile">
-            <h3>My Total Properties: <?= count($properties) ?></h3>
-            <h3>Average Rating: </h3>
+            <a href="#" id="editProfileBtn">Your Notifications</a>
+
+
         </div>
     </div>
     <div class="row">
@@ -145,7 +147,20 @@
                        <div class="gallery_img"><img src="{{ $property->image1 }}" width="100%" height="100%"></div>
                        <h3 class="types_text">{{ $property->product_name }}</h3>
                          <p class="looking_text">{{ $property->product_description }}</p>
-                       <div class="read_bt"><a href="#">{{ $property->product_price }} JD</a></div>
+                         <p class="looking_text">{{ $property->product_price }} JD</p>
+                         <div class="read_bt">
+                            {{-- <a href="{{ route('property.edit', ['id' => $property->id]) }}">Edit</a> --}}
+                            <a href="#" data-toggle="modal" data-target="#editPropertyModal{{ $property->id }}">Edit</a>
+
+                        </div>
+                        <div class="read_bt">
+                            <a href="#" onclick="event.preventDefault(); deleteProperty({{ $property->id }})">Delete</a>
+                        </div>
+                        <form id="deletePropertyForm" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+
                     </div>
                  </div>
                 <!-- Display more property details as needed -->
@@ -156,16 +171,78 @@
             @endif
         </div>
     </div>
+<script>
+    function deleteProperty(propertyId) {
+        if (confirm('Are you sure you want to delete this property?')) {
+            // User confirmed deletion, perform the delete request
+            const deleteForm = document.getElementById('deletePropertyForm');
+            deleteForm.action = '{{ route('property.destroy', ['id' => ':propertyId']) }}'
+                .replace(':propertyId', propertyId);
+            deleteForm.submit();
+        }
+    }
+</script>
+
+<!-- Edit Property Modal -->
+<div class="modal fade" id="editPropertyModal{{ $property->id }}" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel{{ $property->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editPropertyModalLabel{{ $property->id }}">Edit Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add form fields for editing the property -->
+                <form id="editPropertyForm{{ $property->id }}" method="POST" action="{{ route('property.update', ['id' => $property->id]) }}">
+                    @csrf
+                    @method('PUT')
+                    <!-- Add form fields for editing the property information -->
+                    <div>
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
+                    </div>
+                    <div>
+                        <label for="product_description">Product Description:</label>
+                        <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
+                    </div>
+                    <div>
+                        <label for="product_price">Product Price:</label>
+                        <input type="number" class="form-control" id="product_price" name="product_price" value="{{ $property->product_price }}">
+                    </div>
+                    <br>
+                    <button type="submit" class="mybutton">Save</button>
+                    <!-- Add more form fields for editing the property as needed -->
+                </form>
+
+            </div>
+            {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="event.preventDefault(); updateProperty({{ $property->id }})">Save Changes</button>
+            </div> --}}
+        </div>
+    </div>
 </div>
 
-<!-- Edit Profile Modal -->
+<!-- JavaScript code -->
+{{-- <script>
+function updateProperty(propertyId) {
+    const editForm = document.getElementById('editPropertyForm' + propertyId);
+    editForm.submit();
+}
+</script> --}}
+
+
+
+<!-- add property Modal -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <h3>Add New Property</h3>
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="lessors_id" id="lessor_id" value="{{ $lessor->id }}">
+                <input type="hidden" name="lessors_id" id="lessors_id" value="{{ $lessor->id }}">
 
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
@@ -182,8 +259,8 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select class="form-control" id="status" name="status" required>
-                        <option value="1">Available</option>
-                        <option value="0">Unavailable</option>
+                        <option value="0">Available</option>
+                        <option value="1">Unavailable</option>
                     </select>
                 </div>
 
@@ -218,16 +295,9 @@
         </div>
     </div>
 </div>
+
 <script>
     document.getElementById('editProfileBtn').addEventListener('click', function(event) {
-        // event.preventDefault();
-
-        // Hide the information fields
-        // document.getElementById('phoneField').style.display = 'none';
-        // document.getElementById('addressField').style.display = 'none';
-        // document.getElementById('emailField').style.display = 'none';
-        // document.getElementById('nameField').style.display = 'none';
-
 
         // Show the edit profile form
         // document.getElementById('editProfileForm').style.display = 'block';

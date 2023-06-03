@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Lessor extends Model implements Authenticatable
 {
@@ -21,11 +22,13 @@ class Lessor extends Model implements Authenticatable
         'phone_number',
         'address',
         'city',
+        'role_id',
+
         'image',
     ];
 
-    
-    
+
+
 
 
 
@@ -34,10 +37,10 @@ class Lessor extends Model implements Authenticatable
         return $this->hasMany(Product::class);
     }
 
-   
+
 
     // protected $timestamps = false;
-  
+
 
 
     public function role()
@@ -45,4 +48,9 @@ class Lessor extends Model implements Authenticatable
         return $this->belongsTo(Role::class);
 
     }
+
+    public function user(): BelongsTo
+{
+    return $this->belongsTo(User::class);
+}
 }

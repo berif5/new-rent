@@ -1,7 +1,9 @@
 @extends('admin.layout1.master')
 @section('content')
-<div class="container">
-    <div class="card">
+{{-- <div class="container"> --}}
+    <div class="row">
+      <div class="card col">
+
         <div class="card-header">
            proudcts
         </div>
@@ -14,11 +16,12 @@
                          <th>product_price</th>
                         <th>status</th>
                         <th>product_type</th>
-                        <th>category_id</th>
+                        <th>category_name</th>
                         <th>image1</th>
                         <th>image2</th>
                         <th>image3</th>
                         <th>lessors_id </th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +32,7 @@
                              <td>{{ $product->product_price }}</td>
                             <td>{{ $product->status }}</td>
                             <td>{{ $product->product_type }}</td>
-                            <td>{{ $product->category_id}}</td>
+                            <td>{{ $product->category->category_name }}</td>
                             <td><img src="{{ $product->image1 }}" alt="product image" width="100" height="100"></td>
                             <td><img src="{{ $product->image2 }}" alt="product image" width="100" height="100"></td>
                             <td><img src="{{ $product->image3 }}" alt="product image" width="100" height="100"></td>
@@ -51,5 +54,5 @@
         </div>
     </div>
 </div>
-
+{{-- </div> --}}
 @endsection
