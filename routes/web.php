@@ -5,14 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\LessorDashboardController;
 use App\Http\Controllers\ProductDashboardController;
-
+use App\Http\Controllers\ReviewdashboardController;
+use App\Http\Controllers\BookingdashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
-
-
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingController;
+
 
 
 use App\Http\Controllers\Auth\RegistrationController;
@@ -73,6 +74,10 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+
 // lessor Page
 // Route::get('/lessor', function () {
 //     return view('lessor.index');
@@ -110,6 +115,9 @@ Route::post('sign_lessor', [RegistrationController::class , 'sign_lessor']);
 
 Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
+Route::get('/index', [ProductController::class, 'index'])->name('index');
+
+
 Route::get('/singleproduct/{id}', [ProductController::class, 'show'])->name('singleproduct');
 
 
@@ -136,17 +144,26 @@ Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show']
 Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
 Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
 Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+ Route::get('/app-profile', [AdminController::class, 'showProfile'])->name('app-profile');
 
-// user profile
+ Route::get('/reviewdashboard', [ReviewdashboardController::class, 'index'])->name('reviewdashboard.index');
+ Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
+ Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
 
 
-Route::get('/user', [UserController::class, 'show'])->name('user.profile');
+
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
 Route::get('login', function () {
     return view('login');
 });
 
+
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
+ Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
+ Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
 
 
-Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::post('/logout', [RegistrationController::class, 'logout']);

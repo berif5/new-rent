@@ -19,9 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->decimal('total_price', 8, 2);
             $table->string('booking_status');
-
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });

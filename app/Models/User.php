@@ -18,10 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
-        'image'
+        'image',
     ];
 
     /**
@@ -61,8 +62,12 @@ public function getProfileImage()
         // Adjust the path based on your image location and naming convention
         return asset('images/profiles/' . $this->image);
     }
-    
+
     return null;
+}
+
+function bookings(){
+    return $this->hasMany(Booking::class);
 }
 
 }
