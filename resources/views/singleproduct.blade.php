@@ -47,22 +47,22 @@
             @csrf
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
             <input type="hidden" name="product_id" value="{{ $product->id }}">
-        
+
             <label for="start_date" style="display: block; margin-bottom: 10px; font-weight: bold;">Start Date:</label>
             <input type="date" name="start_date" id="start_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" >
-        
+
             <label for="end_date" style="display: block; margin-bottom: 10px; font-weight: bold;">End Date:</label>
             <input type="date" name="end_date" id="end_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" >
-        
+
             <label for="num_of_days" style="display: block; margin-bottom: 10px; font-weight: bold;">Number of Days:</label>
             <input type="number" name="num_of_days" id="num_of_days" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
 
             <label for="product_price" style="display: block; margin-bottom: 10px; font-weight: bold;">Product Price:</label>
-            <input type="hidden" name="product_price" id="product_price" value="{{ $product->product_price }}" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
-            
+            <input type="text" name="product_price" id="product_price" value="{{ $product->product_price }}" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
+
             <label for="total_price" style="display: block; margin-bottom: 10px; font-weight: bold;">Total Price:</label>
             <input type="text" name="total_price" id="total_price" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
-        
+
             <button type="submit" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Book Now</button>
         </form>
         @endif

@@ -96,6 +96,7 @@ Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('less
 Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
 Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
 
+// Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
 
 
@@ -104,7 +105,7 @@ Route::get('sign', function () {
     return view('sign_user');
 });
 
-Route::post('sign', [RegistrationController::class , 'sign_action']);
+Route::post('sign', [RegistrationController::class , 'sign_action'])->name('sign');
 
 
 Route::get('sign_lessor', function () {
@@ -153,7 +154,7 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
  Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user.profile');
 
 Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
@@ -168,4 +169,5 @@ Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
 
 
- Route::post('/logout', [RegistrationController::class, 'logout'])->name('logout');;
+ Route::post('/logout', [RegistrationController::class, 'logout'])->name('logout');
+

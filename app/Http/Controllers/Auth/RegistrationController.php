@@ -88,7 +88,7 @@ class RegistrationController extends Controller
         ->first();
 
         $lessor = Lessor::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])
+        ->where('email', $credentials['email'])->where('role_id' , 3)
         ->first();
 
         // Authenticate the user
@@ -97,7 +97,9 @@ class RegistrationController extends Controller
             Auth::login($user);
             $request->session()->regenerate();
 
-            return "yaa";
+            // return "yaa";
+            return view('user.profile',['user' => $user]);
+
         }  //redirect()->intended('/dashboard')
         elseif ($admin) {
             // Authentication successful, store user data in session

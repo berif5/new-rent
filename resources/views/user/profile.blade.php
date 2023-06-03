@@ -1,9 +1,14 @@
 @extends('layout.master')
 @section('content')
+<style>
+   .profile-heading img{ width: 150px; height: 150px;}
+   .profile-heading{margin-top: 15px;}
+</style>
     <div class="container">
         <div class="profile">
+            <br> <br>
             <div class="profile-heading">
-                <img src="{{ asset(  $user->image) }}" class="profile-img" alt="User Image">
+                <img src="{{ $user->image }}" class="profile-img" alt="User Image">
                 <h1>{{ $user->name }}</h1>
                 <p class="text-muted">{{ $user->email }}</p>
             </div>
@@ -24,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>Booking ID</th>
-                                <th>Car</th>
+                                <th>Product</th>
                                 <th>Date</th>
                                 <th>Status</th>
                             </tr>
@@ -47,4 +52,5 @@
             </div>
         </div>
     </div>
-    @endsection
+    <br> <br>
+@endsection
