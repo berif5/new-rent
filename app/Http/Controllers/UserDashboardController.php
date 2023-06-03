@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class UserDashboardController extends Controller
 {
     public function index()
-    {
-        $users = User::all();
+    {$users = User::paginate(9);
+        // $users = User::all();
         return view('admin.userdashboard.index', compact('users'));
     }
 
@@ -50,5 +50,5 @@ class UserDashboardController extends Controller
     }
 
 
-    
+
 }

@@ -115,8 +115,8 @@ input[type="range"] {
                         <div class="col-md-3 select-outline">
                           <select name="status" id="statusSelect" class="form-select">
                             <option value="" disabled selected>Any Status</option>
-                            <option value="1">Available</option>
-                            <option value="0">Unavailable</option>
+                            <option value="0">Available</option>
+                            <option value="1">Unavailable</option>
                           </select>
                         </div>
                         <div class="col-md-4 select-outline">

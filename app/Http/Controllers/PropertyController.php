@@ -38,18 +38,18 @@ class PropertyController extends Controller
     ]);
 
     // Save the uploaded images and get their paths
-    $imagePaths = [];
-    for ($i = 1; $i <= 3; $i++) {
-        if ($request->hasFile('image' . $i)) {
-            $image = $request->file('image' . $i);
-            $imageName = time() . '_image' . $i . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $imagePaths[] = $imageName;
-        }
-    }
+    // $imagePaths = [];
+    // for ($i = 1; $i <= 3; $i++) {
+    //     if ($request->hasFile('image' . $i)) {
+    //         $image = $request->file('image' . $i);
+    //         $imageName = time() . '_image' . $i . '.' . $image->getClientOriginalExtension();
+    //         $image->move(public_path('images'), $imageName);
+    //         $imagePaths[] = $imageName;
+    //     }
+    // }
 
     // Create a new property using the validated data and image paths
-    $lessor = Auth::id();
+    // $lessor = Auth::id();
     $property = Product::create([
         'product_name' => $validatedData['product_name'],
         'product_description' => $validatedData['product_description'],
@@ -61,7 +61,9 @@ class PropertyController extends Controller
         'image1' => $request->input('image1'),
         'image2' => $request->input('image2'),
         'image3' => $request->input('image3'),
-        'lessors_id' => $request->input("lessors_id"), // Assign the id of the $lessor object
+        // 'lessor_id' => $request->input("lessors_id"), // Assign the id of the $lessor object
+        'lessor_id' => Auth::id(),
+
         // 'category_id' => $validatedData['category'], // Adjust the field name as per your form
         // 'image1' => isset($imagePaths[0]) ? $imagePaths[0] : null,
         // 'image2' => isset($imagePaths[1]) ? $imagePaths[1] : null,

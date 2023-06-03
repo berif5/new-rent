@@ -13,10 +13,10 @@ class LessorController extends Controller
     public function index()
 {
     $lessor = Auth::id();
-   
+
     $lessor = Lessor::where('id', $lessor)->first(); // Retrieve the lessor record based on the lessor ID
     if ($lessor) {
-        $properties = Product::where('lessors_id', $lessor->id)->get();
+        $properties = Product::where('lessor_id', $lessor->id)->get();
         $categories = Category::all();
         //  dd($categories);
         return view('lessor.index', compact('lessor', 'properties', 'categories'));
@@ -26,7 +26,7 @@ class LessorController extends Controller
     }
 }
 
-    
+
 
 public function update(Request $request, Lessor $lessor)
     {

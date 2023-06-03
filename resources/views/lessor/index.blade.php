@@ -121,8 +121,9 @@
 
 
         <div class="col-md-6 profile">
-            <h3>My Total Properties: <?= count($properties) ?></h3>
-            <h3>Average Rating: </h3>
+            <a href="#" id="editProfileBtn">Your Notifications</a>
+
+
         </div>
     </div>
     <div class="row">
@@ -165,7 +166,7 @@
             <h3>Add New Property</h3>
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="lessors_id" id="lessor_id" value="{{ $lessor->id }}">
+                <input type="hidden" name="lessors_id" id="lessors_id" value="{{ $lessor->id }}">
 
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
@@ -182,8 +183,8 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select class="form-control" id="status" name="status" required>
-                        <option value="1">Available</option>
-                        <option value="0">Unavailable</option>
+                        <option value="0">Available</option>
+                        <option value="1">Unavailable</option>
                     </select>
                 </div>
 
