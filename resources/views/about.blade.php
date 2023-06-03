@@ -6,7 +6,7 @@
             <div class="about_section_2">
                <div class="row">
                   <div class="col-md-6">
-                     <div class="image_iman"><img src="images/about-img.png" class="about_img"></div>
+                     <div class="image_iman"><img src="images/yach2.jpg" class="about_img"></div>
                   </div>
                   <div class="col-md-6">
                      <div class="about_taital_box">

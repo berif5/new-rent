@@ -33,19 +33,32 @@
 
             <div class="mb-3">
                 <label for="status" class="status">status</label>
-                <input type="text" class="form-control" id="status" name="status" required>
+                <select name="status" id="status" class="form-control" required>
+                    <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>Available</option>
+                    <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Unavailable</option>
+                </select>
             </div>
 
 
             <div class="mb-3">
                 <label for="product_type" class="form-label">product_type</label>
-                <input type="text" class="form-control" id="product_type" name="product_type" required>
+                <select name="product_type" id="product_type" class="form-control" required>
+                    <option value="sedan">Sedan</option>
+                    <option value="offroad">Off Road</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="sport">Sport</option>
+                </select>
             </div>
 
 
             <div class="mb-3">
                 <label for="category_id" class="form-label">category_id</label>
-                <input type="text" class="form-control" id="category_id" name="category_id" required>
+                <select name="category_id" id="category_id" class="form-control" required>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
+                
             </div>
             <div class="mb-3">
                 <label for="image1" class="form-label">image1</label>

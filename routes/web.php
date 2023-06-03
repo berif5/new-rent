@@ -152,7 +152,7 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
 
 
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user.profile');
 
 Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
@@ -163,3 +163,15 @@ Route::get('login', function () {
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+
+
+
+// productedashboard
+Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
+Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
+Route::get('/admin/productdashboard/create', [ProductDashboardController::class, 'create'])->name('productdashboard.create');
+Route::post('/productdashboard', [ProductDashboardController::class, 'store'])->name('productdashboard.store');
+Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
+Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
+Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index'])->name('admin.productdashboard.index');
