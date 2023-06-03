@@ -1109,7 +1109,7 @@ textarea#comment::placeholder {
 }
 
 /* this user profile style */
-.profile {
+/* .profile {
     max-width: 600px;
     margin: 0 auto;
     padding: 40px;
@@ -1117,12 +1117,12 @@ textarea#comment::placeholder {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .profile-img {
     max-width: 200px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 50%;
 }
 

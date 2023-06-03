@@ -15,7 +15,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 
 
-
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
@@ -73,6 +72,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
+
 
 Route::get('/index', function () {
     return view('index');
@@ -96,6 +99,7 @@ Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('less
 Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
 Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
 
+// Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
 Route::group(['middleware' => 'user'], function () {
     Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
@@ -108,7 +112,7 @@ Route::get('sign', function () {
     return view('sign_user');
 });
 
-Route::post('sign', [RegistrationController::class , 'sign_action']);
+Route::post('sign', [RegistrationController::class , 'sign_action'])->name('sign');
 
 
 Route::get('sign_lessor', function () {
@@ -165,16 +169,22 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
  Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
  Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
 
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user.profile');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
 
-Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
+
+
+// Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
 Route::get('login', function () {
     return view('login');
 });
 
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
 
@@ -187,4 +197,17 @@ Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout')
  Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 
+
  Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+ Route::post('/logout', [RegistrationController::class, 'logout']);
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+//  Route::get('/singleproduct/{id}', [ProductController::class, 'show']);
+
+
+Route::get('/map', function () {
+    return view('map');
+});
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
+
