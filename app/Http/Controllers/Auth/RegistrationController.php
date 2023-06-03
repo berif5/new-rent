@@ -96,16 +96,18 @@ class RegistrationController extends Controller
             // Authentication successful, store user data in session
             Auth::login($user);
             $request->session()->regenerate();
+             if(Auth::login($user)){
 
-            return "yaa";
-        }  //redirect()->intended('/dashboard')
+             }
+            return redirect()->intended('/');
+        }  
         elseif ($admin) {
             // Authentication successful, store user data in session
             Auth::login($admin);
             $request->session()->regenerate();
-
-            return "yaa2";
-        }
+    
+            return redirect()->intended(route('admin.layout1.index'));
+        }  
          elseif ($lessor){
             Auth::login($lessor);
             $request->session()->regenerate();
@@ -125,7 +127,7 @@ class RegistrationController extends Controller
     Auth::logout();
     
     // Redirect the user to the desired page after logout
-    return redirect('/index');
+    return redirect('/');
 }
 }
 

@@ -61,7 +61,7 @@ class PropertyController extends Controller
         'image1' => $request->input('image1'),
         'image2' => $request->input('image2'),
         'image3' => $request->input('image3'),
-        'lessors_id' => $request->input("lessors_id"), // Assign the id of the $lessor object
+        'lessors_id' => $request->$lessor, // Assign the id of the $lessor object
         // 'category_id' => $validatedData['category'], // Adjust the field name as per your form
         // 'image1' => isset($imagePaths[0]) ? $imagePaths[0] : null,
         // 'image2' => isset($imagePaths[1]) ? $imagePaths[1] : null,

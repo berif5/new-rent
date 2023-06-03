@@ -71,18 +71,27 @@
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('lessor.index') }}">Lessor</a>
                      </li>
+                     
+                        @guest
                      <li class="nav-item">
-                        <a class="nav-link" href="sign">Sign up</a>
+                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
-                     </li>
+                        @endguest
 
-                     <li class="nav-item">
+                     {{-- <li class="nav-item">
                         <form action="logout" method="POST">
                            @csrf
                            <button class="nav-link" > Logout </button>
                         </form>
+                     </li> --}}
+
+                     @if (Auth::check())
+                       <li class="nav-item">
+                       <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                         </li>
+                         @endif
+                     <li class="nav-item">
+                        <a class="nav-link" href="sign">Sign up</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
