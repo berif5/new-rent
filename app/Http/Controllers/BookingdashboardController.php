@@ -16,8 +16,8 @@ class BookingdashboardController extends Controller
     public function index()
     {
         // Retrieve all reservations
-        $bookings = Booking::all();
-
+        // $bookings = Booking::all();
+        $bookings = Booking::paginate(4);
         // Pass the reservations to the view
         return view('admin.bookingdashboard.index', compact('bookings'));
     }

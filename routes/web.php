@@ -16,6 +16,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 
 
+use App\Http\Controllers\AppProfileController;
 
 use App\Http\Controllers\Auth\RegistrationController;
 
@@ -259,3 +260,8 @@ Route::get('/map', function () {
 });
  Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
 
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');// pagination userdashboard
+ Route::get('/lessors', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');//pagination lssordashboard
+ Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
+ Route::get('/products', [ProductDashboardController::class, 'index'])->name('productdashboard.index');//pagination product
+ Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');

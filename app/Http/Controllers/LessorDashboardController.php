@@ -9,7 +9,8 @@ class LessorDashboardController extends Controller
 {
     public function index()
     {
-        $lessors = Lessor::all();
+        $lessors = Lessor::paginate(4);
+        // $lessors = Lessor::all();
         return view('admin.lessordashboard.index', compact('lessors'));
     }
 
