@@ -102,6 +102,7 @@ Route::post('/property', [PropertyController::class, 'store'])->name('property.s
 // Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
 Route::group(['middleware' => 'user'], function () {
+    
     Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
     Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
    
