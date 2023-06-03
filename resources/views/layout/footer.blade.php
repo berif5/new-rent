@@ -11,6 +11,11 @@
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
+      {{-- <script src="{{asset('js/map.js')}}"></script> --}}
+      <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+      <script src="{{ asset('js/card.js') }}"></script>
+      <script src="{{ asset('js/jquery.payform.min.js') }}"></script>
+      <script src="{{ asset('js/e-payment.js') }}"></script>
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>

@@ -61,9 +61,7 @@ input[type="range"] {
                      </a>
                   </div>
                </div>
-               <div class="col-md-6">
-                  <div class="banner_img"><img src="images/banner-img.png"></div>
-               </div>
+               
             </div>
          </div>
       </div>
@@ -91,7 +89,7 @@ input[type="range"] {
       <!-- about section end -->
       <div class="search_section">
 
-      <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+      <form id="searchForm"  method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
           {{-- <div class="search_section"> --}}
@@ -290,6 +288,8 @@ input[type="range"] {
          </div>
 
       </div>
+      <div id="map" style="height: 400px;"></div>
+
       <!-- contact section end -->
 <script>
     function updateRangeValue(inputId, labelId) {

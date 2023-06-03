@@ -302,11 +302,12 @@ button {
 
 .banner_section {
     width: 100%;
-    float: left;
+    float: right;
     background-image: url(../images/banner-bg.png);
     height: auto;
     background-size: 100%;
-    padding: 200px 0px 160px 0px;
+    padding: 300px 0px 160px 0px;
+    
 }
 
 .banner_taital_main {
@@ -367,6 +368,7 @@ button {
     float: left;
     text-align: center;
     display: none;
+    
 }
 
 #banner_slider a.carousel-control-prev {
@@ -433,6 +435,17 @@ button {
 }
 
 .about_img {
+    width: 100%;
+    filter: drop-shadow(0 0 10px #121212);
+}
+.about-img
+{
+    width: 200%;
+    filter: drop-shadow(0 0 10px #121212);
+    margin-top: -100px;
+}
+.col-md-5{
+    max-width: 570px;
     width: 100%;
 }
 
@@ -686,6 +699,7 @@ span.current {
     background-color: #434960;
     height: auto;
     padding: 40px 0px;
+    
 }
 
 .choose_taital {
@@ -1082,6 +1096,10 @@ textarea#comment::placeholder {
     float: left;
     background-color: #434960;
     height: auto;
+    bottom: 0;
+    position: fixed; /* or use "position: absolute;" if preferred */
+  left: 0;
+  bottom: 0;
 }
 
 .copyright_text {

@@ -79,35 +79,34 @@ class RegistrationController extends Controller
         ]);
 
 
-        $user = User::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 1)
-        ->first();
 
-        $admin = User::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 2)
-        ->first();
+        $user = User::where('email', $credentials['email'])->where('role_id', 1)->first();
 
-        $lessor = Lessor::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 3)
-        ->first();
+$admin = User::where('email', $credentials['email'])->where('role_id', 2)->first();
+
+$lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->first();
+
 
         // Authenticate the user
         if ($user) {
             // Authentication successful, store user data in session
             Auth::login($user);
             $request->session()->regenerate();
+             if(Auth::login($user)){
 
-            // return "yaa";
-            return view('user.profile',['user' => $user]);
 
-        }  //redirect()->intended('/dashboard')
+             }
+            return redirect()->intended('/');
+
+
+        }  
         elseif ($admin) {
             // Authentication successful, store user data in session
             Auth::login($admin);
             $request->session()->regenerate();
-
-            return "yaa2";
-        }
+    
+            return redirect()->intended(route('admin.layout1.index'));
+        }  
          elseif ($lessor){
             Auth::login($lessor);
             $request->session()->regenerate();
@@ -122,6 +121,7 @@ class RegistrationController extends Controller
     }
 
 
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -132,5 +132,6 @@ class RegistrationController extends Controller
 
         return redirect('/');
     }
+
 }
 
