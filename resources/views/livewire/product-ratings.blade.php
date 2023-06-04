@@ -64,7 +64,7 @@
                                     <div class="mb-8 text-center text-gray-600">
                                         You need to login in order to be able to rate the product!
                                     </div>
-                                    <a href="/sign_user"
+                                    <a href="/sign"
                                         class="block px-5 py-2 mx-auto font-medium text-center text-gray-600 bg-white border rounded-lg shadow-sm focus:outline-none hover:bg-gray-100"
                                     >Register</a>
                                 </div>

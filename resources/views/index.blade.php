@@ -22,32 +22,54 @@ input[type="range"] {
                            <div class="banner_taital_main">
                               <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <p class="banner_text">Discover the convenience of our reliable car rental service. Choose from our diverse fleet of vehicles to suit your needs. Affordable rates, flexible options, and excellent customer support ensure a smooth experience. Book now and explore with ease!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
                               </div>
                            </div>
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
                               {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <h1 class="banner_taital">Bicycles Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Experience the freedom of exploring on two wheels with our bicycle rental service. Choose from a diverse fleet of bikes to suit your needs. Affordable rates, flexible rental periods, and friendly customer support ensure a seamless experience. Book now and pedal your way to adventure!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
                               </div>
                            </div>
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
                               {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <h1 class="banner_taital">Scooters Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Embrace the convenience of zipping around town on our scooter rental service. Choose from a variety of scooters to suit your preferences. Affordable rates, flexible rental options, and reliable support ensure a hassle-free experience. Book now and enjoy the ride!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Boats Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Experience the thrill of the open water with our boat rental service. Choose from a wide range of boats to suit your adventure. Competitive rates, flexible rental durations, and expert assistance ensure a memorable boating experience. Reserve now and set sail!</p>
+                              <div class="btn_main">
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Caravans Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Embark on an unforgettable journey with our caravan rental service. Choose from a diverse range of caravans to suit your travel needs. Competitive rates, flexible rental periods, and comprehensive amenities ensure a comfortable and enjoyable adventure. Book now and hit the road!</p>
+                              <div class="btn_main">
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
                               </div>
                            </div>
                         </div>
@@ -78,7 +100,15 @@ input[type="range"] {
                      <div class="about_taital_box">
                         {{-- <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1> --}}
                         <h1 class="about_taital">About <span style="color: #007495;">Us</span></h1>
-                        <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                        <p class="about_text">Here at BoSmart, we are dedicated to providing exceptional rent vehicle. With years of experience in the industry, we strive to meet the needs and exceed the expectations of our valued customers.
+
+                           Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
+                           
+                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers.
+                           
+                           Whether you're looking for rent, you can rely on us to deliver outstanding results. We prioritize customer satisfaction above all else and are always ready to go the extra mile to ensure that your experience with us is nothing short of exceptional.
+                           
+                           For more information about our rent vehicle, please don't hesitate to get in touch. We look forward to serving you and exceeding your expectations </p>
                         <div class="readmore_btn"><a href="#">Read More</a></div>
                      </div>
                   </div>
