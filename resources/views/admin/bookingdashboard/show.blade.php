@@ -9,18 +9,16 @@
                 booking Information
             </div>
             <div class="card-body">
-                <h5 class="card-title">First Name: {{ $appointment->user_id }}</h5>
-                <p class="card-title">Last Name: {{ $appointment->farm_id }}</p>
+                <h5 class="card-title"> Name: {{ $booking->user_id }}</h5>
+                <p class="card-title">product-id: {{ $booking->product_id }}</p>
 
-                <p class="card-text">Email: {{ $appointment->check_in }}</p>
-                <p class="card-text">phone: {{ $appointment->check_out}}</p>
-                {{-- <p class="card-text">Password: {{ $appointment->password }}</p> --}}
-                {{-- <p class="card-text">Role: {{ $appointment->role->name }}</p> --}}
-                {{-- <p class="card-text">Profile Picture: --}}
+                <p class="card-text">Total price: {{ $booking->total_price }}</p>
+                <p class="card-text">Booking status: {{ $booking->booking_status}}</p>
+
 
             </div>
         </div>
 
-        <a href="{{ route('appointmentdashboard.index') }}" class="btn btn-primary mt-3">Back to Dashboard</a>
+        <a href="{{ route('bookingdashboard.index') }}" class="btn btn-primary mt-3">Back to Dashboard</a>
     </div>
 @endsection

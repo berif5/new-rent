@@ -27,7 +27,7 @@ class PropertyController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ 
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -49,7 +49,7 @@ class PropertyController extends Controller
         $product->status = $validatedData['status'];
         $product->product_type = $validatedData['product_type'];
         $product->category_id = $validatedData['category'];
-        $product->lessors_id = Auth::id();
+        $product->lessor_id = Auth::id();
 
         // Image 1
         $image1 = $request->file('image1');

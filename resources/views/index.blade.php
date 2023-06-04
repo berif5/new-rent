@@ -24,13 +24,10 @@ input[type="range"] {
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
                               <p class="banner_text">Discover the convenience of our reliable car rental service. Choose from our diverse fleet of vehicles to suit your needs. Affordable rates, flexible options, and excellent customer support ensure a smooth experience. Book now and explore with ease!</p>
                               <div class="btn_main">
-<<<<<<< HEAD
                                  {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
                                  {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
-=======
                                  <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
                                  <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
->>>>>>> 1003c045f50064df355c62a2faa7a0906b94db9a
                               </div>
                            </div>
                         </div>
@@ -55,6 +52,8 @@ input[type="range"] {
                               <div class="btn_main">
                                  {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
                                  {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                 <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                 <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -66,6 +65,8 @@ input[type="range"] {
                               <div class="btn_main">
                                  {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
                                  {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                 <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                 <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -120,15 +121,9 @@ input[type="range"] {
                         <p class="about_text">Here at BoSmart, we are dedicated to providing exceptional rent vehicle. With years of experience in the industry, we strive to meet the needs and exceed the expectations of our valued customers.
 
                            Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
-                           
-                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers.
-                           
-                           Whether you're looking for rent, you can rely on us to deliver outstanding results. We prioritize customer satisfaction above all else and are always ready to go the extra mile to ensure that your experience with us is nothing short of exceptional.
-                           
-                           For more information about our rent vehicle, please don't hesitate to get in touch. We look forward to serving you and exceeding your expectations </p>
-                        <div class="readmore_btn"><a href="#">Read More</a></div>
-                        <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                        {{-- <div class="readmore_btn"><a href="#">Read More</a></div> --}}
+
+                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers. </p>
+
                      </div>
                   </div>
                </div>
@@ -138,56 +133,56 @@ input[type="range"] {
       <!-- about section end -->
       <div class="search_section">
 
-      <form id="searchForm"  method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="container">
-          {{-- <div class="search_section"> --}}
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="search_taital">Search Your Best Offers</h1>
-                <p class="search_text">Using 'Content here, content here', making it look like readable</p>
-                <!-- select box section start -->
-                <div class="container">
-                  <div class="select_box_section">
-                    <div class="select_box_main">
-                      <div class="row">
-                        <div class="col-md-3 select-outline">
-                          <select name="category" id="categorySelect" class="form-select">
-                            <option value="" disabled selected>Any Category</option>
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                            @endforeach
-                          </select>
-                        </div>
-                        <div class="col-md-3 select-outline">
-                          <select name="status" id="statusSelect" class="form-select">
-                            <option value="" disabled selected>Any Status</option>
-                            <option value="0">Available</option>
-                            <option value="1">Unavailable</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 select-outline">
-                          <label for="min_price"  class="form-label price">Minimum Price:</label>
-                          <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
-                          <span id="min_price_label"></span>
-                                <br>
-                          <label for="max_price" class="form-label price">Maximum Price:</label>
-                          <input type="range" class="form-range" id="max_price" name="max_price" min="0" max="300" step="20" value="300" class="form-range">
-                          <span id="max_price_label"></span>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="search_btn"><button id="searchBtn" type="submit" class="btn btn-light">Search Now</button></div>
+         <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="container">
+              {{-- <div class="search_section"> --}}
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1 class="search_taital">Search Your Best Offers</h1>
+                    <p class="search_text">Using 'Content here, content here', making it look like readable</p>
+                    <!-- select box section start -->
+                    <div class="container">
+                      <div class="select_box_section">
+                        <div class="select_box_main">
+                          <div class="row">
+                            <div class="col-md-3 select-outline">
+                              <select name="category" id="categorySelect" class="form-select">
+                                <option value="" disabled selected>Any Category</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="col-md-3 select-outline">
+                              <select name="status" id="statusSelect" class="form-select">
+                                <option value="" disabled selected>Any Status</option>
+                                <option value="0">Available</option>
+                                <option value="1">Unavailable</option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 select-outline">
+                              <label for="min_price"  class="form-label price">Minimum Price:</label>
+                              <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
+                              <span id="min_price_label"></span>
+                                    <br>
+                              <label for="max_price" class="form-label price">Maximum Price:</label>
+                              <input type="range" class="form-range" id="max_price" name="max_price" min="0" max="300" step="20" value="300" class="form-range">
+                              <span id="max_price_label"></span>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="search_btn"><button id="searchBtn" type="submit" class="btn btn-light">Search Now</button></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <!-- select box section end -->
                   </div>
                 </div>
-                <!-- select box section end -->
-              </div>
+              {{-- </div> --}}
             </div>
-          {{-- </div> --}}
-        </div>
-      </form>
+          </form>
       </div>
 
 
@@ -226,7 +221,7 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
-                    <div>  {{ $products->links('pagination::bootstrap-4') }} </div>
+                    {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
                 </div>
 
             </div>

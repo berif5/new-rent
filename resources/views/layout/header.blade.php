@@ -32,7 +32,7 @@
       <!-- style css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
       <!-- Responsive-->
-      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+      {{-- <link rel="stylesheet" href="{{ asset('css/responsive.css') }}"> --}}
       <!-- fevicon -->
       <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif" />
       <!-- font css -->
@@ -95,7 +95,6 @@
        </nav>
     </div>
  </div>
-
  <!-- header section end -->
 
       <div class="call_text_main">

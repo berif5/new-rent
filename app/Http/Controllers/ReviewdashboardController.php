@@ -10,6 +10,7 @@ class ReviewdashboardController extends Controller
     public function index()
     {
         $reviews = Review::all();
+        $reviews = Review::paginate(4);
          $user = User::all();
         return view('admin.reviewdashboard.index', compact('reviews','user'));
     }
