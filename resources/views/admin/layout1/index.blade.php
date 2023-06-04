@@ -198,10 +198,9 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                          <li>
-                       <a href="{{ route('app-profile') }}"><i class="icon-user"></i> <span>Profile</span></a>
+                       <a href="{{ route('appProfile') }}"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
-                                           {{-- <a href="{{ route('app-profile') }}"><i class="icon-user"></i> <span>Profile</span></a> --}}
                                                 <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
                                             </a>
                                         </li>
@@ -277,7 +276,7 @@
                             <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
+                            {{-- <li><a href="./app-profile.html">Profile</a></li> --}}
 
                             <li><a href="./app-calender.html">Calender</a></li>
                         </ul>
@@ -443,19 +442,19 @@
                 </div>
 
              <div class="row">
-                 
+
                 </div>
 
 
 
                <div class="row">
-                      
-                       
-                                                                  
-                            
+
+
+
+
 
                 <div class="row">
-                    
+
                     @foreach ($reviews as $review)
     <div class="col-lg-3 col-sm-6">
         <div class="card">
@@ -471,7 +470,7 @@
     </div>
 @endforeach
 
-                </div> --}}
+                </div>
 
                <div class="row">
                     <div class="col-lg-12">
@@ -491,7 +490,7 @@
                                             <label for="price">Filter by Price:</label>
                                             <input type="number" name="price" id="price" value="{{ request('price') }}" placeholder="Enter max price">
 
-                                           
+
                                             <button type="submit">Filter</button>
                                         </form>
                                         <table class="table table-xs mb-0">
@@ -507,12 +506,11 @@
                                                     <th>lessor_id </th>
                                                 </tr>
                                             </thead>
-                                           
+
                                                 <tbody>
 
                                                     @foreach ($products as $product)
                                                     @if (request('status') == 'all' || request('status') == $product->status)
-
                                                         <tr>
                                                             <td>{{ $product->product_name }}</td>
                                                             <td>{{ $product->product_description }}</td>
@@ -525,78 +523,14 @@
                                                         </tr>
                                                         @endif
                                                     @endforeach
-                                                    
+
                                                 </tbody>
-                                                
-                                            
+
+
                                         </table>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    {{-- <div class="col-lg-6 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Order Summary</h4>
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                        </div>
 
-                    </div> --}}
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card card-widget">
-                            <div class="card-body">
-                                <h5 class="text-muted">Order Overview </h5>
-                                <h2 class="mt-4">5680</h2>
-                                <span>Total Revenue</span>
-                                <div class="mt-4">
-                                    {{-- <h4>30</h4> --}}
-                                    <h6>Online Order <span class="pull-right">30%</span></h6>
-                                    <div class="progress mb-3" style="height: 7px">
-                                        <div class="progress-bar bg-primary" style="width: 30%;" role="progressbar"><span class="sr-only">30% Order</span>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-4">
-                                    {{-- <h4>50</h4> --}}
-                                    <h6 class="m-t-10 text-muted">Offline Order <span class="pull-right">50%</span></h6>
-                                    <div class="progress mb-3" style="height: 7px">
-                                        <div class="progress-bar bg-success" style="width: 50%;" role="progressbar"><span class="sr-only">50% Order</span>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-4">
-                                    {{-- <h4>20</h4> --}}
-                                    <h6 class="m-t-10 text-muted">Cash On Develery <span class="pull-right">20%</span></h6>
-                                    <div class="progress mb-3" style="height: 7px">
-                                        <div class="progress-bar bg-warning" style="width: 20%;" role="progressbar"><span class="sr-only">20% Order</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-0">
-                                <h4 class="card-title px-4 mb-3">Todo</h4>
-                                <div class="todo-list">
-                                    <div class="tdl-holder">
-                                        <div class="tdl-content">
-                                            <ul id="todo_list">
-                                                {{-- <li><label><input type="checkbox"><i></i><span>Get up</span><a href='#' class="ti-trash"></a></label></li> --}}
-                                                <li><label><input type="checkbox" checked><i></i><span>Stand up</span><a href='#' class="ti-trash"></a></label></li>
-                                                <li><label><input type="checkbox"><i></i><span>Don't give up the fight.</span><a href='#' class="ti-trash"></a></label></li>
-                                                <li><label><input type="checkbox" checked><i></i><span>Do something else</span><a href='#' class="ti-trash"></a></label></li>
-                                            </ul>
-                                        </div>
-                                        <div class="px-4">
-                                            <input type="text" class="tdl-new form-control" placeholder="Write new item and hit 'Enter'...">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -604,7 +538,7 @@
                     </div>
                 </div>
 
-            
+
             <!-- #/ container -->
         </div>
         <!--**********************************
