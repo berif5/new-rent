@@ -311,22 +311,48 @@ function updateProperty(propertyId) {
 
                 <div class="form-group">
                     <label for="image1">Image 1</label>
-                    <input type="file" class="form-control" id="image1" name="image1">
-                </div>
-                <div class="form-group">
+                    <div class="custom-file">
+                      <input type="file" id="image1" name="image1" class="custom-file-input" onchange="displayFileName('image1')">
+                      <label class="custom-file-label" for="image1">Choose file</label>
+                    </div>
+                    <p id="file-name1"></p>
+                  </div>
+
+                  <div class="form-group">
                     <label for="image2">Image 2</label>
-                    <input type="file" class="form-control" id="image2" name="image2">
-                </div>
-                <div class="form-group">
+                    <div class="custom-file">
+                      <input type="file" id="image2" name="image2" class="custom-file-input" onchange="displayFileName('image2')">
+                      <label class="custom-file-label" for="image2">Choose file</label>
+                    </div>
+                    <p id="file-name2"></p>
+                  </div>
+
+                  <div class="form-group">
                     <label for="image3">Image 3</label>
-                    <input type="file" class="form-control" id="image3" name="image3">
-                </div>
+                    <div class="custom-file">
+                      <input type="file" id="image3" name="image3" class="custom-file-input" onchange="displayFileName('image3')">
+                      <label class="custom-file-label" for="image3">Choose file</label>
+                    </div>
+                    <p id="file-name3"></p>
+                  </div>
+
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
 
         </div>
     </div>
 </div>
+<script>
+    function displayFileName(inputId) {
+      var fileInput = document.getElementById(inputId);
+      var fileName = fileInput.files[0].name;
+      var customFileLabel = document.querySelector(`label[for=${inputId}]`);
+      customFileLabel.textContent = fileName;
+
+      var fileNameElement = document.getElementById("file-name" + inputId.slice(-1));
+      fileNameElement.textContent = "Selected file: " + fileName;
+    }
+  </script>
 
 <script>
     document.getElementById('editProfileBtn').addEventListener('click', function(event) {

@@ -26,7 +26,7 @@ class LessorController extends Controller
         $properties = Product::where('lessor_id', $lessor->id)->get();
         $categories = Category::all();
         $notifications = $lessor->unreadNotifications;
-        $lessor->notifyBooking();
+        // $lessor->notifyBooking();
 
         //  dd($categories);
         // Notification::send($lessor, new NewNotification());

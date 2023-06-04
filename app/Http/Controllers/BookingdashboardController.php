@@ -25,7 +25,7 @@ class BookingdashboardController extends Controller
     {
         $booking = Booking::findOrFail($id);
 
-        return view('booking.show', compact('booking'));
+        return view('admin.bookingdashboard.show', compact('booking'));
     }
 
 }

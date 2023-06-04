@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Review;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 
 class HomeController extends Controller

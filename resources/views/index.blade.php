@@ -24,6 +24,8 @@ input[type="range"] {
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
                               <p class="banner_text">Discover the convenience of our reliable car rental service. Choose from our diverse fleet of vehicles to suit your needs. Affordable rates, flexible options, and excellent customer support ensure a smooth experience. Book now and explore with ease!</p>
                               <div class="btn_main">
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
                                  <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
                                  <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
@@ -127,56 +129,56 @@ input[type="range"] {
       <!-- about section end -->
       <div class="search_section">
 
-      <form id="searchForm"  method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="container">
-          {{-- <div class="search_section"> --}}
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="search_taital">Search Your Best Offers</h1>
-                <p class="search_text">Using 'Content here, content here', making it look like readable</p>
-                <!-- select box section start -->
-                <div class="container">
-                  <div class="select_box_section">
-                    <div class="select_box_main">
-                      <div class="row">
-                        <div class="col-md-3 select-outline">
-                          <select name="category" id="categorySelect" class="form-select">
-                            <option value="" disabled selected>Any Category</option>
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                            @endforeach
-                          </select>
-                        </div>
-                        <div class="col-md-3 select-outline">
-                          <select name="status" id="statusSelect" class="form-select">
-                            <option value="" disabled selected>Any Status</option>
-                            <option value="0">Available</option>
-                            <option value="1">Unavailable</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 select-outline">
-                          <label for="min_price"  class="form-label price">Minimum Price:</label>
-                          <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
-                          <span id="min_price_label"></span>
-                                <br>
-                          <label for="max_price" class="form-label price">Maximum Price:</label>
-                          <input type="range" class="form-range" id="max_price" name="max_price" min="0" max="300" step="20" value="300" class="form-range">
-                          <span id="max_price_label"></span>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="search_btn"><button id="searchBtn" type="submit" class="btn btn-light">Search Now</button></div>
+         <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="container">
+              {{-- <div class="search_section"> --}}
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1 class="search_taital">Search Your Best Offers</h1>
+                    <p class="search_text">Using 'Content here, content here', making it look like readable</p>
+                    <!-- select box section start -->
+                    <div class="container">
+                      <div class="select_box_section">
+                        <div class="select_box_main">
+                          <div class="row">
+                            <div class="col-md-3 select-outline">
+                              <select name="category" id="categorySelect" class="form-select">
+                                <option value="" disabled selected>Any Category</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="col-md-3 select-outline">
+                              <select name="status" id="statusSelect" class="form-select">
+                                <option value="" disabled selected>Any Status</option>
+                                <option value="0">Available</option>
+                                <option value="1">Unavailable</option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 select-outline">
+                              <label for="min_price"  class="form-label price">Minimum Price:</label>
+                              <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
+                              <span id="min_price_label"></span>
+                                    <br>
+                              <label for="max_price" class="form-label price">Maximum Price:</label>
+                              <input type="range" class="form-range" id="max_price" name="max_price" min="0" max="300" step="20" value="300" class="form-range">
+                              <span id="max_price_label"></span>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="search_btn"><button id="searchBtn" type="submit" class="btn btn-light">Search Now</button></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <!-- select box section end -->
                   </div>
                 </div>
-                <!-- select box section end -->
-              </div>
+              {{-- </div> --}}
             </div>
-          {{-- </div> --}}
-        </div>
-      </form>
+          </form>
       </div>
 
 

@@ -194,7 +194,7 @@
 
         // Update the input field with the calculated value
         document.getElementById('num_of_days').value = numOfDays;
-
+        
         // Calculate and update the total_price
         var productPrice = parseFloat(document.getElementById('product_price').value);
         var totalPrice = numOfDays * productPrice;

@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\File;
 class ProductDashboardController extends Controller
 {
     public function index()
-    {$products = Product::paginate(4);
-        $products = Product::all();
+    {   $products = Product::all();
+        $products = Product::paginate(4);
+        // $rentedproductCount = $this->getRentedproductCount();
+        // $productCount = Product::count();
+
         $categories = Category::all();
         return view('admin.productdashboard.index', compact('products'));
     }
@@ -29,7 +32,7 @@ class ProductDashboardController extends Controller
 
     public function create()
 {
-    $lessors = Lessor::all(); 
+    $lessors = Lessor::all();
     $categories = Category::all();
     $product = new Product();
     return view('admin.productdashboard.create', compact('product', 'categories'));
@@ -45,7 +48,7 @@ public function store(Request $request)
     $product->category_id = $request->input('category');
     $product->lessor_id = $request->input('lessors_id');
 
- 
+
     $product->save();
 
     return redirect()->route('productdashboard.create', $product->id)
@@ -53,7 +56,6 @@ public function store(Request $request)
 }
 
 
- 
     public function edit($id)
     {
         $product = Product::find($id);
@@ -90,5 +92,10 @@ public function store(Request $request)
 
         return redirect()->route('productdashboard.index')
             ->with('success', 'product deleted successfully');
+
     }
+
+
+
+
 }
