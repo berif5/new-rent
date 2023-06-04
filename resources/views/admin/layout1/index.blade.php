@@ -223,8 +223,7 @@
 
                                         <hr class="my-2">
                                         <li>
-                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock
-                                                    Screen</span></a>
+                                            <a href="{{route("logout")}}"><i class="icon-lock"></i> <span>Log out</span></a>
                                         </li>
                                         {{-- <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a>
                                         </li> --}}
