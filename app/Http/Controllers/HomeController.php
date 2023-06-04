@@ -25,7 +25,7 @@ class HomeController extends Controller
         $type = $request->input('status');
         $startPrice = Product::min('product_price');
         $endPrice = Product::max('product_price');
-        
+
         $query = Product::query();
 
         if ($category) {
@@ -40,7 +40,9 @@ class HomeController extends Controller
             $query->whereBetween('product_price', [$startPrice, $endPrice]);
         }
 
-        $products = $query->get();
+        // $products = $query->get();
+        $products = Product::paginate(6);
+
         $categories = Category::all();
 
         return view('index', compact('products','categories'));

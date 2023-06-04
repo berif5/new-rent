@@ -134,4 +134,3 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
     }
 
 }
-
