@@ -77,9 +77,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/payment', function () {
-    return view('payment');
-})->name('payment');
+Route::get('/payment1', function () {
+    return view('payment1');
+})->name('payment1');
 
 
 Route::get('/index', function () {
@@ -245,7 +245,7 @@ Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
- Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::Get('/search', [SearchController::class, 'search'])->name('search');
 
 
 

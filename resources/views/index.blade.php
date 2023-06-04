@@ -24,13 +24,8 @@ input[type="range"] {
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
                               <p class="banner_text">Discover the convenience of our reliable car rental service. Choose from our diverse fleet of vehicles to suit your needs. Affordable rates, flexible options, and excellent customer support ensure a smooth experience. Book now and explore with ease!</p>
                               <div class="btn_main">
-<<<<<<< HEAD
-                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
-                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
-=======
                                  <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
                                  <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
->>>>>>> 1003c045f50064df355c62a2faa7a0906b94db9a
                               </div>
                            </div>
                         </div>
@@ -120,14 +115,14 @@ input[type="range"] {
                         <p class="about_text">Here at BoSmart, we are dedicated to providing exceptional rent vehicle. With years of experience in the industry, we strive to meet the needs and exceed the expectations of our valued customers.
 
                            Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
-                           
+
                            At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers.
-                           
+
                            Whether you're looking for rent, you can rely on us to deliver outstanding results. We prioritize customer satisfaction above all else and are always ready to go the extra mile to ensure that your experience with us is nothing short of exceptional.
-                           
+
                            For more information about our rent vehicle, please don't hesitate to get in touch. We look forward to serving you and exceeding your expectations </p>
                         <div class="readmore_btn"><a href="#">Read More</a></div>
-                        <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                        {{-- <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p> --}}
                         {{-- <div class="readmore_btn"><a href="#">Read More</a></div> --}}
                      </div>
                   </div>
@@ -138,7 +133,7 @@ input[type="range"] {
       <!-- about section end -->
       <div class="search_section">
 
-      <form id="searchForm"  method="POST" enctype="multipart/form-data">
+      <form id="searchForm" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
           {{-- <div class="search_section"> --}}
