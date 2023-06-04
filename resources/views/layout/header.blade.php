@@ -32,7 +32,7 @@
       <!-- style css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
       <!-- Responsive-->
-      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+      {{-- <link rel="stylesheet" href="{{ asset('css/responsive.css') }}"> --}}
       <!-- fevicon -->
       <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif" />
       <!-- font css -->
@@ -57,7 +57,7 @@
 <div class="header_section">
     <div class="container">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}"></a>
+          <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }} " width="150px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
