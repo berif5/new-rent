@@ -215,7 +215,7 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
-                    <div>  {{ $products->links('pagination::bootstrap-4') }} </div>
+                    {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
                 </div>
 
             </div>
