@@ -76,8 +76,8 @@
                 @else
 
 
-
-    {{-- <li class="nav-item">
+{{--
+  <li class="nav-item">
         <a class="nav-link" href="{{ route('lessor.index') }}">Profile</a>
     </li> --}}
      <li class="nav-item">
@@ -100,6 +100,10 @@
        </nav>
     </div>
  </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b720a43d834ee5443dacea9f84abcecc737201ff
  <!-- header section end -->
 
       <div class="call_text_main">
