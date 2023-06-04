@@ -474,18 +474,31 @@
                     <div class="row">
 
                         @foreach ($reviews as $review)
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <img src="{{ $review->user->image }}"  class="rounded-circle" alt="picture">
-                                            <h5 class="mt-3 mb-1">{{ $review->user->name }}</h5>
-                                            <h5 class="mt-3 mb-1">{{ $review->rating }}</h5>
-                                            <p class="m-0">{{ $review->review_text }}</p>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img src="{{ $review->user->image }}" class="rounded-circle" width="100px" height="100px" alt="picture">
+                                        <h5 class="mt-3 mb-1"><strong>{{ $review->user->name }}</strong></h5>
+                                        <div class="rating">
+                                            <span class="stars">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $review->rating)
+                                                        <i class="fas fa-star"></i>
+                                                    @else
+                                                        <i class="far fa-star"></i>
+                                                    @endif
+                                                @endfor
+                                            </span>
+                                            <span class="rating-value">({{ $review->rating }})</span>
                                         </div>
+                                        <p class="comment">{{ $review->comment }}</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        
                         @endforeach
 
                     </div>
