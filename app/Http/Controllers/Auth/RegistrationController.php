@@ -99,14 +99,14 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
             return redirect()->intended('/');
 
 
-        }  
+        }
         elseif ($admin) {
             // Authentication successful, store user data in session
             Auth::login($admin);
             $request->session()->regenerate();
-    
-            return redirect()->intended(route('admin.layout1.index'));
-        }  
+
+            return redirect()->back();
+        }
          elseif ($lessor){
             Auth::login($lessor);
             $request->session()->regenerate();
@@ -134,4 +134,3 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
     }
 
 }
-

@@ -22,32 +22,63 @@ input[type="range"] {
                            <div class="banner_taital_main">
                               <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <p class="banner_text">Discover the convenience of our reliable car rental service. Choose from our diverse fleet of vehicles to suit your needs. Affordable rates, flexible options, and excellent customer support ensure a smooth experience. Book now and explore with ease!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+<<<<<<< HEAD
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+=======
+                                 <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                 <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
+>>>>>>> 1003c045f50064df355c62a2faa7a0906b94db9a
                               </div>
                            </div>
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
                               {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <h1 class="banner_taital">Bicycles Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Experience the freedom of exploring on two wheels with our bicycle rental service. Choose from a diverse fleet of bikes to suit your needs. Affordable rates, flexible rental periods, and friendly customer support ensure a seamless experience. Book now and pedal your way to adventure!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
                         <div class="carousel-item">
                            <div class="banner_taital_main">
                               {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
-                              <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
-                              <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+                              <h1 class="banner_taital">Scooters Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Embrace the convenience of zipping around town on our scooter rental service. Choose from a variety of scooters to suit your preferences. Affordable rates, flexible rental options, and reliable support ensure a hassle-free experience. Book now and enjoy the ride!</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Boats Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Experience the thrill of the open water with our boat rental service. Choose from a wide range of boats to suit your adventure. Competitive rates, flexible rental durations, and expert assistance ensure a memorable boating experience. Reserve now and set sail!</p>
+                              <div class="btn_main">
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              {{-- <h1 class="banner_taital">Car Rent <br><span style="color: #273f54;">For You</span></h1> --}}
+                              <h1 class="banner_taital">Caravans Rent <br><span style="color: #007495;">For You</span></h1>
+                              <p class="banner_text">Embark on an unforgettable journey with our caravan rental service. Choose from a diverse range of caravans to suit your travel needs. Competitive rates, flexible rental periods, and comprehensive amenities ensure a comfortable and enjoyable adventure. Book now and hit the road!</p>
+                              <div class="btn_main">
+                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
+                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -61,25 +92,43 @@ input[type="range"] {
                      </a>
                   </div>
                </div>
-               
+
             </div>
          </div>
       </div>
       <!-- banner section end -->
       <!-- about section start -->
-      <div class="about_section layout_padding">
+      <div class="about_section layout_padding" id="about_us">
          <div class="container">
             <div class="about_section_2">
                <div class="row">
                   <div class="col-md-6">
-                     <div class="image_iman"><img src="images/about-img.png" class="about_img"></div>
+                     <div class="image_iman">
+                        <table  style="border: 10px solid #007495;" cellspacing="0" cellpadding="10">
+                            <tr>
+                                <td style="width: 450px; height:450px;">
+                                    <iframe src='https://www.google.com/maps?q=<?php echo 32.0448774; ?>,<?php echo 35.7079124; ?>&hl=es;z=14&output=embed' style="width:100%; height:100%"></iframe>
+                                </td>
+                            </tr>
+                        </table>
+                     </div>
                   </div>
                   <div class="col-md-6">
                      <div class="about_taital_box">
                         {{-- <h1 class="about_taital">About <span style="color: #273f54;">Us</span></h1> --}}
                         <h1 class="about_taital">About <span style="color: #007495;">Us</span></h1>
-                        <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                        <p class="about_text">Here at BoSmart, we are dedicated to providing exceptional rent vehicle. With years of experience in the industry, we strive to meet the needs and exceed the expectations of our valued customers.
+
+                           Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
+                           
+                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers.
+                           
+                           Whether you're looking for rent, you can rely on us to deliver outstanding results. We prioritize customer satisfaction above all else and are always ready to go the extra mile to ensure that your experience with us is nothing short of exceptional.
+                           
+                           For more information about our rent vehicle, please don't hesitate to get in touch. We look forward to serving you and exceeding your expectations </p>
                         <div class="readmore_btn"><a href="#">Read More</a></div>
+                        <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                        {{-- <div class="readmore_btn"><a href="#">Read More</a></div> --}}
                      </div>
                   </div>
                </div>
@@ -143,154 +192,52 @@ input[type="range"] {
 
 
     <!-- gallery section start -->
-    <div class="gallery_section layout_padding">
+
+    <div class="gallery_section layout_padding" id="our_offers">
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="gallery_taital">Our offers</h1>
-            </div>
-          </div>
-          <div class="gallery_section_2">
-            <div class="row mt-4">
-              @foreach ($products as $product)
-                <div class="col-md-4">
-                  <div class="gallery_box" style="height: 500px; margin:10px;">
-                    <div class="gallery_img">
-                      <img id="image_product" src="{{ $product->image1 }}"  style="width: 100%; height: 250px; ">
-                    </div>
-                    <h3 class="types_text">{{ $product->product_name }}</h3>
-                    <p class="looking_text">Start per day ${{ $product->product_price }}</p>
-                    <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; text-align: center;">
-                      @if ($product->status == 0)
-                        Available
-                      @else
-                        Unavailable
-                      @endif
-                    </p>
-                    <div class="read_bt">
-                        <a href="{{ route('singleproduct', $product->id) }}">Read more</a>
-                      </div>
-                  </div>
-                </div>
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <!-- gallery section end -->
-      <!-- choose section end -->
-      <!-- client section start -->
-      <div class="client_section layout_padding">
-         <div class="container">
-            <div id="custom_slider" class="carousel slide" data-ride="carousel">
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="row">
-                        <div class="col-md-12">
-                           <h1 class="client_taital">What Says Customers</h1>
-                        </div>
-                     </div>
-                     <div class="client_section_2">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img1.png"></div>
-                                 <h3 class="moark_text">Hannery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img2.png"></div>
-                                 <h3 class="moark_text">Channery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="row">
-                        <div class="col-md-12">
-                           <h1 class="client_taital">What Says Customers</h1>
-                        </div>
-                     </div>
-                     <div class="client_section_2">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img1.png"></div>
-                                 <h3 class="moark_text">Hannery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img2.png"></div>
-                                 <h3 class="moark_text">Channery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="row">
-                        <div class="col-md-12">
-                           <h1 class="client_taital">What Says Customers</h1>
-                        </div>
-                     </div>
-                     <div class="client_section_2">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img1.png"></div>
-                                 <h3 class="moark_text">Hannery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="client_taital_box">
-                                 <div class="client_img"><img src="images/client-img2.png"></div>
-                                 <h3 class="moark_text">Channery</h3>
-                                 <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
-                              </div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <a class="carousel-control-prev" href="#custom_slider" role="button" data-slide="prev">
-               <i class="fa fa-angle-left"></i>
-               </a>
-               <a class="carousel-control-next" href="#custom_slider" role="button" data-slide="next">
-               <i class="fa fa-angle-right"></i>
-               </a>
-            </div>
-         </div>
-      </div>
-      <!-- client section end -->
-      <!-- contact section start -->
-      <div class="contact_section layout_padding">
-         <div class="container">
             <div class="row">
-               <div class="col-sm-12">
-                  {{-- <h1 class="contact_taital">Get In Touch</h1> --}}
-               </div>
+                <div class="col-md-12">
+                    <h1 class="gallery_taital">Our offers</h1>
+                </div>
             </div>
-         </div>
+            <div class="gallery_section_2">
+                <div class="row mt-4">
+                    @php
+                    $limitedProducts = $products->take(6); // Display only 6 products on the page
+                    @endphp
+                    @foreach ($limitedProducts as $product)
+                    <div class="col-md-4">
+                        <div class="gallery_box" style="height: 500px; margin:10px;">
+                            <div class="gallery_img">
+                                <img id="image_product" src="{{ $product->image1 }}" style="width: 100%; height: 250px;">
+                            </div>
+                            <h3 class="types_text">{{ $product->product_name }}</h3>
+                            <p class="looking_text">Start per day ${{ $product->product_price }}</p>
+                            <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; text-align: center;">
+                                @if ($product->status == 0)
+                                Available
+                                @else
+                                Unavailable
+                                @endif
+                            </p>
+                            <div class="read_bt">
+                                <a href="{{ route('singleproduct', $product->id) }}">See the details</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <div>  {{ $products->links('pagination::bootstrap-4') }} </div>
+                </div>
 
-      </div>
-      <div id="map" style="height: 400px;"></div>
+            </div>
 
-      <!-- contact section end -->
+        </div>
+
+    </div>
+
+
+
+
 <script>
     function updateRangeValue(inputId, labelId) {
   var input = document.getElementById(inputId);

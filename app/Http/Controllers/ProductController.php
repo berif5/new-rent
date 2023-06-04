@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-    
+
     public function index(Request $request)
     {
 
@@ -38,6 +38,13 @@ class ProductController extends Controller
 
         return view('vehicle', compact('products','categories'));
     }
+
+    public function singleproduct($product_id)
+{
+    $product = Product::find($product_id);
+
+    return view('singleproduct', ['product' => $product]);
+}
     // public function show($id)
     // {
     //     $product = Product::find($id);

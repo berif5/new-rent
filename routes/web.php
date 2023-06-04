@@ -13,6 +13,11 @@ use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotificationController;
+
+
+
 use App\Http\Controllers\AppProfileController;
 
 use App\Http\Controllers\Auth\RegistrationController;
@@ -186,9 +191,77 @@ Route::get('login', function () {
 
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
+
+// Route::post('/booking', 'BookingController@store')->name('booking.store');
+
+// Route::get('/booking/success', function () {
+//     return view('booking.success');
+// })->name('booking.success');
+
+
+//
 Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
+
+
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+
+//  Route::get('/payment/{booking_id}', [PaymentController::class, 'showPayment'])->name('payment');
+
+
+// Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
+// Route::get('/payment/success', function () {
+//     return "Payment Successful!";
+// })->name('payment.success');
+
+// Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+
+
+
+ Route::get('/property/{id}/edit', [PropertyController::class, 'edit'])->name('property.edit');
+ Route::delete('/property/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+ Route::put('/property/{id}/update', [PropertyController::class, 'update'])->name('property.update');
+ Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
+Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
+
+
+
+
+// productedashboard
+Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
+Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
+Route::get('/admin/productdashboard/create', [ProductDashboardController::class, 'create'])->name('productdashboard.create');
+Route::post('/productdashboard', [ProductDashboardController::class, 'store'])->name('productdashboard.store');
+Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
+Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
+Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index'])->name('admin.productdashboard.index');
+
+//  Route::get('admin.bookingdashboard.index', function () {
+//     return view('admin.bookingdashboard.index'); payment
+// });
+
+Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
+
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+
+
+
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+ Route::post('/logout', [RegistrationController::class, 'logout']);
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+//  Route::get('/singleproduct/{id}', [ProductController::class, 'show']);
+
+
+Route::get('/map', function () {
+    return view('map');
+});
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
+
  Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');// pagination userdashboard
  Route::get('/lessors', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');//pagination lessordashboard
  Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
