@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-<br> <br> 
+<br> <br>
 <div class="container">
 
     <div class="contact_section_2">
@@ -46,7 +46,7 @@
                             </small>
                         </div>
                         <div class="send_bt">
-                            <button type="submit" class="btn">Send</button>
+                            <button type="submit" class="btn btn-outline-light">Send</button>
                         </div>
                     </form>
                 </div>

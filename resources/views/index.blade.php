@@ -24,8 +24,8 @@ input[type="range"] {
                               {{-- <h1 class="banner_taital">Car<br><span style="color: #007495;">For You</span></h1> --}}
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                 <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                 <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -35,8 +35,8 @@ input[type="range"] {
                               <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -46,8 +46,8 @@ input[type="range"] {
                               <h1 class="banner_taital">Car Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority</p>
                               <div class="btn_main">
-                                 <div class="contact_bt"><a href="#">Read More</a></div>
-                                 <div class="contact_bt active"><a href="#">Contact Us</a></div>
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -67,7 +67,7 @@ input[type="range"] {
       </div>
       <!-- banner section end -->
       <!-- about section start -->
-      <div class="about_section layout_padding">
+      <div class="about_section layout_padding" id="about_us">
          <div class="container">
             <div class="about_section_2">
                <div class="row">
@@ -152,7 +152,7 @@ input[type="range"] {
 
     <!-- gallery section start -->
 
-    <div class="gallery_section layout_padding">
+    <div class="gallery_section layout_padding" id="our_offers">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
