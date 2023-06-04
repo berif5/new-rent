@@ -77,9 +77,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/payment', function () {
-    return view('payment');
-})->name('payment');
+Route::get('/payment1', function () {
+    return view('payment1');
+})->name('payment1');
 
 
 Route::get('/index', function () {
@@ -174,7 +174,7 @@ Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'des
  Route::get('/reviewdashboard/{id}', [ReviewdashboardController::class, 'show'])->name('reviewdashboard.show');
  Route::delete('/reviewdashboard/{id}', [ReviewdashboardController::class, 'destroy'])->name('reviewdashboard.destroy');
 
- Route::post('/search', [SearchController::class, 'search'])->name('search');
+//  Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user.profile');
@@ -245,14 +245,13 @@ Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
- Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::Get('/search', [SearchController::class, 'search'])->name('search');
 
 
 
  Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
  Route::post('/logout', [RegistrationController::class, 'logout']);
- Route::post('/search', [SearchController::class, 'search'])->name('search');
  Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 //  Route::get('/singleproduct/{id}', [ProductController::class, 'show']);
 

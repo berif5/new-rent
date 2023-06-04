@@ -32,7 +32,7 @@
       <!-- style css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
       <!-- Responsive-->
-      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+      {{-- <link rel="stylesheet" href="{{ asset('css/responsive.css') }}"> --}}
       <!-- fevicon -->
       <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif" />
       <!-- font css -->
@@ -75,11 +75,6 @@
                 </li>
                 @else
 
-
-{{--
-  <li class="nav-item">
-        <a class="nav-link" href="{{ route('lessor.index') }}">Profile</a>
-    </li> --}}
      <li class="nav-item">
         <a class="nav-link" href="{{ route('user.profile', ['id' => auth()->user()->id]) }}">Profile</a>
     </li>
@@ -105,7 +100,7 @@
       <div class="call_text_main">
          <div class="container">
             <div class="call_taital">
-               <div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>
+               <div class="call_text"><a href="#about_us"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>
                <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 8522369417</span></a></div>
                <div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>
             </div>
