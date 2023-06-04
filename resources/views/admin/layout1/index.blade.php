@@ -11,6 +11,7 @@
             </svg>
         </div>
     </div>
+
     <!--*******************
             Preloader end
         ********************-->
@@ -502,9 +503,9 @@
                                                     <option value="all"
                                                         {{ request('status') == 'all' ? 'selected' : '' }}>All</option>
                                                     <option value="1"
-                                                        {{ request('status') == '1' ? 'selected' : '' }}>Rented</option>
+                                                        {{ request('status') == '1' ? 'selected' : '' }}>unavilable</option>
                                                     <option value="2"
-                                                        {{ request('status') == '0' ? 'selected' : '' }}>Not Rented
+                                                        {{ request('status') == '0' ? 'selected' : '' }}>Avilable
                                                     </option>
 
                                                 </select>
