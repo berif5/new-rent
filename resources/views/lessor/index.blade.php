@@ -165,8 +165,10 @@
                     @foreach($properties as $property)
                     <div class="col-md-4 cardd">
                         <div class="gallery_box">
-                            <img src="{{ asset('images/' . $property->image1) }}" width="100%" height="100%">
-                            <h3 class="types_text">{{ $property->product_name }}</h3>
+                            <div class="gallery_img">
+                                <img src="{{ asset('images/' . $property->image1) }}" width="100%" >
+                              </div>
+                              <h3 class="types_text">{{ $property->product_name }}</h3>
                             <h3 style="font-weight: bold; color: {{ $property->status == 0 ? 'green' : 'red' }}; text-align: center;">
                                 {{ $property->status ? 'Un-Available' : 'Available' }}
                             </h3>

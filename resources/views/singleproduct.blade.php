@@ -11,13 +11,13 @@
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset($product->image1) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
+                        <img src="{{ asset('images/' . $product->image1) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset($product->image2) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
+                        <img src="{{ asset('images/' . $product->image2) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset($product->image3) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px; ">
+                        <img src="{{ asset('images/' . $product->image3) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
                     </div>
                 </div>
                 <button class="carousel-control-prev bg-white" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
