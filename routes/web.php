@@ -93,8 +93,7 @@ Route::get('/lessor', [LessorController::class, 'index'])->name('lessor.index');
 
 Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('lessor.update');
 
-Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
-Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
+
 
 // Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
@@ -174,4 +173,14 @@ Route::post('/login', [RegistrationController::class, 'login'])->name('login');
 
 
  Route::post('/logout', [RegistrationController::class, 'logout'])->name('logout');
+
+ Route::get('/property/{id}/edit', [PropertyController::class, 'edit'])->name('property.edit');
+ Route::delete('/property/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+ Route::put('/property/{id}/update', [PropertyController::class, 'update'])->name('property.update');
+ Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
+Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
+
+
+
 

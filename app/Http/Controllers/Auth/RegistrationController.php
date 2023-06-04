@@ -79,17 +79,13 @@ class RegistrationController extends Controller
         ]);
 
 
-        $user = User::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 1)
-        ->first();
 
-        $admin = User::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 2)
-        ->first();
+        $user = User::where('email', $credentials['email'])->where('role_id', 1)->first();
 
-        $lessor = Lessor::where('name', $credentials['name'])
-        ->where('email', $credentials['email'])->where('role_id' , 3)
-        ->first();
+$admin = User::where('email', $credentials['email'])->where('role_id', 2)->first();
+
+$lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->first();
+
 
         // Authenticate the user
         if ($user) {
