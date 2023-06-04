@@ -14,6 +14,8 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotificationController;
+
 
 
 use App\Http\Controllers\AppProfileController;
@@ -265,3 +267,5 @@ Route::get('/map', function () {
  Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
  Route::get('/products', [ProductDashboardController::class, 'index'])->name('productdashboard.index');//pagination product
  Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');
+
+ Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('markAsRead');

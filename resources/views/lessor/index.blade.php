@@ -77,6 +77,18 @@
     .cardd {
         margin-top: 10px;
     }
+    /* .notification-link {
+    color: blue;
+    font-weight: bold;
+}
+
+.notification-message {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+} */
+/* .notification{display: flex} */
 </style>
 
 <div class="container">
@@ -119,13 +131,18 @@
 
 
         <div class="col-md-6 profile">
-            <a href="#">Your Notifications</a>
+            <a href="#" class="notification-link">Your Notifications</a>
             <div id="notificationsContainer">
                 @foreach($notifications as $notification)
-                    <p>{{ $notification->data['message'] }}</p>
+                    <div class="notification">
+                        <p class="notification-message">{{ $notification->data['message'] }}</p>
+                        {{-- <a href="{{ route('markAsRead', $notification->id) }}" class="close-button">&times;</a> --}}
+                    </div>
                 @endforeach
             </div>
         </div>
+
+
 
 
 
