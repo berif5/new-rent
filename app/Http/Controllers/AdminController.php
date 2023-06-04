@@ -16,9 +16,6 @@ class AdminController extends Controller
         return view('admin.layout1.index', compact('reviews','products'));
     }
 
-    public function showProfile()
-    {
-        return view('admin.layout1.app-profile');
-    }
+    
 }
 

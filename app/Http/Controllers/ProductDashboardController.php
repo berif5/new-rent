@@ -9,7 +9,7 @@ use App\Models\Lessor;
 class ProductDashboardController extends Controller
 {
     public function index()
-    {
+    {$products = Product::paginate(4);
         $products = Product::all();
         $categories = Category::all();
         return view('admin.productdashboard.index', compact('products'));

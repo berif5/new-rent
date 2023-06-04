@@ -54,7 +54,7 @@
    <body>
     
      <!-- header section start -->
-<div class="header_section">
+{{-- <div class="header_section">
     <div class="container">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}"></a>
@@ -80,13 +80,13 @@
     {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('lessor.index') }}">Profile</a>
     </li> --}}
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('user.profile', ['id' => auth()->user()->id]) }}">Profile</a>
-    </li>
+    </li> --}}
 
 
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                    <form action="{{ route('logout') }}" method="POST">
                       @csrf
                       <button class="nav-link" >Logout</button>
@@ -99,7 +99,7 @@
           </div>
        </nav>
     </div>
- </div>
+ </div>  --}}
  <!-- header section end -->
 
       <div class="call_text_main">
