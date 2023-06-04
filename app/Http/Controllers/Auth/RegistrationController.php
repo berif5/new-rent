@@ -45,7 +45,7 @@ class RegistrationController extends Controller
         $validated = $req->validate([
             'name' => 'required',
             'email' => 'required|unique:lessors|email',
-            'phone_number' => 'required|starts_with:07|digits_between:10,10',
+            'phone_number' => 'required',
             'address' => 'required',
             'city' => 'required',
             'password' => 'required|min:8',
@@ -82,9 +82,9 @@ class RegistrationController extends Controller
 
         $user = User::where('email', $credentials['email'])->where('role_id', 1)->first();
 
-$admin = User::where('email', $credentials['email'])->where('role_id', 2)->first();
+        $admin = User::where('email', $credentials['email'])->where('role_id', 2)->first();
 
-$lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->first();
+        $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->first();
 
 
         // Authenticate the user
@@ -92,10 +92,6 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
             // Authentication successful, store user data in session
             Auth::login($user);
             $request->session()->regenerate();
-             if(Auth::login($user)){
-
-
-             }
             return redirect()->intended('/');
 
 

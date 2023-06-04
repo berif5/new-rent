@@ -14,6 +14,8 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotificationController;
+
 
 
 use App\Http\Controllers\AppProfileController;
@@ -75,9 +77,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/payment', function () {
-    return view('payment');
-})->name('payment');
+Route::get('/payment1', function () {
+    return view('payment1');
+})->name('payment1');
 
 
 Route::get('/index', function () {
@@ -243,6 +245,7 @@ Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
+ Route::Get('/search', [SearchController::class, 'search'])->name('search');
 
 
 
@@ -263,3 +266,5 @@ Route::get('/map', function () {
  Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
  Route::get('/products', [ProductDashboardController::class, 'index'])->name('productdashboard.index');//pagination product
  Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');
+
+ Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('markAsRead');

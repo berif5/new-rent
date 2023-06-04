@@ -121,8 +121,9 @@ input[type="range"] {
                         <p class="about_text">Here at BoSmart, we are dedicated to providing exceptional rent vehicle. With years of experience in the industry, we strive to meet the needs and exceed the expectations of our valued customers.
 
                            Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
-                           
-                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality.</p>
+
+                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers. </p>
+
                      </div>
                   </div>
                </div>
