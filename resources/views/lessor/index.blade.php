@@ -162,29 +162,13 @@
             {{-- <ul> --}}
 
                 <div class="row">
-<<<<<<< HEAD
-
-                @foreach($properties as $property)
-                <div class="col-md-4 cardd">
-                    <div class="gallery_box">
-                       <div class="gallery_img">
-                        {{-- <img src="{{ asset('storage/' . $property->image1) }}" width="100%" height="100%"> --}}
-                        <img src="{{ asset('images/' . $property->image1) }}" width="100%" height="100%" />
-                        {{-- <img src="{{ $property->image1 }}" width="100%" height="100%"> --}}
-                    </div>
-                       <h3 class="types_text">{{ $property->product_name }}</h3>
-                         <p class="looking_text">{{ $property->product_description }}</p>
-                         <p class="looking_text">{{ $property->product_price }} JD</p>
-                         <div class="read_bt">
-                            {{-- <a href="{{ route('property.edit', ['id' => $property->id]) }}">Edit</a> --}}
-                            <a href="#" data-toggle="modal" data-target="#editPropertyModal{{ $property->id }}">Edit</a>
-
-=======
                     @foreach($properties as $property)
                     <div class="col-md-4 cardd">
                         <div class="gallery_box">
-                            <div class="gallery_img"><img src="{{ $property->image1 }}" width="100%" height="100%"></div>
-                            <h3 class="types_text">{{ $property->product_name }}</h3>
+                            <div class="gallery_img">
+                                <img src="{{ asset('images/' . $property->image1) }}" width="100%" >
+                              </div>
+                              <h3 class="types_text">{{ $property->product_name }}</h3>
                             <h3 style="font-weight: bold; color: {{ $property->status == 0 ? 'green' : 'red' }}; text-align: center;">
                                 {{ $property->status ? 'Un-Available' : 'Available' }}
                             </h3>
@@ -201,7 +185,6 @@
                                 @csrf
                                 @method('DELETE')
                             </form>
->>>>>>> 0083f8e2cca5eae71b390c224fa8b152798795e9
                         </div>
                     </div>
                     <!-- Display more property details as needed -->
@@ -291,7 +274,7 @@ function updateProperty(propertyId) {
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="lessors_id" id="lessors_id" value="{{ $lessor->id }}">
-            
+
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
                     <input type="text" class="form-control" id="product_name" name="product_name" required>
@@ -311,7 +294,7 @@ function updateProperty(propertyId) {
                         <option value="1">Unavailable</option>
                     </select>
                 </div>
-            
+
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category" required>
@@ -320,12 +303,12 @@ function updateProperty(propertyId) {
                         @endforeach
                     </select>
                 </div>
-            
+
                 <div class="form-group">
                     <label for="product_type">Product Type</label>
                     <input type="text" class="form-control" id="product_type" name="product_type" required>
                 </div>
-            
+
                 <div class="form-group">
                     <label for="image1">Image 1</label>
                     <input type="file" class="form-control" id="image1" name="image1">
@@ -340,7 +323,7 @@ function updateProperty(propertyId) {
                 </div>
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
-            
+
         </div>
     </div>
 </div>

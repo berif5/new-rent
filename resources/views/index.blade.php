@@ -48,8 +48,8 @@ input[type="range"] {
                               <h1 class="banner_taital">Scooters Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">Embrace the convenience of zipping around town on our scooter rental service. Choose from a variety of scooters to suit your preferences. Affordable rates, flexible rental options, and reliable support ensure a hassle-free experience. Book now and enjoy the ride!</p>
                               <div class="btn_main">
-                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
-                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -59,8 +59,8 @@ input[type="range"] {
                               <h1 class="banner_taital">Boats Rent <br><span style="color: #007495;">For You</span></h1>
                               <p class="banner_text">Experience the thrill of the open water with our boat rental service. Choose from a wide range of boats to suit your adventure. Competitive rates, flexible rental durations, and expert assistance ensure a memorable boating experience. Reserve now and set sail!</p>
                               <div class="btn_main">
-                                 {{-- <div class="contact_bt"><a href="#">Read More</a></div> --}}
-                                 {{-- <div class="contact_bt active"><a href="#">Contact Us</a></div> --}}
+                                <div class="contact_bt"><a href="#our_offers">OUR OFFERS</a></div>
+                                <div class="contact_bt active"><a href="#about_us">ABOUT US</a></div>
                               </div>
                            </div>
                         </div>
@@ -198,7 +198,7 @@ input[type="range"] {
                     <div class="col-md-4">
                         <div class="gallery_box" style="height: 500px; margin:10px;">
                             <div class="gallery_img">
-                                <img id="image_product" src="{{ $product->image1 }}" style="width: 100%; height: 250px;">
+                                <img id="image_product" src="{{ asset('images/'. $product->image1) }}" style="width: 100%; height: 250px;">
                             </div>
                             <h3 class="types_text">{{ $product->product_name }}</h3>
                             <p class="looking_text">Start per day ${{ $product->product_price }}</p>
@@ -215,7 +215,8 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
-                    <div>  {{ $products->links('pagination::bootstrap-4') }} </div>
+                    {{-- <div>{{ $products->links('pagination::bootstrap-4') }}</div> --}}
+
                 </div>
 
             </div>

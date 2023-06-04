@@ -40,12 +40,17 @@ class HomeController extends Controller
             $query->whereBetween('product_price', [$startPrice, $endPrice]);
         }
 
-        // $products = $query->get();
-        $products = Product::paginate(6);
+        $products = $query->get();
+        // $products = Product::paginate(6);
+        // $paginationLinks = $products->links('pagination::bootstrap-4');
+
+
+
 
         $categories = Category::all();
-
+        // return view('your-view', compact('products', 'paginationLinks'));
         return view('index', compact('products','categories'));
+
     }
     public function show($id)
     {
