@@ -102,7 +102,7 @@ class RegistrationController extends Controller
             Auth::login($admin);
             $request->session()->regenerate();
 
-            return redirect()->back();
+            return redirect()->intended('/admin/layout1');
         }
          elseif ($lessor){
             Auth::login($lessor);
