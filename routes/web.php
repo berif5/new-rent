@@ -190,7 +190,13 @@ Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
  Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');// pagination userdashboard
- Route::get('/lessors', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');//pagination lssordashboard
+ Route::get('/lessors', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');//pagination lessordashboard
  Route::get('/bookings', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');//pagination booking
  Route::get('/products', [ProductDashboardController::class, 'index'])->name('productdashboard.index');//pagination product
+ Route::get('/reviews', [ReviewdashboardController::class, 'index'])->name('reviewdashboard.index');//pagination review
  Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');
+//  Route::get('/products', [ProductDashboardController::class, 'showProducts']);//admin function
+ Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
+//  Route::get('/edit-profile', [AppProfileController::class, 'edit'])->name('edit-profile');
+ Route::post('/profile/update',  [AppProfileController::class, 'update'])->name('update-profile');
+
