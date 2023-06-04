@@ -92,18 +92,21 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
             // Authentication successful, store user data in session
             Auth::login($user);
             $request->session()->regenerate();
+             if(Auth::login($user)){
 
-            // return "yaa";
-            return view('user.profile',['user' => $user]);
 
-        }  //redirect()->intended('/dashboard')
+             }
+            return redirect()->intended('/');
+
+
+        }  
         elseif ($admin) {
             // Authentication successful, store user data in session
             Auth::login($admin);
             $request->session()->regenerate();
-
-            return "yaa2";
-        }
+    
+            return redirect()->intended(route('admin.layout1.index'));
+        }  
          elseif ($lessor){
             Auth::login($lessor);
             $request->session()->regenerate();
@@ -118,6 +121,7 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
     }
 
 
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -128,5 +132,6 @@ $lessor = Lessor::where('email', $credentials['email'])->where('role_id', 3)->fi
 
         return redirect('/');
     }
+
 }
 

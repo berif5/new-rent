@@ -15,7 +15,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 
 
-
 use App\Http\Controllers\Auth\RegistrationController;
 
 use App\Http\Controllers\UserController;
@@ -73,6 +72,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
+
 
 Route::get('/index', function () {
     return view('index');
@@ -97,8 +100,13 @@ Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('less
 
 // Route::get('/user/profile', [UserController::class, 'show'])->name('user.profile');
 
+Route::group(['middleware' => 'user'], function () {
+
+    Route::get('/bookingdashboard', [BookingdashboardController::class, 'index'])->name('bookingdashboard.index');
+    Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
 
 
+});
 
 Route::get('sign', function () {
     return view('sign_user');
@@ -113,6 +121,24 @@ Route::get('sign_lessor', function () {
 
 Route::post('sign_lessor', [RegistrationController::class , 'sign_lessor']);
 
+
+Route::group(['middleware' => 'lessor'], function () {
+    // Lessor routes here
+    Route::get('/lessordashboard', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');
+Route::get('/lessordashboard/{id}', [LessorDashboardController::class, 'show'])->name('lessordashboard.show');
+Route::get('/lessordashboard/{id}/edit', [LessorDashboardController::class, 'edit'])->name('lessordashboard.edit');
+Route::put('/lessordashboard/{id}', [LessorDashboardController::class, 'update'])->name('lessordashboard.update');
+Route::delete('/lessordashboard/{id}', [LessorDashboardController::class, 'destroy'])->name('lessordashboard.destroy');
+
+});
+
+Route::group(['middleware' => 'admin'], function () {
+    // Admin routes here
+    Route::resource('/admin/layout1', AdminController::class)->names([
+        'index' => 'admin.layout1.index'
+    ]);
+});
+
 Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
 Route::get('/index', [ProductController::class, 'index'])->name('index');
@@ -124,20 +150,13 @@ Route::get('/singleproduct/{id}', [ProductController::class, 'show'])->name('sin
 Route::post('/submit-rating', 'ProductController@submitRating');
 Route::post('/get-ratings', 'ProductController@getRatings');
 
-Route::resource('/admin/layout1', AdminController::class)->names([
-    'index' => 'admin.layout1.index'
-]);
+
 Route::get('/userdashboard', [UserDashboardController::class, 'index'])->name('userdashboard.index');
 Route::get('/userdashboard/{id}', [UserDashboardController::class, 'show'])->name('userdashboard.show');
 Route::get('/userdashboard/{id}/edit', [UserDashboardController::class, 'edit'])->name('userdashboard.edit');
 Route::put('/userdashboard/{id}', [UserDashboardController::class, 'update'])->name('userdashboard.update');
 Route::delete('/userdashboard/{id}', [UserDashboardController::class, 'destroy'])->name('userdashboard.destroy');
 // Route::get('/admin', [AdminController::class, 'index'])->name('admin.layout1.index');
-Route::get('/lessordashboard', [LessorDashboardController::class, 'index'])->name('lessordashboard.index');
-Route::get('/lessordashboard/{id}', [LessorDashboardController::class, 'show'])->name('lessordashboard.show');
-Route::get('/lessordashboard/{id}/edit', [LessorDashboardController::class, 'edit'])->name('lessordashboard.edit');
-Route::put('/lessordashboard/{id}', [LessorDashboardController::class, 'update'])->name('lessordashboard.update');
-Route::delete('/lessordashboard/{id}', [LessorDashboardController::class, 'destroy'])->name('lessordashboard.destroy');
 
 Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
 Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
@@ -172,7 +191,6 @@ Route::post('/login', [RegistrationController::class, 'login'])->name('login');
  Route::get('/bookingtdashboard/{id}', [BookingdashboardController::class, 'show'])->name('bookingdashboard.show');
 
 
- Route::post('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
  Route::get('/property/{id}/edit', [PropertyController::class, 'edit'])->name('property.edit');
  Route::delete('/property/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
@@ -183,4 +201,37 @@ Route::post('/property', [PropertyController::class, 'store'])->name('property.s
 
 
 
+
+// productedashboard
+Route::get('/productdashboard', [ProductDashboardController::class, 'index'])->name('productdashboard.index');
+Route::get('/productdashboard/{id}', [ProductDashboardController::class, 'show'])->name('productdashboard.show');
+Route::get('/admin/productdashboard/create', [ProductDashboardController::class, 'create'])->name('productdashboard.create');
+Route::post('/productdashboard', [ProductDashboardController::class, 'store'])->name('productdashboard.store');
+Route::get('/productdashboard/{id}/edit', [ProductDashboardController::class, 'edit'])->name('productdashboard.edit');
+Route::put('/productdashboard/{id}', [ProductDashboardController::class, 'update'])->name('productdashboard.update');
+Route::delete('/productdashboard/{id}', [ProductDashboardController::class, 'destroy'])->name('productdashboard.destroy');
+Route::get('/admin/productdashboard', [ProductDashboardController::class, 'index'])->name('admin.productdashboard.index');
+
+//  Route::get('admin.bookingdashboard.index', function () {
+//     return view('admin.bookingdashboard.index');
+// });
+
+Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
+
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+
+
+
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+ Route::post('/logout', [RegistrationController::class, 'logout']);
+ Route::post('/search', [SearchController::class, 'search'])->name('search');
+ Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+//  Route::get('/singleproduct/{id}', [ProductController::class, 'show']);
+
+
+Route::get('/map', function () {
+    return view('map');
+});
+ Route::get('/users', [UserDashboardController::class, 'index'])->name('userdashboard.index');
 
