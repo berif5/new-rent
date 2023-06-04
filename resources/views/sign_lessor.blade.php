@@ -72,7 +72,7 @@
                             </small>
                         </div>
                         <div class="send_bt">
-                            <button type="submit" class="btn">Send</button>
+                            <button type="submit" class="btn btn-outline-light">Send</button>
                         </div>
                     </form>
                 </div>
