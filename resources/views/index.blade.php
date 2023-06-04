@@ -116,14 +116,8 @@ input[type="range"] {
 
                            Our team of highly skilled professionals is passionate about delivering top-notch rent vehicle that are tailored to suit individual preferences. We believe in fostering long-term relationships with our clients based on trust, reliability, and excellent customer service.
 
-                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers.
+                           At BoSmart, we pride ourselves on our attention to detail and commitment to quality. We continuously stay updated with the latest industry trends and innovations to ensure that we offer cutting-edge solutions to our customers. </p>
 
-                           Whether you're looking for rent, you can rely on us to deliver outstanding results. We prioritize customer satisfaction above all else and are always ready to go the extra mile to ensure that your experience with us is nothing short of exceptional.
-
-                           For more information about our rent vehicle, please don't hesitate to get in touch. We look forward to serving you and exceeding your expectations </p>
-                        <div class="readmore_btn"><a href="#">Read More</a></div>
-                        {{-- <p class="about_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p> --}}
-                        {{-- <div class="readmore_btn"><a href="#">Read More</a></div> --}}
                      </div>
                   </div>
                </div>
