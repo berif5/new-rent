@@ -91,6 +91,7 @@ class PropertyController extends Controller
         'product_name' => 'required',
         'product_description' => 'required',
         'product_price' => 'required',
+        'status' => 'required',
     ]);
 
     $product = Product::findOrFail($id);

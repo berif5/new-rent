@@ -7,9 +7,12 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\Notifiable;
 
 class Lessor extends Model implements Authenticatable
 {
+    use Notifiable;
     use HasFactory;
     use AuthenticatableTrait;
     protected $table = 'lessors';
@@ -53,4 +56,22 @@ class Lessor extends Model implements Authenticatable
 {
     return $this->belongsTo(User::class);
 }
+
+public function unreadNotifications()
+{
+    return $this->morphMany(DatabaseNotification::class, 'notifiable')
+        ->whereNull('read_at');
+}
+
+public function routeNotificationFor($notification)
+{
+    // Return the email address of the lessor
+    // return $this->email;
+}
+public function notifiableType()
+{
+    return 'App\Models\Lessor';
+}
+
+
 }
