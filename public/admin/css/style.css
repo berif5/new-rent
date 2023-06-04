@@ -4370,7 +4370,6 @@ button.close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15%;
   color: #fff;
   text-align: center;
   opacity: 0.5; }

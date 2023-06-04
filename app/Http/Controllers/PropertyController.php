@@ -6,6 +6,7 @@ use App\Models\Lessor;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class PropertyController extends Controller
 {
     /**
@@ -22,45 +23,61 @@ class PropertyController extends Controller
     public function create()
     {
         return view('property.create');
-
     }
 
     /**
      * Store a newly created resource in storage.
-     */
+     */ 
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'product_name' => 'required',
-        'product_description' => 'required',
-        'product_price' => 'required|numeric',
-        'status' => 'required',
-        'product_type' => 'required',
-        'category' => 'required',
-        'image1' => 'required',
-        'image2' => 'required',
-        'image3' => 'required',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'product_name' => 'required',
+            'product_description' => 'required',
+            'product_price' => 'required|numeric',
+            'status' => 'required',
+            'product_type' => 'required',
+            'category' => 'required',
+            'image1' => 'required|image',
+            'image2' => 'required|image',
+            'image3' => 'required|image',
+        ]);
 
-    $product = Product::create([
-        'product_name' => $validatedData['product_name'],
-        'product_description' => $validatedData['product_description'],
-        'product_price' => $validatedData['product_price'],
-        'status' => $validatedData['status'],
-        'product_type' => $validatedData['product_type'],
-        'category_id' => $validatedData['category'],
-        'image1' => $validatedData['image1'],
-        'image2' => $validatedData['image2'],
-        'image3' => $validatedData['image3'],
-        'lessor_id' => Auth::id(),
-    ]);
+        $product = new Product();
+        $product->product_name = $validatedData['product_name'];
+        $product->product_description = $validatedData['product_description'];
+        $product->product_price = $validatedData['product_price'];
+        $product->status = $validatedData['status'];
+        $product->product_type = $validatedData['product_type'];
+        $product->category_id = $validatedData['category'];
+        $product->lessors_id = Auth::id();
 
-    // Perform any additional actions if needed
+        // Image 1
+        $image1 = $request->file('image1');
+        $image1Path = $this->storeImage($image1);
+        $product->image1 = $image1Path;
 
-    return redirect()->route('lessor.index')->with('success', 'Property created successfully.');
-}
+        // Image 2
+        $image2 = $request->file('image2');
+        $image2Path = $this->storeImage($image2);
+        $product->image2 = $image2Path;
 
+        // Image 3
+        $image3 = $request->file('image3');
+        $image3Path = $this->storeImage($image3);
+        $product->image3 = $image3Path;
 
+        $product->save();
+
+        return redirect()->route('lessor.index')->with('success', 'Property created successfully.');
+    }
+
+    private function storeImage($file)
+    {
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . '.' . $extension;
+        $file->move(public_path('images'), $filename);
+        return $filename;
+    }
 
     /**
      * Display the specified resource.
@@ -74,13 +91,13 @@ class PropertyController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit($id)
-{
-    $property = Product::findOrFail($id);
+    {
+        $property = Product::findOrFail($id);
 
-    // Add any additional data that you need to pass to the edit view
+        // Add any additional data that you need to pass to the edit view
 
-    return view('property.edit', compact('property'));
-}
+        return view('property.edit', compact('property'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -94,11 +111,11 @@ class PropertyController extends Controller
         'status' => 'required',
     ]);
 
-    $product = Product::findOrFail($id);
-    $product->update($validatedData);
+        $product = Product::findOrFail($id);
+        $product->update($validatedData);
 
-    return redirect()->route('lessor.index')->with('success', 'Product updated successfully');
-}
+        return redirect()->route('lessor.index')->with('success', 'Product updated successfully');
+    }
 
 
 
@@ -108,13 +125,13 @@ class PropertyController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-{
-    $property = Product::findOrFail($id);
+    {
+        $property = Product::findOrFail($id);
 
-    // Perform any necessary checks or validations before deleting the property
+        // Perform any necessary checks or validations before deleting the property
 
-    $property->delete();
+        $property->delete();
 
-    return redirect()->route('lessor.index')->with('success', 'Property deleted successfully');
-}
+        return redirect()->route('lessor.index')->with('success', 'Property deleted successfully');
+    }
 }
