@@ -2,7 +2,7 @@
 @section('content')
 <style>
    .profile-heading img{ width: 100px; height: 100px;}
-   .profile-heading{margin-top: 15px;}
+   .profile-heading{margin-top: 20px;}
 
         /* Styles for the popup form */
         .modal {
@@ -42,6 +42,11 @@
         }
         .mybutton{background-color: #434960;
         color: #fcf8f1;}
+
+        .pro{display: flex;align-items: center;}
+        /* .pro div p{padding: 0 0 10px 0;} */
+        #myname{text-align: left;
+            margin-left: 5px;}
     </style>
  <script>
     // JavaScript to handle the popup form
@@ -68,10 +73,12 @@
     <div class="container">
         <div class="profile">
             <br> <br>
-            <div class="profile-heading">
+            <div class="profile-heading pro">
                 <img src="{{ $user->image }}" class="profile-img" alt="User Image">
+                <div id="myname">
                 <h1>{{ $user->name }}</h1>
                 <p class="text-muted">{{ $user->email }}</p>
+            </div>
             </div>
 
             <div class="row">
@@ -83,6 +90,8 @@
                         <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li>
                         <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
                         <li class="list-group-item"><strong>Image:</strong> {{ $user->image }}</li>
+                        {{-- <li class="list-group-item"><strong>Password:</strong> {{ $user->password }}</li> --}}
+
 
                         {{-- <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit Profile</a> --}}
                         <button id="openEditProfileModal" class="btn mybutton">Edit Profile</button>
