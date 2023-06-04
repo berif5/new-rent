@@ -144,7 +144,11 @@
                 @foreach($properties as $property)
                 <div class="col-md-4 cardd">
                     <div class="gallery_box">
-                       <div class="gallery_img"><img src="{{ $property->image1 }}" width="100%" height="100%"></div>
+                       <div class="gallery_img">
+                        {{-- <img src="{{ asset('storage/' . $property->image1) }}" width="100%" height="100%"> --}}
+                        <img src="{{ asset('images/' . $property->image1) }}" width="100%" height="100%" />
+                        {{-- <img src="{{ $property->image1 }}" width="100%" height="100%"> --}}
+                    </div>
                        <h3 class="types_text">{{ $property->product_name }}</h3>
                          <p class="looking_text">{{ $property->product_description }}</p>
                          <p class="looking_text">{{ $property->product_price }} JD</p>
@@ -243,7 +247,7 @@ function updateProperty(propertyId) {
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="lessors_id" id="lessors_id" value="{{ $lessor->id }}">
-
+            
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
                     <input type="text" class="form-control" id="product_name" name="product_name" required>
@@ -263,7 +267,7 @@ function updateProperty(propertyId) {
                         <option value="1">Unavailable</option>
                     </select>
                 </div>
-
+            
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category" required>
@@ -272,26 +276,27 @@ function updateProperty(propertyId) {
                         @endforeach
                     </select>
                 </div>
-
+            
                 <div class="form-group">
                     <label for="product_type">Product Type</label>
                     <input type="text" class="form-control" id="product_type" name="product_type" required>
                 </div>
-
+            
                 <div class="form-group">
                     <label for="image1">Image 1</label>
-                    <input type="text" class="form-control" id="image1" name="image1">
+                    <input type="file" class="form-control" id="image1" name="image1">
                 </div>
                 <div class="form-group">
                     <label for="image2">Image 2</label>
-                    <input type="text" class="form-control" id="image2" name="image2">
+                    <input type="file" class="form-control" id="image2" name="image2">
                 </div>
                 <div class="form-group">
                     <label for="image3">Image 3</label>
-                    <input type="text" class="form-control" id="image3" name="image3">
+                    <input type="file" class="form-control" id="image3" name="image3">
                 </div>
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
+            
         </div>
     </div>
 </div>
