@@ -1,6 +1,3 @@
- {{-- @extends('layout1.app')  --}}
-
-{{-- @section('content') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>admin profile</title>
- <link rel="stylesheet" href="{{ asset('admin/profile.css') }}">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('admin/profile.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .newbutton{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <!-- resources/views/profile.blade.php -->
-
-
-
     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
         <div class="card p-4">
             <div class="image d-flex flex-column justify-content-center align-items-center">
-                <button class="btn btn-secondary">
-                    <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
-                </button>
+
+
                 <div>
                     @foreach ($users as $user)
-                     <span class="name mt-3">{{ $user->name }}</span>
+                    <img src="{{ $user->image }}" height="100" width="100" />
+
+                     <div class="name mt-3">{{ $user->name }}</div>
                     </div>
                     <div>
-                    <span class="name mt-3">{{ $user->email }}</span>
+                    <div class="name mt-3">{{ $user->email }}</div>
                     </div>
                 {{-- <span class="idd">@eleanorpena</span> --}}
 
@@ -39,9 +39,34 @@
                 <div class="d-flex flex-row justify-content-center align-items-center mt-3">
                     {{-- <span class="number">1069 <span class="follow">Followers</span></span> --}}
                 </div>
-                <div class="d-flex mt-2">
+                <div class="d-flex mt-2 ">
                     <button class="btn1 btn-dark">Edit Profile</button>
                 </div>
+                <div>
+                     <form action="{{ route('update-profile') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" value="{{ $user->name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Profile Image</label>
+                        <div class="custom-file">
+                            <input type="file" id="image" name="image" class="custom-file-input">
+                            <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group newbutton">
+                        <button type="submit" class="btn1 btn-dark ">Save</button>
+                    </div>
+                </form>
+                </div>
+
                 <div class="text mt-3">
                     {{-- <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br>
                         Artist/ Creative Director by Day #NFT minting@ with FND night. </span> --}}
@@ -52,11 +77,13 @@
                     <span><i class="fa fa-instagram"></i></span>
                     <span><i class="fa fa-linkedin"></i></span>
                 </div>
-
+            @endforeach
             </div>
         </div>
     </div>
 
-@endforeach
- </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
 </html>
