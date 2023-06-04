@@ -77,6 +77,18 @@
     .cardd {
         margin-top: 10px;
     }
+    /* .notification-link {
+    color: blue;
+    font-weight: bold;
+}
+
+.notification-message {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+} */
+/* .notification{display: flex} */
 </style>
 
 <div class="container">
@@ -85,9 +97,6 @@
             <a href="#" id="editProfileBtn">Edit Profile</a>
             <img src="{{ $lessor->image }}" alt="User Image">
             <h2 id="nameField">{{ $lessor->name }}</h2>
-            {{-- <p id="emailField">Email: {{ $lessor->email }}</p>
-            <p id="phoneField">Phone: {{ $lessor->phone_number }}</p>
-            <p id="addressField">Address: {{ $lessor->city }} - {{ $lessor->address }}</p> --}}
 
             {{-- edit profile form --}}
             <form id="editProfileForm" action="{{ route('lessor.update', ['lessor' => $lessor->id]) }}" method="POST" >
@@ -122,10 +131,23 @@
 
 
         <div class="col-md-6 profile">
-            <a href="#" id="editProfileBtn">Your Notifications</a>
-
-
+            <a href="#" class="notification-link">Your Notifications</a>
+            <div id="notificationsContainer">
+                @foreach($notifications as $notification)
+                    <div class="notification">
+                        <p class="notification-message">{{ $notification->data['message'] }}</p>
+                        {{-- <a href="{{ route('markAsRead', $notification->id) }}" class="close-button">&times;</a> --}}
+                    </div>
+                @endforeach
+            </div>
         </div>
+
+
+
+
+
+
+
     </div>
     <div class="row">
 
@@ -140,6 +162,7 @@
             {{-- <ul> --}}
 
                 <div class="row">
+<<<<<<< HEAD
 
                 @foreach($properties as $property)
                 <div class="col-md-4 cardd">
@@ -156,25 +179,85 @@
                             {{-- <a href="{{ route('property.edit', ['id' => $property->id]) }}">Edit</a> --}}
                             <a href="#" data-toggle="modal" data-target="#editPropertyModal{{ $property->id }}">Edit</a>
 
+=======
+                    @foreach($properties as $property)
+                    <div class="col-md-4 cardd">
+                        <div class="gallery_box">
+                            <div class="gallery_img"><img src="{{ $property->image1 }}" width="100%" height="100%"></div>
+                            <h3 class="types_text">{{ $property->product_name }}</h3>
+                            <h3 style="font-weight: bold; color: {{ $property->status == 0 ? 'green' : 'red' }}; text-align: center;">
+                                {{ $property->status ? 'Un-Available' : 'Available' }}
+                            </h3>
+                            {{-- <h3 class="types_text"></h3> --}}
+                            <p class="looking_text">{{ $property->product_description }}</p>
+                            <p class="looking_text">{{ $property->product_price }} JD</p>
+                            <div class="read_bt">
+                                <a href="#" data-toggle="modal" data-target="#editPropertyModal{{ $property->id }}">Edit</a>
+                            </div>
+                            <div class="read_bt">
+                                <a href="#" onclick="event.preventDefault(); deleteProperty({{ $property->id }})">Delete</a>
+                            </div>
+                            <form id="deletePropertyForm" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+>>>>>>> 0083f8e2cca5eae71b390c224fa8b152798795e9
                         </div>
-                        <div class="read_bt">
-                            <a href="#" onclick="event.preventDefault(); deleteProperty({{ $property->id }})">Delete</a>
-                        </div>
-                        <form id="deletePropertyForm" method="POST" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-
                     </div>
-                 </div>
-                <!-- Display more property details as needed -->
-                @endforeach
-            </div>
+                    <!-- Display more property details as needed -->
+
+                    <div class="modal fade" id="editPropertyModal{{ $property->id }}" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel{{ $property->id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editPropertyModalLabel{{ $property->id }}">Edit Property</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Add form fields for editing the property -->
+                                    <form id="editPropertyForm{{ $property->id }}" method="POST" action="{{ route('property.update', ['id' => $property->id]) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <!-- Add form fields for editing the property information -->
+                                        <div>
+                                            <label for="product_name">Product Name:</label>
+                                            <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select class="form-control" id="status" name="status" required>
+                                                <option value="0">Available</option>
+                                                <option value="1">Unavailable</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="product_description">Product Description:</label>
+                                            <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
+                                        </div>
+                                        <div>
+                                            <label for="product_price">Product Price:</label>
+                                            <input type="number" class="form-control" id="product_price" name="product_price" value="{{ $property->product_price }}">
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="mybutton">Save</button>
+                                        <!-- Add more form fields for editing the property as needed -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @endforeach
+                </div>
+
             {{-- </ul> --}}
 
             @endif
         </div>
     </div>
+
 <script>
     function deleteProperty(propertyId) {
         if (confirm('Are you sure you want to delete this property?')) {
@@ -188,46 +271,7 @@
 </script>
 
 <!-- Edit Property Modal -->
-<div class="modal fade" id="editPropertyModal{{ $property->id }}" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel{{ $property->id }}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editPropertyModalLabel{{ $property->id }}">Edit Property</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Add form fields for editing the property -->
-                <form id="editPropertyForm{{ $property->id }}" method="POST" action="{{ route('property.update', ['id' => $property->id]) }}">
-                    @csrf
-                    @method('PUT')
-                    <!-- Add form fields for editing the property information -->
-                    <div>
-                        <label for="product_name">Product Name:</label>
-                        <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
-                    </div>
-                    <div>
-                        <label for="product_description">Product Description:</label>
-                        <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
-                    </div>
-                    <div>
-                        <label for="product_price">Product Price:</label>
-                        <input type="number" class="form-control" id="product_price" name="product_price" value="{{ $property->product_price }}">
-                    </div>
-                    <br>
-                    <button type="submit" class="mybutton">Save</button>
-                    <!-- Add more form fields for editing the property as needed -->
-                </form>
 
-            </div>
-            {{-- <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="event.preventDefault(); updateProperty({{ $property->id }})">Save Changes</button>
-            </div> --}}
-        </div>
-    </div>
-</div>
 
 <!-- JavaScript code -->
 {{-- <script>

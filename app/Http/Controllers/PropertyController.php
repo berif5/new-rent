@@ -103,12 +103,13 @@ class PropertyController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
-        $validatedData = $request->validate([
-            'product_name' => 'required',
-            'product_description' => 'required',
-            'product_price' => 'required',
-        ]);
+{
+    $validatedData = $request->validate([
+        'product_name' => 'required',
+        'product_description' => 'required',
+        'product_price' => 'required',
+        'status' => 'required',
+    ]);
 
         $product = Product::findOrFail($id);
         $product->update($validatedData);

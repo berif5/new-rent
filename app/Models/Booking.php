@@ -29,4 +29,6 @@ class Booking extends Model
     function product(){
         return $this->belongsTo(product::class);
     }
+
+    
 }

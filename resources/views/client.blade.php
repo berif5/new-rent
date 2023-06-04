@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
       <!-- client section start -->
-      <div class="client_section layout_padding">
+      {{-- <div class="client_section layout_padding">
          <div class="container">
             <div id="custom_slider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
@@ -95,6 +95,6 @@
                </a>
             </div>
          </div>
-      </div>
+      </div> --}}
       <!-- client section end -->
      @endsection
