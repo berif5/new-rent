@@ -471,7 +471,7 @@
 
 
 
-                    <div class="row">
+                    {{-- <div class="row">
 
                         @foreach ($reviews as $review)
                         <div class="col-lg-3 col-sm-6">
@@ -497,11 +497,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         @endforeach
 
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="col-lg-12">
@@ -511,7 +511,7 @@
                                         <div class="table-responsive">
                                             <form action="" method="GET">
                                                 <label for="status">Filter by Status:</label>
-                                                <select name="status" id="status">
+                                                <select name="status" id="status" class="form-select">
                                                     <option value="all"
                                                         {{ request('status') == 'all' ? 'selected' : '' }}>All</option>
                                                     <option value="1"
