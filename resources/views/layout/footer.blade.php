@@ -1,7 +1,7 @@
 
       <!-- copyright section start -->
       <div class="copyright_section">
-         <div class="container">
+         <div class="container" style="padding: 7px;">
             <div class="row">
                <div class="col-sm-12">
                   <p class="copyright_text">2023 All Rights Reserved.</p>

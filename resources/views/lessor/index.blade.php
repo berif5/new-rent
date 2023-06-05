@@ -159,16 +159,13 @@
             @if ($properties->isEmpty())
             <p class="no-properties">You have no properties.</p>
             @else
-            {{-- <ul> --}}
 
                 <div class="row">
                     @foreach($properties as $property)
                     <div class="col-md-4 cardd">
                         <div class="gallery_box">
-                            <div class="gallery_img">
-                                <img src="{{ asset('images/' . $property->image1) }}" width="100%" >
-                              </div>
-                              <h3 class="types_text">{{ $property->product_name }}</h3>
+                            <img src="{{ asset('images/' . $property->image1) }}" style="height: 250px; margin:auto;">
+                            <h3 class="types_text">{{ $property->product_name }}</h3>
                             <h3 style="font-weight: bold; color: {{ $property->status == 0 ? 'green' : 'red' }}; text-align: center;">
                                 {{ $property->status ? 'Un-Available' : 'Available' }}
                             </h3>

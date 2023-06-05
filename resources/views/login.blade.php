@@ -47,11 +47,11 @@
 				<div class="d-flex justify-content-center">
                     <form class="login100-form validate-form" action="login" method="POST">
                       @csrf
-                      <div class="wrap-input100 validate-input m-b-26">
+                      {{-- <div class="wrap-input100 validate-input m-b-26">
                         <div class="label-input100">Username</div> <br>
                         <input class="input100" type="text" name="name" placeholder="Enter name">
                         <span class="focus-input100"></span>
-                      </div>
+                      </div> --}}
 
                       <div class="wrap-input100 validate-input m-b-18">
                         <div class="label-input100">Email</div> <br>
@@ -59,6 +59,17 @@
                         <span class="focus-input100"></span>
                       </div>
 
+                      <div class="wrap-input100 validate-input m-b-26">
+                        <div class="label-input100">Password</div> <br>
+                        <input class="input100" type="password" name="password" placeholder="Enter password">
+                        <span class="focus-input100"></span>
+                      </div>
+                      @error('email')
+                      <div class="text-red-500 mt-2 text-sm">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                    <br>
                       <div class="d-flex justify-content-center container-login100-form-btn">
                         <button class="login100-form-btn">
                           Login

@@ -305,8 +305,8 @@ button {
     float: right;
     background-image: url(../images/banner-bg.png);
     height: auto;
-    background-size: 100%;
-    padding: 300px 0px 160px 0px;
+    background-size: cover;
+    padding: 175px 0px 175px 0px;
 
 }
 
@@ -410,7 +410,7 @@ button {
 .about_section {
     width: 100%;
     float: left;
-    padding: 90px 0px;
+    padding: 150px 0px;
 }
 
 .about_section_2 {
@@ -600,17 +600,20 @@ span.current {
     width: 100%;
     float: left;
     min-height: 182px;
-    height: 200px;
+    height: 250px;
 }
 
 .gallery_box {
     width: 100%;
-    float: left;
+    /* float: left; */
     background-color: #ffffff;
     height: auto;
     padding: 15px 15px;
     margin: 5px;
     box-shadow: 0px 0px 6px 6px #f4f3f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .gallery_box:hover {
     box-shadow: 0px 0px 0px 0px;
@@ -862,7 +865,7 @@ span.current {
     background-color: #007495;
     border-top-left-radius: 540px;
     border-top-right-radius: 540px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .padding_left_0 {
