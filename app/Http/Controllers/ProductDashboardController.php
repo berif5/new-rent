@@ -46,7 +46,7 @@ public function store(Request $request)
     $product->status = $request->input('status');
     $product->product_type = $request->input('product_type');
     $product->category_id = $request->input('category');
-    $product->lessor_id = $request->input('lessors_id');
+    $product->lessor_id = $request->input('lessor_id');
 
 
     $product->save();
@@ -62,7 +62,7 @@ public function store(Request $request)
         $categories = Category::all();
         return view('admin.productdashboard.edit', compact('product', 'categories'));
     }
-    
+
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
