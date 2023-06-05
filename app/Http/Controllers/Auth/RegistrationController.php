@@ -76,9 +76,9 @@ class RegistrationController extends Controller
 
     public function login(Request $request){
         $credentials = $request->validate([
-            // 'name' => 'required',
+            'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            // 'password' => 'required',
 
         ]);
 

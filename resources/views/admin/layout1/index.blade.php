@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="drop-down animated flipInX d-md-none">
-                          
+
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,6 @@
 
 
 
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -227,7 +226,7 @@
                                         <div class="table-responsive">
                                             <form action="" method="GET">
                                                 <label for="status">Filter by Status:</label>
-                                                <select name="status" id="status">
+                                                <select name="status" id="status" class="form-select">
                                                     <option value="all"
                                                         {{ request('status') == 'all' ? 'selected' : '' }}>All</option>
                                                     <option value="1"
