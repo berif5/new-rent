@@ -19,7 +19,7 @@ class Product extends Model
         'image1',
         'image2',
         'image3',
-        'lessor_id', // Updated the foreign key column name to match the relationship
+        'lessors_id', // Updated the foreign key column name to match the relationship
     ];
 
     protected $primaryKey = 'id';
