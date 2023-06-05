@@ -35,22 +35,22 @@ class ProductDashboardController extends Controller
     }
 
     public function create()
-    {
-        $lessors = Lessor::all();
-        $categories = Category::all();
-        $product = new Product();
-        return view('admin.productdashboard.create', compact('product', 'categories'));
-    }
-    public function store(Request $request)
-    {
-        $product = new Product();
-        $product->product_name = $request->input('product_name');
-        $product->product_description = $request->input('product_description');
-        $product->product_price = $request->input('product_price');
-        $product->status = $request->input('status');
-        $product->product_type = $request->input('product_type');
-        $product->category_id = $request->input('category');
-        $product->lessor_id = $request->input('lessors_id');
+{
+    $lessors = Lessor::all();
+    $categories = Category::all();
+    $product = new Product();
+    return view('admin.productdashboard.create', compact('product', 'categories'));
+}
+public function store(Request $request)
+{
+    $product = new Product();
+    $product->product_name = $request->input('product_name');
+    $product->product_description = $request->input('product_description');
+    $product->product_price = $request->input('product_price');
+    $product->status = $request->input('status');
+    $product->product_type = $request->input('product_type');
+    $product->category_id = $request->input('category');
+    $product->lessor_id = $request->input('lessors_id');
 
 
         $product->save();

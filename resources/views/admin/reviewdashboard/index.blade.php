@@ -24,7 +24,7 @@
                             <td>{{ $review->user_id }}</td>
                             <td>{{ $review->product_id }}</td>
                             <td>{{ $review->comment }}</td>
-                            <td>⭐{{ $review->rating }}</td>
+                            <td>{{ $review->rating }}</td>
                             {{-- <td>{{ $user->password }}</td> --}}
                             <td>
                                 <a href="{{ route('reviewdashboard.show', $review->id) }}" class="btn btn-primary">View</a>
@@ -47,3 +47,4 @@
 </div>
 
 @endsection
+
