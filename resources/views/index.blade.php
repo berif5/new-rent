@@ -204,13 +204,6 @@ input[type="range"] {
                             </div>
                             <h3 class="types_text">{{ $product->product_name }}</h3>
                             <p class="looking_text">Start per day ${{ $product->product_price }}</p>
-                            <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; text-align: center;">
-                                @if ($product->status == 0)
-                                Available
-                                @else
-                                Unavailable
-                                @endif
-                            </p>
                             <div class="read_bt">
                                 <a href="{{ route('singleproduct', $product->id) }}">See the details</a>
                             </div>
