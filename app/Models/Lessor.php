@@ -113,7 +113,7 @@ public function bookings()
         $bookings = $this->bookings()
             ->where('booking_status', 'pending')
             ->whereHas('product', function ($query) {
-                $query->where('lessor_id', $this->id);
+                $query->where('lessors_id', $this->id);
             })
             ->get();
 

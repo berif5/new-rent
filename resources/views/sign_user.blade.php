@@ -64,6 +64,7 @@
                         </div>
 
                     </form>
+                    <a href="sign_lessor" class="link-light">Do you want Sign as a Lessor?</a>
                 </div>
             </div>
         </div>

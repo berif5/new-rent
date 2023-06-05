@@ -96,7 +96,13 @@
                                     {{ $comment->comment }}
                                 </div>
                                 <div class="box-border mt-5 text-lg font-semibold text-indigo-900 uppercase">
-                                    Rating: <strong>{{ $comment->rating }}</strong> ⭐
+                                    Rating:  @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $comment->rating)
+                                    ⭐
+                                    @else
+                                    ★
+                                    @endif
+                                @endfor 
                                     @auth
                                         @if(auth()->user()->id == $comment->user_id || auth()->user()->role->name == 'admin' )
                                             <a wire:click.prevent="delete({{ $comment->id }})" class="text-sm cursor-pointer">Delete</a>

@@ -77,6 +77,7 @@
                             <button type="submit" class="btn btn-outline-light">Send</button>
                         </div>
                     </form>
+                    <a href="sign" class="link-light">Do you want Sign as a User?</a>
                 </div>
             </div>
         </div>

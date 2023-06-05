@@ -23,12 +23,12 @@ class LessorController extends Controller
 
     $lessor = Lessor::where('id', $lessor)->first(); // Retrieve the lessor record based on the lessor ID
     if ($lessor) {
-        $properties = Product::where('lessor_id', $lessor->id)->get();
+        $properties = Product::where('lessors_id', $lessor->id)->get();
         $categories = Category::all();
         $notifications = $lessor->unreadNotifications;
-        // $lessor->notifyBooking();
+        $lessor->notifyBooking();
 
-        //  dd($categories);
+        // //  dd($categories);
         // Notification::send($lessor, new NewNotification());
 
         return view('lessor.index', compact('lessor', 'properties', 'categories','notifications'));

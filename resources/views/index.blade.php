@@ -206,10 +206,15 @@ input[type="range"] {
                     @foreach ($products as $product)
                     <div class="col-md-4">
                         <div class="gallery_box" style="height: 500px; margin:10px;">
+<<<<<<< HEAD
                             <div class="gallery_img" style="padding: 3px;">
                                 {{-- <img id="image_product" src="{{ $product->image1 }}" style="width: 100%; height: 250px;"> --}}
                                 <img id="image_product" src="{{ asset('images/' . $product->image1) }}" >
 
+=======
+                            <div class="gallery_img">
+                                <img id="image_product" src="{{ asset('images/'. $product->image1) }}" style="width: 100%; height: 250px;">
+>>>>>>> da60e6b9a9a7c251e030d0996d5e8fc81f613bce
                             </div>
                             <h3 class="types_text">{{ $product->product_name }}</h3>
                             <p class="looking_text">Start per day ${{ $product->product_price }}</p>
@@ -226,8 +231,13 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
+<<<<<<< HEAD
                     @endif
                     {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
+=======
+                    {{-- <div>{{ $products->links('pagination::bootstrap-4') }}</div> --}}
+
+>>>>>>> da60e6b9a9a7c251e030d0996d5e8fc81f613bce
                 </div>
 
             </div>
