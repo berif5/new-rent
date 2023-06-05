@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Rating;
 
 use Illuminate\Http\Request;
 use App\Models\Review;
@@ -9,15 +10,15 @@ class ReviewdashboardController extends Controller
 {
     public function index()
     {
-        $reviews = Review::all();
-        $reviews = Review::paginate(4);
+        $reviews = Rating::all();
+        $reviews = Rating::paginate(4);
          $user = User::all();
         return view('admin.reviewdashboard.index', compact('reviews','user'));
     }
 
     public function show($id)
     {
-        $review = Review::findOrFail($id);
+        $review = Rating::findOrFail($id);
         $user = User::findOrFail($review->user_id); // Assuming the user_id is stored in the review model
 
         return view('admin.reviewdashboard.show', compact('review', 'user'));
@@ -26,7 +27,7 @@ class ReviewdashboardController extends Controller
 
     public function destroy($id)
     {
-        $review = Review::findOrFail($id);
+        $review = Rating::findOrFail($id);
         $review->delete();
 
         return redirect()->route('reviewdashboard.index')->with('success', 'Comment deleted successfully');
