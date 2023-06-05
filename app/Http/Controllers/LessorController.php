@@ -23,7 +23,7 @@ class LessorController extends Controller
 
     $lessor = Lessor::where('id', $lessor)->first(); // Retrieve the lessor record based on the lessor ID
     if ($lessor) {
-        $properties = Product::where('lessors_id', $lessor->id)->get();
+        $properties = Product::where('lessor_id', $lessor->id)->get();
         $categories = Category::all();
         $notifications = $lessor->unreadNotifications;
         // $lessor->notifyBooking();q

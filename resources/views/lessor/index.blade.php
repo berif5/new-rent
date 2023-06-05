@@ -338,7 +338,7 @@ function updateProperty(propertyId) {
 
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
-
+        </div>
         </div>
     </div>
 </div>
