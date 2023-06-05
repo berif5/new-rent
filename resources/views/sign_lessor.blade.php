@@ -7,6 +7,8 @@
             <div class="col-md-12">
                 <div class="mail_section_1">
                     <form action="sign_lessor" method="POST">
+                        <h2 style="text-align: center; color:white;">Lessor Sign up</h2>
+
                         @csrf
                         <div class="form-group">
                             <label for="name" class="text-light">Name:</label>

@@ -26,7 +26,9 @@ class RegistrationController extends Controller
 
         $user->name = $req->input('name');
         $user->email = $req->input('email');
-        $user->password = Hash::make($req->password);
+        $user->password = $req->input('password');
+
+        // $user->password = Hash::make($req->password);
 
 
 
@@ -69,13 +71,15 @@ class RegistrationController extends Controller
 
         $lessor->save();
         // dd(redirect('index'));
-        return redirect('lessor.index');
+        return redirect('/lessor');
     }
 
     public function login(Request $request){
         $credentials = $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'email' => 'required|email',
+            'password' => 'required',
+
         ]);
 
 
@@ -116,6 +120,29 @@ class RegistrationController extends Controller
         ]);
     }
 
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     if (Auth::attempt($credentials)) {
+    //         $user = Auth::user();
+
+    //         if ($user->role_id == 1) {
+    //             return redirect()->intended('/');
+    //         } elseif ($user->role_id == 2) {
+    //             return redirect()->intended('/admin/layout1');
+    //         } elseif ($user->role_id == 3) {
+    //             return redirect()->intended('/lessor');
+    //         }
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'Email or Password is not correct.',
+    //     ]);
+    // }
 
 
     public function logout(Request $request)

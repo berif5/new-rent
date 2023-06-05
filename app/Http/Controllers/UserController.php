@@ -36,7 +36,8 @@ public function update(Request $request, $id)
         'address' => 'required',
         'phone' => 'required',
         'email'=>'required',
-        'image'=>'required'
+        'image' => 'image',
+        'password'=>'required',
     ]);
 
     // Find the user by ID
@@ -47,14 +48,33 @@ public function update(Request $request, $id)
     $user->address = $request->input('address');
     $user->phone = $request->input('phone');
     $user->email = $request->input('email');
-    $user->image = $request->input('image');
+    // $user->image = $request->input('image');
+    $user->password = $request->input('password');
+// Handle the image upload
+// if ($request->hasFile('image')) {
+//     $image = $request->file('image');
+//     $filename = time() . '_' . $image->getClientOriginalName();
+//     $image->move(public_path('images'), $filename);
+
+//     // Save the image file path or filename to the user model
+//     $user->image = 'images/' . $filename;
+// }
+$image = $request->file('image');
+$imagePath = $this->storeImage($image);
+$user->image = $imagePath;
 
     $user->save();
 
     // Redirect back to the profile page
     return redirect()->route('user.profile', ['id' => $id])->with('success', 'Profile updated successfully.');
 }
-
+private function storeImage($file)
+    {
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . '.' . $extension;
+        $file->move(public_path('images'), $filename);
+        return $filename;
+    }
 
 }
 
