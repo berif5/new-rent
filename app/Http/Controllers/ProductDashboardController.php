@@ -62,7 +62,7 @@ public function store(Request $request)
         $categories = Category::all();
         return view('admin.productdashboard.edit', compact('product', 'categories'));
     }
-
+    
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
