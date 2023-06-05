@@ -217,28 +217,11 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <div>{{ $products->links('pagination::bootstrap-4') }}</div>
-=======
-<<<<<<< HEAD
                     @endif
-                    {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
-=======
-                    {{-- <div>{{ $products->links('pagination::bootstrap-4') }}</div> --}}
->>>>>>> 69262e948d2586e13d0050fbbe63f55d73f8c010
-
->>>>>>> da60e6b9a9a7c251e030d0996d5e8fc81f613bce
-=======
-                    @endif
-                    {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
->>>>>>> f99d914f402e1a68040c58bbc4cb0bc843ebff18
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
 
