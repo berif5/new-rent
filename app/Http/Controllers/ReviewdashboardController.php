@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Rating;
 
 use Illuminate\Http\Request;
-use App\Models\Review;
+use App\Models\Rating;
 use App\Models\User;
 class ReviewdashboardController extends Controller
 {
