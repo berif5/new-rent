@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Lessor;
 use App\Models\Product;
 use App\Models\Review;
@@ -19,12 +20,13 @@ class AdminController extends Controller
         $productCount = Product::count();
         $lessorCount = Lessor::count();
         $userCount = User::count();
-        $categoryCount = User::count();
-        $users = User::paginate(4);
+        $bookingCount = Booking::count();
+        $users = User::where('role_id', 1)->paginate(4);
         $lessors = Lessor::paginate(4);
         $products = Product::paginate(4);
+        $bookings=Booking::paginate(4);
 
-        return view('admin.layout1.index', compact('reviews','products','productCount','lessorCount','userCount','categoryCount','users','lessors'));
+        return view('admin.layout1.index', compact('reviews','products','productCount','lessorCount','userCount','bookingCount','users','lessors','bookings'));
     }
 
 
