@@ -36,7 +36,7 @@ class ProductController extends Controller
         $products = $query->get();
         $categories = Category::all();
 
-        return view('vehicle', compact('products','categories'));
+        return view('/', compact('products','categories'));
     }
 
     public function singleproduct($product_id)
