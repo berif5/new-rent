@@ -31,11 +31,13 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html">
-                    <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
-                    {{-- <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span> --}}
-                    {{-- <span class="brand-title">
+                    {{-- <b class="logo-abbr">
+                        <img src="images/logo.png" alt=""> </b> --}}
+                   {{-- <span class="logo-compact"> --}}
+                    {{-- <img src="./images/logo-compact.png" alt=""></span> --}}
+                     <span class="brand-title">
                         <img src="images/logo.png" alt="" width="150px">
-                    </span> --}}
+                    </span>
                 </a>
             </div>
         </div>
@@ -228,6 +230,10 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{$user->phone}}</td>
+
+
+
+
                                             <td>{{ $user->address }}</td>
                                             {{-- <td>{{ $user->password }}</td> --}}
                                             <td><img src="{{ asset('images/' . $user->image) }}" alt="" style="width: 75px; height: 75px;"></td>
@@ -235,8 +241,8 @@
 
                                             {{-- <td><img src="{{ $user->image }}" alt="user img" width="50px" height="50px"></td> --}}
                                             <td>
-                                                <a href="{{ route('userdashboard.show', $user->id) }}" class="btn btn-primary">View</a>
-                                                <a href="{{ route('userdashboard.edit', $user->id) }}" class="btn btn-success">Edit</a>
+                                                <a href="{{ route('userdashboard.show', $user->id) }}" class="btn text-white"   style="background-color: #007495 "> View</a>
+                                                <a href="{{ route('userdashboard.edit', $user->id) }}" class="btn text-white"  style="background-color:#273f54">Edit</a>
                                                 <form action="{{ route('userdashboard.destroy', $user->id) }}" method="POST" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
@@ -286,8 +292,8 @@
                                             <td><img src="{{ $lessor->image }}" alt="user img" style="width: 75px; height: 75px;" ></td>
 
                                             <td>
-                                                <a href="{{ route('lessordashboard.show', $lessor->id) }}" class="btn btn-primary">View</a>
-                                                <a href="{{ route('lessordashboard.edit', $lessor->id) }}" class="btn btn-success">Edit</a>
+                                                <a href="{{ route('lessordashboard.show', $lessor->id) }}" class="btn text-white"  style="background-color: #007495 ">View</a>
+                                                <a href="{{ route('lessordashboard.edit', $lessor->id) }}" class="btn text-white" style="background-color:#273f54">Edit</a>
                                                 <form action="{{ route('lessordashboard.destroy', $lessor->id) }}" method="POST" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
@@ -348,8 +354,8 @@
                           <td><img src="{{ asset('images/' . $product->image1) }}" alt="product image" style="width: 75px; height: 75px;" ></td>
 
                           <td>
-                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
-                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn text-white"   style="background-color: #007495 ">View</a>
+                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn text-white"  style="background-color:#273f54">Edit</a>
                               <form action="{{ route('productdashboard.destroy', $product->id) }}" method="POST" style="display: inline">
                                   @csrf
                                   @method('DELETE')
@@ -398,8 +404,8 @@
                           <td>{{ $booking->total_price }}</td>
 
                           <td>
-                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
-                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn text-white"  style="background-color: #007495 ">View</a>
+                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn text-white"  style="background-color:#273f54">Edit</a>
                               <form action="{{ route('productdashboard.destroy', $product->id) }}" method="POST" style="display: inline">
                                   @csrf
                                   @method('DELETE')
