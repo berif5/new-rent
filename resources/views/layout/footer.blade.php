@@ -1,7 +1,7 @@
 
       <!-- copyright section start -->
       <div class="copyright_section">
-         <div class="container" style="padding: 7px;">
+         <div class="container" ">
             <div class="row">
                <div class="col-sm-13">
                   <div class="logo_footer">
