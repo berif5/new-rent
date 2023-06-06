@@ -33,22 +33,16 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ $product->product_name }}</h1>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <b> {{ $product->product_name }} </b></h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
             <p class="lead">{{ $product->product_description }}</p>
 
-            <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; ">
-                @if ($product->status == 0)
-                    Available
-                @else
-                    Unavailable
-                @endif
-            </p>
 
-            @if ($product->status == 0)
-                @guest
+
+
+                {{-- @guest
                     <p>Please <a href="{{ route('login') }}">login</a> to book this product.</p>
-                @else
+                @else --}}
                     <form method="POST" action="{{ route('booking.store') }}" style="max-width: 400px; margin: 10px auto;">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
@@ -133,11 +127,11 @@
 
                         <button  type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
                     </form>
-                @endguest
-            @endif
+
+
             @livewireScripts
 
-            {{-- لما يزبط السيشن يفترض هاي تشتغل --}}
+
             @if (session('success'))
         <script>
             window.onload = function() {

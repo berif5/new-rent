@@ -52,10 +52,10 @@ public function update(Request $request, Lessor $lessor)
 
         $lessor->update($validatedData);
         // Notification::send($lessor, new NewNotification());
-        $lessor->unreadNotifications()->create([
-            'type' => NewNotification::class,
-            'data' => ['message' => 'Your profile has been updated.'],
-        ]);
+        // $lessor->unreadNotifications()->create([
+        //     'type' => NewNotification::class,
+        //     'data' => ['message' => 'Your profile has been updated.'],
+        // ]);
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }

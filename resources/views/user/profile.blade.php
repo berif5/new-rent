@@ -87,10 +87,27 @@
                     <h2 class="info-label">Customer Information</h2>
 
                     <ul class="list-group">
-                        <li class="list-group-item"><strong>Address:</strong> {{ $user->address }}</li>
-                        <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li>
+                        {{-- <li class="list-group-item"><strong>Address:</strong> {{ $user->address }}</li> --}}
+                        <li class="list-group-item">
+                            <strong>Address:</strong>
+                            <?php if (!empty($user->address)): ?>
+                                {{ $user->address }}
+                            <?php else: ?>
+                                Add your address
+                            <?php endif; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Phone:</strong>
+                            <?php if (!empty($user->phone)): ?>
+                                {{ $user->phone }}
+                            <?php else: ?>
+                                Add your phone numbers
+                            <?php endif; ?>
+                        </li>
+
+                        {{-- <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li> --}}
                         <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
-                        <li class="list-group-item"><strong>Image:</strong> upload new image </li>
+                        <li class="list-group-item"><strong>Image:</strong> update your profile image </li>
                         <li class="list-group-item"><strong>Change Password:</strong> ********** </li>
 
 
@@ -110,7 +127,7 @@
                                 <th>Product</th>
                                 <th>Date</th>
                                 <th>Price</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                             </tr>
                         </thead>
 
@@ -123,7 +140,7 @@
 
                                     <td>{{ $booking->start_date }}</td>
                                     <td>{{ $booking->total_price }} JD</td>
-                                    <td>{{ $booking->booking_status }}</td>
+                                    {{-- <td>{{ $booking->booking_status }}</td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

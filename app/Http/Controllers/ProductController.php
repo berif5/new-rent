@@ -60,7 +60,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = \App\Models\Product::findOrFail($id);
+        $product = Product::findOrFail($id);
         return view('singleproduct', compact('product'));
     }
     // public function submitRating(Request $request)

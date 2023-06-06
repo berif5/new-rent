@@ -207,33 +207,21 @@ input[type="range"] {
                     <div class="col-md-4">
                         <div class="gallery_box" style="height: 500px; margin:10px;">
                             <div class="gallery_img" style="padding: 3px;">
-                                {{-- <img id="image_product" src="{{ $product->image1 }}" style="width: 100%; height: 250px;"> --}}
-                                <img id="image_product" src="{{ asset('images/' . $product->image1) }}" >
-
+                                <img id="image_product" src="{{ asset('images/'. $product->image1) }}" style="width: 100%; height: 250px;">
                             </div>
                             <h3 class="types_text">{{ $product->product_name }}</h3>
                             <p class="looking_text">Start per day ${{ $product->product_price }}</p>
-                            <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; text-align: center;">
-                                @if ($product->status == 0)
-                                Available
-                                @else
-                                Unavailable
-                                @endif
-                            </p>
                             <div class="read_bt">
                                 <a href="{{ route('singleproduct', $product->id) }}">See the details</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
+                    <div>{{ $products->links('pagination::bootstrap-4') }}</div>
                     @endif
-                    {{-- <div>  {{ $products->links('pagination::bootstrap-4') }} </div> --}}
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
 

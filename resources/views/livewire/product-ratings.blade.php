@@ -86,45 +86,53 @@
                 </div>
                 <div class="box-border flex grid flex-wrap justify-center gap-10 -mx-4 text-center text-indigo-900 lg:gap-16 lg:justify-start lg:text-left">
                     @forelse ($comments as $comment)
-                        <div class="flex col-span-1">
-                            <div class="relative flex-shrink-0 w-20 h-20 text-left">
-                                <a href="{{ '@' . $comment->user->name }}">
+                    <div  class="flex col-span-1" >
+
+                        <div class="relative flex-shrink-0 w-20 h-20 text-left">
+                            <img src="{{ $comment->user->image }}" alt="">
+                            {{-- <a href="{{ '@' . $comment->user->image }}"> --}}
+                            {{-- </a> --}}
+                        </div>
+                        <div class="relative flex-shrink-0 w-20 h-20 text-left">
+                            <a href="{{ '@' . $comment->user->name }}">
+                            </a>
+                        </div>
+                        <div class="relative px-4 mb-16 leading-6 text-left">
+
+
+                            <div class="box-border text-left text-gray-700" style="quotes: auto;">
+                                <a href="{{ '@' . $comment->user->username }}">
+                                    {{  $comment->user->name }}
                                 </a>
                             </div>
-                            <div class="relative px-4 mb-16 leading-6 text-left">
-                                <div class="box-border text-lg font-medium text-gray-600">
-                                    {{ $comment->comment }}
-                                </div>
-                                <div class="box-border mt-5 text-lg font-semibold text-indigo-900 uppercase">
-                                    Rating:  @for ($i = 1; $i <= 5; $i++)
-                                    @if ($i <= $comment->rating)
-                                    ⭐
-                                    @else
-                                    ★
+                             <div class="box-border mt-5 text-lg font-semibold text-indigo-900 uppercase">
+                                Rating:  @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $comment->rating)
+                                ⭐
+                                @else
+                                ★
+                                @endif
+                            @endfor
+                                @auth
+                                    @if(auth()->user()->id == $comment->user_id || auth()->user()->role->name == 'admin' )
+                                        <a wire:click.prevent="delete({{ $comment->id }})" class="text-sm cursor-pointer">Delete</a>
                                     @endif
-                                @endfor 
-                                    @auth
-                                        @if(auth()->user()->id == $comment->user_id || auth()->user()->role->name == 'admin' )
-                                            <a wire:click.prevent="delete({{ $comment->id }})" class="text-sm cursor-pointer">Delete</a>
-                                        @endif
-                                    @endauth
-                                </div>
-                                <div class="box-border text-left text-gray-700" style="quotes: auto;">
-                                    <a href="{{ '@' . $comment->user->username }}">
-                                        {{  $comment->user->name }}
-                                    </a>
-                                </div>
+                                @endauth
                             </div>
-                        </div>
-                    @empty
-                    <div class="flex col-span-1">
-                        <div class="relative px-4 mb-16 leading-6 text-left">
-                            <div class="box-border text-lg font-medium text-gray-600">
-                                No ratings
+                             <div class="box-border text-lg font-medium text-gray-600">
+                                {{ $comment->comment }}
                             </div>
                         </div>
                     </div>
-                    @endforelse
+                @empty
+                <div class="flex col-span-1">
+                    <div class="relative px-4 mb-16 leading-6 text-left">
+                        <div class="box-border text-lg font-medium text-gray-600">
+                            No ratings
+                        </div>
+                    </div>
+                </div>
+                @endforelse
 
                 </div>
         </section>

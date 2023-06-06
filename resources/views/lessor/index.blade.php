@@ -5,9 +5,6 @@
     .profile {
         margin-top: 20px;
         margin-bottom: 20px;
-
-        /* box-shadow: 5px 10px #999; */
-        /* border: 1px solid gray; */
     }
 
     .profile h2 {
@@ -28,24 +25,27 @@
         border-radius: 50%;
         margin-bottom: 10px;
     }
-    .profile a , .properties a , .mybutton{
+
+    #editProfileBtn,
+    .properties a,
+    .mybutton,
+    .notification-link {
         width: 100%;
-    float: left;
-    font-size: 18px;
-    background-color: #007495;
-    color: #fcf8f8;
-    text-align: center;
-    padding: 10px;
+        float: left;
+        font-size: 18px;
+        background-color: #007495;
+        color: #fcf8f8;
+        text-align: center;
+        padding: 10px;
     }
 
     .properties {
         margin-top: 20px;
         margin-bottom: 20px;
-        /* border: 1px solid gray; */
-
     }
 
-    .properties h3 , .profile h3 {
+    .properties h3,
+    .profile h3 {
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 10px;
@@ -74,22 +74,72 @@
     .modal-content {
         padding: 20px;
     }
+
     .cardd {
         margin-top: 10px;
     }
-    /* .notification-link {
-    color: blue;
-    font-weight: bold;
-}
 
-.notification-message {
-    background-color: yellow;
-    padding: 10px;
-    border: 1px solid black;
-    margin-bottom: 5px;
-} */
-/* .notification{display: flex} */
+    .notification-link {
+        margin-bottom: 5px;
+    }
+
+    #notificationsContainer {
+        margin-top: 10px;
+    }
+
+    .notification {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .notification-message {
+        color: #333;
+        font-size: 14px;
+    }
+
+    /* .close-button,
+    #close {
+        color: #999;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        float: right;
+
+    } */
+
+    .toast {
+        position: relative;
+        margin-bottom: 10px;
+        width: 100%;
+        background-color: #f8f9fa;
+        color: #212529;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .toast .toast-body {
+        margin-bottom: 0;
+    }
+
+    .btn-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.5rem 0.75rem;
+        /* height: 100%; */
+        background-color: #f8f9fa;
+    }
+
 </style>
+
+
 
 <div class="container">
     <div class="row">
@@ -134,30 +184,41 @@
             <a href="#" class="notification-link">Your Notifications</a>
             <div id="notificationsContainer">
                 @foreach($notifications as $notification)
-                    <div class="notification">
-                        <p class="notification-message">{{ $notification->data['message'] }}</p>
-                        {{-- <a href="{{ route('markAsRead', $notification->id) }}" class="close-button">&times;</a> --}}
+                <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ $notification->data['message'] }}
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" aria-label="Close">&times;</button>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
 
 
-
-
-
-
-
     </div>
+
+
+
+
+
+
+
+
     <div class="row">
 
         <div class="col-md-12 properties">
 
             <h3>Your Properties</h3>
-            <a href="#" data-toggle="modal" data-target="#editProfileModal">Add New Property</a>
+
+            {{-- <a href="#" data-toggle="modal" data-target="#editProfileModal">Add New Item</a> --}}
+            {{-- <br> --}}
+            <button type="button" class="btn  mybutton" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Nwe Item</button>
+
 
             @if ($properties->isEmpty())
-            <p class="no-properties">You have no properties.</p>
+            <p class="no-properties">You have no items.</p>
             @else
 
                 <div class="row">
@@ -166,9 +227,7 @@
                         <div class="gallery_box">
                             <img src="{{ asset('images/' . $property->image1) }}" style="height: 250px; margin:auto;">
                             <h3 class="types_text">{{ $property->product_name }}</h3>
-                            <h3 style="font-weight: bold; color: {{ $property->status == 0 ? 'green' : 'red' }}; text-align: center;">
-                                {{ $property->status ? 'Un-Available' : 'Available' }}
-                            </h3>
+
                             {{-- <h3 class="types_text"></h3> --}}
                             <p class="looking_text">{{ $property->product_description }}</p>
                             <p class="looking_text">{{ $property->product_price }} JD</p>
@@ -264,10 +323,14 @@ function updateProperty(propertyId) {
 
 
 <!-- add property Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <h3>Add New Property</h3>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Property</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
             <form action="{{ route('property.store', ['lessor' => $lessor->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="lessors_id" id="lessors_id" value="{{ $lessor->id }}">
@@ -307,7 +370,7 @@ function updateProperty(propertyId) {
                 </div>
 
                 <div class="form-group">
-                    <label for="image1">Image 1</label>
+                    <label for="image11">Image 1</label>
                     <div class="custom-file">
                       <input type="file" id="image1" name="image1" class="custom-file-input" onchange="displayFileName('image1')">
                       <label class="custom-file-label" for="image1">Choose file</label>
@@ -316,7 +379,7 @@ function updateProperty(propertyId) {
                   </div>
 
                   <div class="form-group">
-                    <label for="image2">Image 2</label>
+                    <label for="image22">Image 2</label>
                     <div class="custom-file">
                       <input type="file" id="image2" name="image2" class="custom-file-input" onchange="displayFileName('image2')">
                       <label class="custom-file-label" for="image2">Choose file</label>
@@ -325,7 +388,7 @@ function updateProperty(propertyId) {
                   </div>
 
                   <div class="form-group">
-                    <label for="image3">Image 3</label>
+                    <label for="image33">Image 3</label>
                     <div class="custom-file">
                       <input type="file" id="image3" name="image3" class="custom-file-input" onchange="displayFileName('image3')">
                       <label class="custom-file-label" for="image3">Choose file</label>
@@ -335,10 +398,17 @@ function updateProperty(propertyId) {
 
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
-
         </div>
+        {{-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div> --}}
+      </div>
     </div>
+  </div>
+
 </div>
+
 <script>
     function displayFileName(inputId) {
       var fileInput = document.getElementById(inputId);
@@ -369,6 +439,19 @@ document.getElementById('editableEmail').style.display = 'block';
 document.getElementById('editablePhone').style.display = 'block';
 document.getElementById('editableAddress').style.display = 'block';
 
+    });
+</script>
+<script>
+    // Get all close buttons
+    const closeButtons = document.querySelectorAll('.btn-close');
+
+    // Add click event listener to each close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Find the closest toast element and remove it
+            const toast = button.closest('.toast');
+            toast.remove();
+        });
     });
 </script>
 @endsection
