@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/chartist/css/chartist.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/2f38d1b1d1.js" crossorigin="anonymous"></script>
+    
 
 </head>
 

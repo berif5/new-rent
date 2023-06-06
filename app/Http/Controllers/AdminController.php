@@ -18,7 +18,7 @@ class AdminController extends Controller
         $lessorCount = Lessor::count();
         $userCount = User::count();
         $categoryCount = User::count();
-        return view('admin.layout1.index', compact('reviews','products','productCount','lessorCount','userCount','categoryCount'));
+        return view('admin.index', compact('reviews','products','productCount','lessorCount','userCount','categoryCount'));
     }
 
 

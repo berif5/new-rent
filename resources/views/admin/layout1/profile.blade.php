@@ -1,3 +1,6 @@
+@extends('admin.layout1.master')
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,3 +90,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection

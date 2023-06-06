@@ -33,6 +33,7 @@
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ $product->product_name }}</h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
+            
             <p class="lead">{{ $product->product_description }}</p>
 
             <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; ">
@@ -194,7 +195,7 @@
 
         // Update the input field with the calculated value
         document.getElementById('num_of_days').value = numOfDays;
-        
+
         // Calculate and update the total_price
         var productPrice = parseFloat(document.getElementById('product_price').value);
         var totalPrice = numOfDays * productPrice;
