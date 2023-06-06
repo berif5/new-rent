@@ -69,14 +69,11 @@
                     <ul class="clearfix">
                         <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
 
-
-                            </a>
-
-                        </li>
+                       </li>
                         <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
 
 
-                            </a>
+
                             <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class="">2 New Notifications</span>
@@ -122,31 +119,23 @@
         <!--**********************************
                 Sidebar start
             ***********************************-->
+            {{-- <style>
+                li a span {text-decoration: none;}
+            </style> --}}
         <div class="nk-sidebar">
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     {{-- <li class="nav-label">Dashboard</li> --}}
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="true">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        <a>
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard:</span>
                         </a>
-                        <ul aria-expanded="true" class="mylist">
-
-                            <li data-table-id="users"><a href="#users"><i class="fa-solid fa-users"></i>Users</a></li>
-                            <li data-table-id="lessors"><a href="#lessors"><i class="fa-solid fa-users"></i>Lessors</a></li>
-
-
-                            {{-- <li><a href="{{ route('userdashboard.index') }}"><i class="fa-solid fa-users"></i>User </a></li> --}}
-                            {{-- <li><a href="{{ route('lessordashboard.index') }}"><i class="fa-solid fa-user"></i>Lessor </a></li> --}}
-                            <li><a href="{{ route('productdashboard.index') }}"><i class="fa-solid fa-truck-plane"></i>Product </a></li>
-                            <li><a href="{{ route('reviewdashboard.index') }}"><i class="fa-solid fa-star"></i>Review </a></li>
-                            <li><a href="{{ route('bookingdashboard.index') }}"><i class="fa-solid fa-calendar-check"></i>Booking </a></li>
-                        </ul>
                     </li>
+                    <li ><a href="#users"><i class="fa-solid fa-users menu-icon"></i><span class="nav-text">Users</span></a></li>
+                    <li ><a href="#lessors"><i class="fa-solid fa-users menu-icon"></i><span class="nav-text">Lessors</span></a></li>
+                    <li ><a href="#products"><i class="fa-solid fa-truck-plane menu-icon"></i><span class="nav-text">Products</span></a></li>
+                    <li ><a href="#bookings"><i class="fa-solid fa-calendar-check menu-icon"></i><span class="nav-text">Bookings</span></a></li>
 
-
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -160,7 +149,9 @@
         <div class="content-body">
             {{-- @foreach ($products as $product) --}}
             <div class="container-fluid mt-3">
-                <div class="row">
+                {{-- <div class="row"> --}}
+                    <div class="container" style="display: flex">
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                              <div class="card-body">
@@ -201,9 +192,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-4">
                             <div class="card-body">
-                                <h3 class="card-title text-white">categories</h3>
+                                <h3 class="card-title text-white">Bookings</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">{{ $categoryCount }}</h2>
+                                    <h2 class="text-white">{{ $bookingCount }}</h2>
                                     {{-- <p class="text-white mb-0">Jan - March 2019</p> --}}
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
@@ -212,9 +203,7 @@
                     </div>
                 </div>
 
-                <div class="row">
 
-                </div>
 {{-- table users --}}
                 <div class="container">
                     <div class="card">
@@ -228,6 +217,8 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         {{-- <th>password</th> --}}
+                                        <th>Phone</th>
+                                        <th>Address</th>
                                         <th>image</th>
                                     </tr>
                                 </thead>
@@ -236,8 +227,10 @@
                                         <tr>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{$user->phone}}</td>
+                                            <td>{{ $user->address }}</td>
                                             {{-- <td>{{ $user->password }}</td> --}}
-                                            <td><img src="{{ asset('images/' . $user->image) }}" alt="" style="width: 100px"></td>
+                                            <td><img src="{{ asset('images/' . $user->image) }}" alt="" style="width: 75px; height: 75px;"></td>
 
 
                                             {{-- <td><img src="{{ $user->image }}" alt="user img" width="50px" height="50px"></td> --}}
@@ -277,7 +270,7 @@
                                         {{-- <th>password</th> --}}
                                         <th>phone_number</th>
                                         <th>address</th>
-                                        <th>city</th>
+                                        {{-- <th>city</th> --}}
                                         <th>image</th>
                                     </tr>
                                 </thead>
@@ -289,8 +282,8 @@
                                             {{-- <td>{{ $user->password }}</td> --}}
                                             <td>{{ $lessor->phone_number }}</td>
                                             <td>{{ $lessor->address }}</td>
-                                            <td>{{ $lessor->city }}</td>
-                                            <td><img src="{{ $lessor->image }}" alt="user img" width="50px" height="50px"></td>
+                                            {{-- <td>{{ $lessor->city }}</td> --}}
+                                            <td><img src="{{ $lessor->image }}" alt="user img" style="width: 75px; height: 75px;" ></td>
 
                                             <td>
                                                 <a href="{{ route('lessordashboard.show', $lessor->id) }}" class="btn btn-primary">View</a>
@@ -315,14 +308,13 @@
 {{-- table products --}}
 
 <div class="container">
-{{-- <div class="row"> --}}
     <div class="card ">
 
       <div class="card-header">
-         proudcts
+         Proudcts
       </div>
       <div class="card-body">
-          <table class="table">
+          <table class="table" id="products">
               <thead>
                   <tr>
                       <th>product_name</th>
@@ -331,10 +323,11 @@
                       <th>status</th>
                       {{-- <th>product_type</th> --}}
                       <th>category_name</th>
-                      <th>image1</th>
+                      {{-- <th>lessors_id </th> --}}
+
+                      <th>image</th>
                       {{-- <th>image2</th> --}}
                       {{-- <th>image3</th> --}}
-                      <th>lessors_id </th>
                       <th>Action</th>
                   </tr>
               </thead>
@@ -347,12 +340,13 @@
                           <td>{{ $product->status }}</td>
                           {{-- <td>{{ $product->product_type }}</td> --}}
                           <td>{{ $product->category->category_name }}</td>
-                          <td><img src="{{ asset('images/' . $product->image1) }}" alt="product image" width="100" height="100"></td>
 
                           {{-- <td><img src="{{ $product->image2 }}" alt="product image" width="100" height="100"></td> --}}
                           {{-- <td><img src="{{ $product->image3 }}" alt="product image" width="100" height="100"></td> --}}
 
-                          <td>{{ $product->lessor_id }}</td>
+                          {{-- <td>{{ $product->lessor_id }}</td> --}}
+                          <td><img src="{{ asset('images/' . $product->image1) }}" alt="product image" style="width: 75px; height: 75px;" ></td>
+
                           <td>
                               <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
                               <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>
@@ -374,6 +368,54 @@
 </div>
 
 {{-- new table --}}
+
+<div class="container">
+    <div class="card ">
+
+      <div class="card-header">
+         Bookings
+      </div>
+      <div class="card-body">
+          <table class="table" id="bookings">
+              <thead>
+                  <tr>
+                      <th>User Id</th>
+                       <th>Product Id</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Total Price</th>
+
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach ($bookings as $booking)
+                      <tr>
+                          <td>{{ $booking->user_id }}</td>
+                          <td>{{  $booking->product_id}}</td>
+                           <td>{{ $booking->start_date }}</td>
+                          <td>{{ $booking->end_date }}</td>
+                          <td>{{ $booking->total_price }}</td>
+
+                          <td>
+                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
+                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>
+                              <form action="{{ route('productdashboard.destroy', $product->id) }}" method="POST" style="display: inline">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                          </td>
+                      </tr>
+                  @endforeach
+              </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+              {{ $products->links('pagination::bootstrap-4') }}
+          </div>
+      </div>
+  </div>
+</div>
 
                     {{-- <div class="row">
                         <div class="col-lg-12">
@@ -482,7 +524,7 @@
 
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by Majdouleen </p>
+                <p>Copyright &copy;</p>
             </div>
         </div>
         <!--**********************************

@@ -1,5 +1,20 @@
 
       <!-- copyright section start -->
+<<<<<<< HEAD
+      <div class="copyright_section">
+         <div class="container" ">
+            <div class="row">
+               <div class="col-sm-13">
+                  <div class="logo_footer">
+                  <img src="{{ asset('images/logo.png') }}">
+               </div>
+               <div>
+                  <p class="copyright_text_footer">2023 All Rights Reserved.</p>
+               </div>
+               </div>
+            </div>
+         </div>
+=======
       <div class="copyright_section" style="display: flex; justify-content:space-between;padding:5px;">
          {{-- <div class="container" style="padding: 7px;"> --}}
             {{-- <div class="row"> --}}
@@ -12,6 +27,7 @@
                {{-- </div> --}}
             {{-- </div> --}}
          {{-- </div> --}}
+>>>>>>> 763ca37d3d25eef373899c37f0551161dbc81407
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
