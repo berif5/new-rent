@@ -15,12 +15,16 @@ class AdminController extends Controller
     public function index()
     {
         $reviews = Rating::with('user')->get();
-        $products = Product::all();
+        // $products = Product::all();
         $productCount = Product::count();
         $lessorCount = Lessor::count();
         $userCount = User::count();
         $categoryCount = User::count();
-        return view('admin.layout1.index', compact('reviews','products','productCount','lessorCount','userCount','categoryCount'));
+        $users = User::paginate(4);
+        $lessors = Lessor::paginate(4);
+        $products = Product::paginate(4);
+
+        return view('admin.layout1.index', compact('reviews','products','productCount','lessorCount','userCount','categoryCount','users','lessors'));
     }
 
 

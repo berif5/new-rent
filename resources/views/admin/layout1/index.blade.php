@@ -3,6 +3,9 @@
     <!--*******************
             Preloader start
         ********************-->
+        {{-- <style>
+            table{display: none;}
+        </style> --}}
     <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
@@ -30,9 +33,9 @@
                 <a href="index.html">
                     <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
                     {{-- <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span> --}}
-                    <span class="brand-title">
+                    {{-- <span class="brand-title">
                         <img src="images/logo.png" alt="" width="150px">
-                    </span>
+                    </span> --}}
                 </a>
             </div>
         </div>
@@ -124,13 +127,17 @@
                 <ul class="metismenu" id="menu">
                     {{-- <li class="nav-label">Dashboard</li> --}}
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="true">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
-                        <ul aria-expanded="false">
+                        <ul aria-expanded="true" class="mylist">
 
-                            <li><a href="{{ route('userdashboard.index') }}"><i class="fa-solid fa-users"></i>User </a></li>
-                            <li><a href="{{ route('lessordashboard.index') }}"><i class="fa-solid fa-user"></i>Lessor </a></li>
+                            <li data-table-id="users"><a href="#users"><i class="fa-solid fa-users"></i>Users</a></li>
+                            <li data-table-id="lessors"><a href="#lessors"><i class="fa-solid fa-users"></i>Lessors</a></li>
+
+
+                            {{-- <li><a href="{{ route('userdashboard.index') }}"><i class="fa-solid fa-users"></i>User </a></li> --}}
+                            {{-- <li><a href="{{ route('lessordashboard.index') }}"><i class="fa-solid fa-user"></i>Lessor </a></li> --}}
                             <li><a href="{{ route('productdashboard.index') }}"><i class="fa-solid fa-truck-plane"></i>Product </a></li>
                             <li><a href="{{ route('reviewdashboard.index') }}"><i class="fa-solid fa-star"></i>Review </a></li>
                             <li><a href="{{ route('bookingdashboard.index') }}"><i class="fa-solid fa-calendar-check"></i>Booking </a></li>
@@ -208,17 +215,167 @@
                 <div class="row">
 
                 </div>
+{{-- table users --}}
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            Users
+                        </div>
+                        <div class="card-body">
+                            <table class="table" id="users">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        {{-- <th>password</th> --}}
+                                        <th>image</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            {{-- <td>{{ $user->password }}</td> --}}
+                                            <td><img src="{{ asset('images/' . $user->image) }}" alt="" style="width: 100px"></td>
 
 
+                                            {{-- <td><img src="{{ $user->image }}" alt="user img" width="50px" height="50px"></td> --}}
+                                            <td>
+                                                <a href="{{ route('userdashboard.show', $user->id) }}" class="btn btn-primary">View</a>
+                                                <a href="{{ route('userdashboard.edit', $user->id) }}" class="btn btn-success">Edit</a>
+                                                <form action="{{ route('userdashboard.destroy', $user->id) }}" method="POST" style="display: inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $users->links('pagination::bootstrap-4') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="row">
+                {{-- new lessors --}}
 
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                           Lessors
+                        </div>
+                        <div class="card-body">
+                            <table class="table" id="lessors">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        {{-- <th>password</th> --}}
+                                        <th>phone_number</th>
+                                        <th>address</th>
+                                        <th>city</th>
+                                        <th>image</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($lessors as $lessor)
+                                        <tr>
+                                            <td>{{ $lessor->name }}</td>
+                                            <td>{{ $lessor->email }}</td>
+                                            {{-- <td>{{ $user->password }}</td> --}}
+                                            <td>{{ $lessor->phone_number }}</td>
+                                            <td>{{ $lessor->address }}</td>
+                                            <td>{{ $lessor->city }}</td>
+                                            <td><img src="{{ $lessor->image }}" alt="user img" width="50px" height="50px"></td>
 
+                                            <td>
+                                                <a href="{{ route('lessordashboard.show', $lessor->id) }}" class="btn btn-primary">View</a>
+                                                <a href="{{ route('lessordashboard.edit', $lessor->id) }}" class="btn btn-success">Edit</a>
+                                                <form action="{{ route('lessordashboard.destroy', $lessor->id) }}" method="POST" style="display: inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
 
+                            </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $lessors->links('pagination::bootstrap-4') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{{-- table products --}}
 
+<div class="container">
+{{-- <div class="row"> --}}
+    <div class="card ">
 
+      <div class="card-header">
+         proudcts
+      </div>
+      <div class="card-body">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>product_name</th>
+                      {{-- <th>product_description</th> --}}
+                       <th>product_price</th>
+                      <th>status</th>
+                      {{-- <th>product_type</th> --}}
+                      <th>category_name</th>
+                      <th>image1</th>
+                      {{-- <th>image2</th> --}}
+                      {{-- <th>image3</th> --}}
+                      <th>lessors_id </th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach ($products as $product)
+                      <tr>
+                          <td>{{ $product->product_name }}</td>
+                          {{-- <td>{{  $product->product_description}}</td> --}}
+                           <td>{{ $product->product_price }}</td>
+                          <td>{{ $product->status }}</td>
+                          {{-- <td>{{ $product->product_type }}</td> --}}
+                          <td>{{ $product->category->category_name }}</td>
+                          <td><img src="{{ asset('images/' . $product->image1) }}" alt="product image" width="100" height="100"></td>
 
-                    <div class="row">
+                          {{-- <td><img src="{{ $product->image2 }}" alt="product image" width="100" height="100"></td> --}}
+                          {{-- <td><img src="{{ $product->image3 }}" alt="product image" width="100" height="100"></td> --}}
+
+                          <td>{{ $product->lessor_id }}</td>
+                          <td>
+                              <a href="{{ route('productdashboard.show', $product->id) }}" class="btn btn-primary">View</a>
+                              <a href="{{ route('productdashboard.edit', $product->id) }}" class="btn btn-success">Edit</a>
+                              <form action="{{ route('productdashboard.destroy', $product->id) }}" method="POST" style="display: inline">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                          </td>
+                      </tr>
+                  @endforeach
+              </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+              {{ $products->links('pagination::bootstrap-4') }}
+          </div>
+      </div>
+  </div>
+</div>
+
+{{-- new table --}}
+
+                    {{-- <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -285,8 +442,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> --}}
+
             </div>
 
 
@@ -300,6 +457,29 @@
         <!--**********************************
                 Footer start
             ***********************************-->
+            @push('scripts')
+<script>
+    // Get all the list items inside the "mylist" class
+    const listItems = document.querySelectorAll('.mylist li');
+
+    // Loop through each list item
+    listItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            // Get the table corresponding to the clicked list item
+            const tableId = item.dataset.tableId;
+            const table = document.getElementById(tableId);
+
+            // Toggle the visibility of the table
+            if (table.style.display === 'none') {
+                table.style.display = 'block';
+            } else {
+                table.style.display = 'none';
+            }
+        });
+    });
+</script>
+@endpush
+
         <div class="footer">
             <div class="copyright">
                 <p>Copyright &copy; Designed & Developed by Majdouleen </p>
