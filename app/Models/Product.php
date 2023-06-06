@@ -39,7 +39,7 @@ class Product extends Model
     }
     public function ratings()
     {
-        return $this->hasMany('App\Models\Rating');
+        return $this->hasMany(Rating::class);
     }
 }
 

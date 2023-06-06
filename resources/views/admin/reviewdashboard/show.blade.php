@@ -14,7 +14,7 @@
 
                 <p class="card-text">product_id: {{ $user->product_id }}</p>
 
-                <p class="card-text">review_text {{ $review->review_text }}</p>
+                <p class="card-text">review_text {{ $review->comment }}</p>
                 <p class="card-text">rating {{ $review->rating }}</p>
                 {{-- <p class="card-text">image:
                     @if ($user->image)

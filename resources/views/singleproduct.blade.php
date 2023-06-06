@@ -11,13 +11,15 @@
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('images/' . $product->image1) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
+                        <img src="{{ asset('images/'.$product->image1) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
+                        {{-- <img id="image_product" src="{{ asset('images/' . $product->image1) }}" > --}}
+
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/' . $product->image2) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
+                        <img src="{{ asset('images/'.$product->image2) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/' . $product->image3) }}" class="d-block w-100" alt="Product Image" style="width: 100%; height: 450px;">
+                        <img src="{{ asset('images/'.$product->image3) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px; ">
                     </div>
                 </div>
                 <button class="carousel-control-prev bg-white" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -31,23 +33,17 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ $product->product_name }}</h1>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <b> {{ $product->product_name }} </b></h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
             
             <p class="lead">{{ $product->product_description }}</p>
 
-            <p style="font-weight: bold; color: {{ $product->status == 0 ? 'green' : 'red' }}; ">
-                @if ($product->status == 0)
-                    Available
-                @else
-                    Unavailable
-                @endif
-            </p>
 
-            @if ($product->status == 0)
-                @guest
+
+
+                {{-- @guest
                     <p>Please <a href="{{ route('login') }}">login</a> to book this product.</p>
-                @else
+                @else --}}
                     <form method="POST" action="{{ route('booking.store') }}" style="max-width: 400px; margin: 10px auto;">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
@@ -98,31 +94,31 @@
                             </div>
                         </div> --}}
 
-                        <div style="width: 200px; ">
+                        <div >
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="name" name="name_on_card" placeholder="Enter your name">
+                                <input style=" width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="name" name="name_on_card" placeholder="Enter your name">
                                 @error('name_on_card')
                                 <small style="color: red;">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold;  font-size: 13px; margin-bottom: 5px;" for="card">Card Number:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="card" name="card_number" placeholder="Enter your card number">
+                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="card" name="card_number" placeholder="Enter your card number">
                                 @error('card_number')
                                 <small style="color: red;">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="expiry">Expiry Date:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="expiry" name="expiration_month" placeholder="MM/YY">
+                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="expiry" name="expiration_month" placeholder="MM/YY">
                                 @error('expiration_month')
                                 <small style="color: red;">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="cvv">CVV:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="cvv" name="cvc" placeholder="Enter CVV">
+                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="cvv" name="cvc" placeholder="Enter CVV">
                                 @error('cvc')
                                 <small style="color: red;">{{ $message }}</small>
                                 @enderror
@@ -130,13 +126,13 @@
                         </div>
 
 
-                        <button onclick="validatePayment()" type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
+                        <button  type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
                     </form>
-                @endguest
-            @endif
+
+
             @livewireScripts
 
-            {{-- لما يزبط السيشن يفترض هاي تشتغل --}}
+
             @if (session('success'))
         <script>
             window.onload = function() {

@@ -6,7 +6,7 @@
             <h2>Users</h2>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table" id="users">
                 <thead>
                     <tr>
                         <th>Name</th>

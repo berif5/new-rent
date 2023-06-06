@@ -74,7 +74,8 @@
         <div class="profile">
             <br> <br>
             <div class="profile-heading pro">
-                <img src="{{ $user->image }}" class="profile-img" alt="User Image">
+                <img src="{{ asset('images/' . $user->image) }}" class="profile-img" alt="User Image">
+
                 <div id="myname">
                 <h1>{{ $user->name }}</h1>
                 <p class="text-muted">{{ $user->email }}</p>
@@ -86,11 +87,28 @@
                     <h2 class="info-label">Customer Information</h2>
 
                     <ul class="list-group">
-                        <li class="list-group-item"><strong>Address:</strong> {{ $user->address }}</li>
-                        <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li>
+                        {{-- <li class="list-group-item"><strong>Address:</strong> {{ $user->address }}</li> --}}
+                        <li class="list-group-item">
+                            <strong>Address:</strong>
+                            <?php if (!empty($user->address)): ?>
+                                {{ $user->address }}
+                            <?php else: ?>
+                                Add your address
+                            <?php endif; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Phone:</strong>
+                            <?php if (!empty($user->phone)): ?>
+                                {{ $user->phone }}
+                            <?php else: ?>
+                                Add your phone numbers
+                            <?php endif; ?>
+                        </li>
+
+                        {{-- <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li> --}}
                         <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
-                        <li class="list-group-item"><strong>Image:</strong> {{ $user->image }}</li>
-                        {{-- <li class="list-group-item"><strong>Password:</strong> {{ $user->password }}</li> --}}
+                        <li class="list-group-item"><strong>Image:</strong> update your profile image </li>
+                        <li class="list-group-item"><strong>Change Password:</strong> ********** </li>
 
 
                         {{-- <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit Profile</a> --}}
@@ -109,7 +127,7 @@
                                 <th>Product</th>
                                 <th>Date</th>
                                 <th>Price</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                             </tr>
                         </thead>
 
@@ -122,7 +140,7 @@
 
                                     <td>{{ $booking->start_date }}</td>
                                     <td>{{ $booking->total_price }} JD</td>
-                                    <td>{{ $booking->booking_status }}</td>
+                                    {{-- <td>{{ $booking->booking_status }}</td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
@@ -133,7 +151,7 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2>Edit Profile</h2>
-                    <form id="editProfileForm" method="POST" action="{{ route('user.update', $user->id) }}" class="edit-profile-form">
+                    <form id="editProfileForm" method="POST" action="{{ route('user.update', $user->id) }}" class="edit-profile-form" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <!-- Add form fields for editing profile information -->
@@ -156,7 +174,11 @@
                         </div>
                         <div>
                             <label for="image">Image:</label>
-                            <input type="text" id="image" name="image" value="{{ $user->image }}" class="form-control">
+                            <input type="file" id="image" name="image"  class="form-control">
+                        </div>
+                        <div>
+                            <label for="password">New Password:</label>
+                            <input type="text" id="password" name="password" value="" class="form-control" placeholder="Enter new password">
                         </div> <br>
                         <button type="submit" class="btn mybutton">Save</button>
                     </form>

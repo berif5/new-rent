@@ -1,13 +1,17 @@
 
       <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
+      <div class="copyright_section" style="display: flex; justify-content:space-between;padding:5px;">
+         {{-- <div class="container" style="padding: 7px;"> --}}
+            {{-- <div class="row"> --}}
+               {{-- <div class="col-sm-12" style="display: flex; justify-content:space-between;"> --}}
                   <p class="copyright_text">2023 All Rights Reserved.</p>
-               </div>
-            </div>
-         </div>
+                  {{-- <p style="color: white;padding:3px;">2023 All Rights Reserved.</p> --}}
+                  <p class="copyright_text">contact: letsrent@gmail.com</p>
+
+                  {{-- <p style="color: white;padding:3px;">contact: letsrent@gmail.com</p> --}}
+               {{-- </div> --}}
+            {{-- </div> --}}
+         {{-- </div> --}}
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->

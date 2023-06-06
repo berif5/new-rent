@@ -37,14 +37,14 @@ use App\Http\Controllers\SearchController;
 */
 
 
-Route::get('/', function () { return view('index');});//// main page for website
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 
 
 
-
-
-Route::get('/', [HomeController::class, 'index'])->name('home');///??
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 
 
@@ -79,13 +79,22 @@ Route::get('/payment1', function () {
 })->name('payment1');
 
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');////////////////////////// search bar
+// Route::get('/index', function () {
+//     return view('index');
+// })->name('index');
+
+// lessor Page
+// Route::get('/lessor', function () {
+//     return view('lessor.index');
+// })->name('lessor.index');
+
+
+// Route::get('/lessor', 'LessorController@index')->name('lessor.index');
+// Route::get('/', 'HomeController@index')->name('index');
 
 
 
-Route::get('/lessor', [LessorController::class, 'index'])->name('lessor.index');
+Route::get('/lessor/index', [LessorController::class, 'index'])->name('lessor.index');
 
 Route::put('/lessors/{lessor}', [LessorController::class, 'update'])->name('lessor.update');
 
@@ -131,9 +140,9 @@ Route::group(['middleware' => 'admin'], function () {
     ]);
 });
 
-Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
+// Route::get('/vehicle', [ProductController::class, 'index'])->name('vehicle');
 
-Route::get('/index', [ProductController::class, 'index'])->name('index');
+// Route::get('/index', [ProductController::class, 'index'])->name('index');
 
 
 Route::get('/singleproduct/{id}', [ProductController::class, 'show'])->name('singleproduct');

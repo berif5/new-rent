@@ -33,6 +33,10 @@
 
 <!--===============================================================================================-->
 </head>
+<style>
+    .wrap-login100{margin-top: -10px;margin-bottom: -10px;}
+    .login100-form{padding: 25px 50px;}
+</style>
 <body>
 
 	<div class="limiter">
@@ -48,23 +52,34 @@
                     <form class="login100-form validate-form" action="login" method="POST">
                       @csrf
                       <div class="wrap-input100 validate-input m-b-26">
-                        <div class="label-input100">Username</div> <br>
+                        <div class="label-input100" style="margin-bottom: 5px;">Username</div> <br>
                         <input class="input100" type="text" name="name" placeholder="Enter name">
                         <span class="focus-input100"></span>
                       </div>
 
                       <div class="wrap-input100 validate-input m-b-18">
-                        <div class="label-input100">Email</div> <br>
+                        <div class="label-input100" style="margin-bottom: 5px;">Email</div> <br>
                         <input class="input100" type="text" name="email" placeholder="Enter email">
                         <span class="focus-input100"></span>
                       </div>
 
+                      {{-- <div class="wrap-input100 validate-input m-b-26">
+                        <div class="label-input100">Password</div> <br>
+                        <input class="input100" type="password" name="password" placeholder="Enter password">
+                        <span class="focus-input100"></span>
+                      </div> --}}
+                      @error('email')
+                      <div class="text-red-500 mt-2 text-sm">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                    <br>
                       <div class="d-flex justify-content-center container-login100-form-btn">
                         <button class="login100-form-btn">
                           Login
                         </button>
                       </div>
-                      <div class="d-flex justify-content-center w-100 p-b-30" style="margin-top: 10px">
+                      <div class="d-flex justify-content-center w-100 p-b-30" style="margin-top: 10px; margin-bottom:10px;">
                         <div class="flex-sb-m">
                           <!-- Content here -->
                           <a href="sign" class="txt1">

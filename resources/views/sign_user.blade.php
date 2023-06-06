@@ -1,13 +1,24 @@
 @extends('layout.master')
 @section('content')
 <br> <br>
+<style>
+    #mylink{
+        /* text-align: center; */
+        color: white;
+    }
+    .mydiv{
+        display: flex; flex-direction: column;  align-items: center; gap: 10px;
+    }
+</style>
 <div class="container">
 
     <div class="contact_section_2">
         <div class="row">
             <div class="col-md-12">
                 <div class="mail_section_1">
-                    <form action="sign" method="POST">{{--  to the sign url --}}
+                    <form action="sign" method="POST">
+                        <h2 style="text-align: center; color:white;">User Sign up</h2>
+
                         @csrf
                         <div class="form-group">
                             <label for="name" class="text-light">Name:</label>
@@ -45,11 +56,15 @@
                                 @enderror
                             </small>
                         </div>
-                        <div class="send_bt">
+                        <div class="mydiv">
                             <button type="submit" class="btn btn-outline-light">Send</button>
+                            <a href="sign_lessor" id="mylink" >
+                                Do you want to sign up as a Lessor?
+                            </a>
                         </div>
+
                     </form>
-                    <a href="sign_lessor" class="link-light">Do you want Sign as a Lessor?</a>
+                    {{-- <a href="sign_lessor" class="link-light">Do you want Sign as a Lessor?</a> --}}
                 </div>
             </div>
         </div>
