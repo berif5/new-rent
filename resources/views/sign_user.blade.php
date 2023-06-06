@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mail_section_1">
-                    <form action="sign" method="POST">
+                    <form action="sign" method="POST">{{--  to the sign url --}}
                         @csrf
                         <div class="form-group">
                             <label for="name" class="text-light">Name:</label>
