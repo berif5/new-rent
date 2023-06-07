@@ -168,7 +168,7 @@ iframe {
 
 .container-login100 {
   width: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -177,13 +177,13 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
   background: #ebeeef;
 }
 
 
 .wrap-login100 {
-  width: 670px;
+  width: 575px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -209,7 +209,7 @@ iframe {
   background-size: cover;
   background-position: center;
 
-  padding: 70px 15px 74px 15px;
+  padding: 50px 15px 50px 15px;
 }
 
 .login100-form-title-1 {
@@ -246,7 +246,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 50px 75px;
+  padding: 25px 30px;
 }
 
 

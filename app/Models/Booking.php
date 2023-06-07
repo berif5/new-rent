@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
-    protected $table = 'booking';
+    protected $table = 'booking';// ربط التيبل بالمودل
 
     protected $fillable = [
         'start_date',
@@ -30,5 +30,5 @@ class Booking extends Model
         return $this->belongsTo(product::class);
     }
 
-    
+
 }

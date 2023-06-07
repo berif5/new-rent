@@ -1,10 +1,15 @@
 
       <!-- copyright section start -->
       <div class="copyright_section">
-         <div class="container" style="padding: 7px;">
+         <div class="container" ">
             <div class="row">
-               <div class="col-sm-12">
-                  <p class="copyright_text">2023 All Rights Reserved.</p>
+               <div class="col-sm-13">
+                  <div class="logo_footer">
+                  <img src="{{ asset('images/logo.png') }}">
+               </div>
+               <div>
+                  <p class="copyright_text_footer">2023 All Rights Reserved.</p>
+               </div>
                </div>
             </div>
          </div>

@@ -5,7 +5,7 @@
       <div class="card col">
 
         <div class="card-header">
-           proudcts
+          <h1> proudcts</h1>
         </div>
         <div class="card-body">
             <table class="table">

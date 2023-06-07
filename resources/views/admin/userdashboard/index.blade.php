@@ -3,10 +3,10 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Users
+            <h2>Users</h2>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table" id="users">
                 <thead>
                     <tr>
                         <th>Name</th>

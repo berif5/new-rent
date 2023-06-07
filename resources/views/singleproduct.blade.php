@@ -40,6 +40,7 @@
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <b> {{ $product->product_name }} </b></h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
+            
             <p class="lead">{{ $product->product_description }}</p>
                 {{-- @guest
                     <p>Please <a href="{{ route('login') }}">login</a> to book this product.</p>

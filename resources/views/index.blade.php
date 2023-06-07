@@ -104,7 +104,7 @@ input[type="range"] {
               <div class="row">
                  <div class="col-md-6">
                     <div class="image_iman">
-                       <table  style="border: 10px solid #007495;" cellspacing="0" cellpadding="10">
+                       <table  style="border:2px solid #007495;" cellspacing="0" cellpadding="10">
                            <tr>
                                <td style="width: 450px; height:450px;">
                                    <iframe src='https://www.google.com/maps?q=<?php echo 32.0448774; ?>,<?php echo 35.7079124; ?>&hl=es;z=14&output=embed' style="width:100%; height:100%"></iframe>

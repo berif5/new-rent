@@ -36,7 +36,7 @@ class ProductController extends Controller
         $products = $query->get();
         $categories = Category::all();
 
-        return view('vehicle', compact('products','categories'));
+        return view('/', compact('products','categories'));
     }
 
     public function singleproduct($product_id)
@@ -60,7 +60,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = \App\Models\Product::findOrFail($id);
+        $product = Product::findOrFail($id);
         return view('singleproduct', compact('product'));
     }
     // public function submitRating(Request $request)

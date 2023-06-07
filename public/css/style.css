@@ -216,8 +216,9 @@ button {
     width: 100%;
     /* float: left; */
     background-color: #273f54;
-    height: auto;
+    height: 82px;
     background-size: 100%;
+    padding: 7px;
 }
 
 .header_bg {
@@ -254,6 +255,10 @@ button {
 .navbar-brand {
     margin: 0px;
     float: right;
+}
+.navbar-brand img {
+    width: 150px;
+    height: 50px;
 }
 
 .call_text_main {
@@ -1099,9 +1104,9 @@ textarea#comment::placeholder {
     background-color: #434960;
     height: auto;
     bottom: 0;
+    left: 0;
 
-  left: 0;
-  bottom: 0;
+  
 }
 
 .copyright_text {
@@ -1113,7 +1118,31 @@ textarea#comment::placeholder {
     margin-left: 0px;
     font-family: "Poppins", sans-serif;
 }
-
+.copyright_text_footer {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #fefefd;
+    /* align-items: center; */
+    margin-left: 350px;
+    font-family: "Poppins", sans-serif;
+}
+.col-sm-13{
+    /* position: relative;  */
+   width: 100%;
+    /* min-height: 1px; */
+   /* padding-right: 15px;
+   padding-left: 15px;   */
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   justify-content: space-between; 
+    align-items: center;}
+   .logo_footer img{
+    /* margin-top: 10px; */
+    height: 40px;
+    width: 120px;
+    align-items: center;
+ }
 .copyright_text a {
     color: #fefefd;
 }

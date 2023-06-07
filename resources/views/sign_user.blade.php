@@ -59,12 +59,12 @@
                         <div class="mydiv">
                             <button type="submit" class="btn btn-outline-light">Send</button>
                             <a href="sign_lessor" id="mylink" >
-                                Want to sign up as Lessor? go to Lessor sign up
+                                Do you want to sign up as a Lessor?
                             </a>
                         </div>
 
                     </form>
-                    <a href="sign_lessor" class="link-light">Do you want Sign as a Lessor?</a>
+                    {{-- <a href="sign_lessor" class="link-light">Do you want Sign as a Lessor?</a> --}}
                 </div>
             </div>
         </div>
