@@ -5,68 +5,78 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
+
 class BookingController extends Controller
 {
 
-
-public function store(Request $request)
+    //  I changed booked_dates to status
+    public function store(Request $request)
 {
+    // Validate the request data
+    $validatedData = $request->validate([
+        'start_date' => 'required|date|after:now',
+        'end_date' => 'required|date|after:start_date',
+        'name_on_card' => 'required',
+        'card_number' => 'required|digits_between:12,19',
+        'cvc' => 'required',
+        'expiration_month' => 'required',
+    ]);
 
-        // Validate the request data
-        $validatedData = $request->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after:start_date',
-            'name_on_card' => 'required',
-            'card_number' => 'required|digits_between:12,19',
-            'cvc' => 'required',
-            'expiration_month' => 'required',
+    $productId = $request->input('product_id');
 
-        ]);
+    // Retrieve the product and check if the requested dates are available
+    $product = Product::findOrFail($productId);
+    $start = $request->input('start_date');
+    $end = $request->input('end_date');
 
+    $bookedDates = explode(',', $product->status);
+
+    // Check if any of the requested dates overlap with the already booked dates
+    $requestedDates = $this->getDatesRange($start, $end);
+    $overlapDates = array_intersect($requestedDates, $bookedDates);
+
+    // if (!empty($overlapDates)) {
+    //     Alert::error('Oops...', 'Something went wrong!')->footer('<a href="">Why do I have this issue?</a>');
+    //     return redirect()->back()->withErrors(' ');
+    // }
+
+    
+
+    // Update the status for the product
+    $bookedDates = array_merge($bookedDates, $requestedDates);
+    $product->status = implode(',', $bookedDates);
+    $product->save();
+
+    // Create the booking record
     $booking = new Booking();
-    // $booking->user_id = $request->input('user_id');
     $booking->user_id = Auth::id();
-
-    $booking->product_id = $request->input('product_id');
-    $booking->start_date = $request->input('start_date');
-    $booking->end_date = $request->input('end_date');
-    // You may need to calculate the total price based on your business logic
+    $booking->product_id = $productId;
+    $booking->start_date = $start;
+    $booking->end_date = $end;
     $booking->total_price = $request->input('total_price');
-
-
-    $bookingData = [
-        'name_on_card' => $validatedData['name_on_card'],
-        'card_number' => $validatedData['card_number'],
-        'cvc' => $validatedData['cvc'],
-        'expiration_month' => $validatedData['expiration_month'],
-    ];
-
-    // $booking->name_on_card = $validatedData['name_on_card'];
-    // $booking->card_number = $validatedData['card_number'];
-    // $booking->cvc = $validatedData['cvc'];
-    // $booking->expiration_month = $validatedData['expiration_month'];
-    // $booking->expiration_year = $validatedData['expiration_year'];
-
-
     $booking->booking_status = 'Pending'; // or any other default status
-
     $booking->save();
 
-        // Retrieve the product ID and user ID from the request
-        $productId = $request->input('product_id');
-        // $userId = $request->input('user_id');
-
-        // Update the product status in the database
-        $product = Product::find($productId);
-        $product->status = 1; // Set the status to 1 (or update it as needed)
-        $product->save();
-    // Optionally, you can redirect the user to a success page or perform any other action.
-
-    // return redirect()->back()->with('success', 'Profile updated successfully.');
-    // return redirect()->back();
     return redirect()->back()->with('success', 'Booking created successfully.');
-
-
 }
+
+// Helper method to get the range of dates between two dates
+private function getDatesRange($start, $end)
+{
+    $dates = [];
+    $current = strtotime($start);
+    $endDate = strtotime($end);
+
+    while ($current <= $endDate) {
+        $dates[] = date('Y-m-d', $current);
+        $current = strtotime('+1 day', $current);
+    }
+
+    return $dates;
+}
+
 
 }

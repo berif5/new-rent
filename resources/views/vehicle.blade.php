@@ -32,19 +32,19 @@
                                         </select>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-4">
-                                           <label for="">Start Price</label>
-                                           <input type="text" name="start_price" value="<?php if(isset($_GET['start_price'])){echo $_GET['start_price']; }else{echo "100";} ?>" class="form-control">
-                                       </div>
-                                       <div class="col-md-4">
-                                           <label for="">End Price</label>
-                                           <input type="text" name="end_price" value="<?php if(isset($_GET['end_price'])){echo $_GET['end_price']; }else{echo "900";} ?>" class="form-control">
-                                       </div>
-                                       <div class="col-md-4">
-                                           <label  for="">Click Me</label> <br/>
-                                           <button type="submit" class="btn btn-primary px-4">Filter</button>
-                                       </div>
-                                   </div>
+                                        <div class="col-md-4">
+                                            <label for="">Start Price</label>
+                                            <input type="text" name="start_price" value="<?php if(isset($_GET['start_price'])){echo $_GET['start_price']; }else{echo "100";} ?>" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">End Price</label>
+                                            <input type="text" name="end_price" value="<?php if(isset($_GET['end_price'])){echo $_GET['end_price']; }else{echo "900";} ?>" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label  for="">Click Me</label> <br/>
+                                            <button type="submit" class="btn btn-primary px-4">Filter</button>
+                                        </div>
+                                    </div>
 
                                     </form>
                                 </div>

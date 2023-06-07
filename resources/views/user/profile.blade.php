@@ -110,7 +110,7 @@
                                 <th>Product</th>
                                 <th>Date</th>
                                 <th>Price</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                             </tr>
                         </thead>
 
@@ -123,7 +123,7 @@
 
                                     <td>{{ $booking->start_date }}</td>
                                     <td>{{ $booking->total_price }} JD</td>
-                                    <td>{{ $booking->booking_status }}</td>
+                                    {{-- <td>{{ $booking->booking_status }}</td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

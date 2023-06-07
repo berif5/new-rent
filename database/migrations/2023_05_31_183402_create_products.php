@@ -16,10 +16,17 @@ return new class extends Migration
             $table->string('product_name');
             $table->text('product_description');
             $table->decimal('product_price', 8, 2);
-            $table->integer('status');
+            $table->text('status');
             $table->string('product_type');
             $table->timestamps();
         });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->text('status')->nullable();
+        });
+
+            //  I changed booked_dates to status
+
 
     }
 

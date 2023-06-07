@@ -30,6 +30,8 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    
+    'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     /*
     |--------------------------------------------------------------------------

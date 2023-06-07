@@ -1,9 +1,16 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 @extends('layout.master')
+
+@include('sweetalert::alert')
+
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 @section('content')
-
 
 <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -12,8 +19,6 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ asset('images/'.$product->image1) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
-                        {{-- <img id="image_product" src="{{ asset('images/' . $product->image1) }}" > --}}
-
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('images/'.$product->image2) }}" class="d-block w-100" alt="..." style="width: 100%; height: 450px;">
@@ -36,10 +41,6 @@
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <b> {{ $product->product_name }} </b></h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
             <p class="lead">{{ $product->product_description }}</p>
-
-
-
-
                 {{-- @guest
                     <p>Please <a href="{{ route('login') }}">login</a> to book this product.</p>
                 @else --}}
@@ -47,18 +48,19 @@
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-
                         <label for="start_date" style="display: block; margin-bottom: 10px; font-weight: bold;">Start Date:</label>
-                        <input type="date" name="start_date" id="start_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;">
+                        <input readonly type="date" name="start_date" id="start_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" required>
                         @error('start_date')
                         <small style="color: red;">{{ $message }}</small>
                         @enderror
 
                         <label for="end_date" style="display: block; margin-bottom: 10px; font-weight: bold;">End Date:</label>
-                        <input type="date" name="end_date" id="end_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;">
+                        <input readonly type="date" name="end_date" id="end_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" required>
                         @error('end_date')
                         <small style="color: red;">{{ $message }}</small>
                         @enderror
+
+
 
                         <label for="num_of_days" style="display: block; margin-bottom: 10px; font-weight: bold;">Number of Days:</label>
                         <input type="number" name="num_of_days" id="num_of_days" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
@@ -67,32 +69,6 @@
 
                         <label for="total_price" style="display: block; margin-bottom: 10px; font-weight: bold;">Total Price:</label>
                         <input type="text" name="total_price" id="total_price" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
-
-                        {{-- <button type="submit" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Book Now</button> --}}
-
-                        {{-- <div style="width: 200px;">
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="name" name="name_on_card" placeholder="Enter your name">
-                                <small id="nameError" style="color: red;"></small>
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="card">Card Number:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="card" name="card_number" placeholder="Enter your card number">
-                                <small id="cardError" style="color: red;"></small>
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="expiry">Expiry Date:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="expiry" name="expiration_month" placeholder="MM/YY">
-                                <small id="expiryError" style="color: red;"></small>
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="cvv">CVV:</label>
-                                <input style="width: 80%; height:10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;" type="text" id="cvv" name="cvc" placeholder="Enter CVV">
-                                <small id="cvvError" style="color: red;"></small>
-                            </div>
-                        </div> --}}
-
                         <div >
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
@@ -123,15 +99,9 @@
                                 @enderror
                             </div>
                         </div>
-
-
                         <button  type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
                     </form>
-
-
             @livewireScripts
-
-
             @if (session('success'))
         <script>
             window.onload = function() {
@@ -139,10 +109,11 @@
             }
         </script>
     @endif
-
           </div>
         </div>
     </div>
+
+
     @livewire('product-ratings', ['product' => $product], key($product->id))
 
   {{--  --}}
@@ -168,18 +139,6 @@
 </script>
 
 <script>
-    // function calculateNumOfDays() {
-    //     var startDate = new Date(document.getElementById('start_date').value);
-    //     var endDate = new Date(document.getElementById('end_date').value);
-
-    //     // Calculate the difference in days
-    //     var timeDifference = endDate.getTime() - startDate.getTime();
-    //     var numOfDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
-
-    //     // Update the input field with the calculated value
-    //     document.getElementById('num_of_days').value = numOfDays;
-    // }
-
     function calculateNumOfDays() {
         var startDate = new Date(document.getElementById('start_date').value);
         var endDate = new Date(document.getElementById('end_date').value);
@@ -198,88 +157,85 @@
     }
 </script>
 
-{{--  --}}
+{{-- for not book a pre-booked --}}
+
 <script>
-        // Stripe mock setup
-    //     var stripe = Stripe("your_stripe_public_key");
-    // var elements = stripe.elements();
+    // const bookedDates = [@json($product->booked_dates)];
 
-    // // Mount card element
-    // var card = elements.create('card');
-    // card.mount('#card-element');
+    // $(function() {
+    //     $("#date_range").datepicker({
+    //         dateFormat: "yy-mm-dd",
+    //         onSelect: function(startDate, endDate) {
+    //             const selectedDates = getDatesRange(startDate, endDate);
 
-    // // Handle payment form submission
-    // var form = document.getElementById('payment-form');
-    // form.addEventListener('submit', function(event) {
-    //     event.preventDefault();
-    //     stripe.createToken(card).then(function(result) {
-    //         if (result.error) {
-    //             var errorElement = document.getElementById('card-errors');
-    //             errorElement.textContent = result.error.message;
-    //         } else {
-    //             // Token created, perform fake payment
-    //             performFakePayment(result.token);
+    //             for (const date of selectedDates) {
+    //                 if (bookedDates.includes(date)) {
+    //                     alert('The selected dates are already booked.');
+    //                     return;
+    //                 }
+    //             }
+
+    //             // Store the selected start and end dates in hidden inputs for form submission
+    //             $("#start_date").val(startDate);
+    //             $("#end_date").val(endDate);
     //         }
     //     });
     // });
 
-    // // Simulate fake payment
-    // function performFakePayment(token) {
-    //     // Display success message or redirect to success page
-    //     console.log('Fake payment successful! Token: ' + token.id);
-    //     alert('Fake payment successful!');
+    // function getDatesRange(startDate, endDate) {
+    //     const start = new Date(startDate);
+    //     const end = new Date(endDate);
+    //     const dates = [];
+    //     let currentDate = start;
+
+    //     while (currentDate <= end) {
+    //         const formattedDate = currentDate.toISOString().split('T')[0];
+    //         dates.push(formattedDate);
+    //         currentDate.setDate(currentDate.getDate() + 1);
+    //     }
+
+    //     return dates;
     // }
 </script>
 
+<script language="javascript">
+$(document).ready(function() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    $('#start_date').attr('min', today);
+    $('#end_date').attr('min', today);
 
 
-{{--  --}}
+
+});
+
+</script>
+
+@if(Session::has('sweet_alert.alert'))
+    <script>
+        Swal.fire({
+            {!! Session::pull('sweet_alert.alert') !!}
+        });
+    </script>
+@endif
+
+@if(Session::has('success'))
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+@endif
 
 
-{{-- <script>
-    function validatePayment() {
-        // Clear previous error messages
-        document.getElementById('nameError').textContent = '';
-        document.getElementById('cardError').textContent = '';
-        document.getElementById('expiryError').textContent = '';
-        document.getElementById('cvvError').textContent = '';
-
-        // Get input values
-        var name = document.getElementById('name').value;
-        var cardNumber = document.getElementById('card').value;
-        var expiry = document.getElementById('expiry').value;
-        var cvv = document.getElementById('cvv').value;
-
-        // Perform validation
-        var isValid = true;
-
-        if (name.trim() === '') {
-            document.getElementById('nameError').textContent = 'Please enter your name';
-            isValid = false;
-        }
-
-        if (cardNumber.trim() === '') {
-            document.getElementById('cardError').textContent = 'Please enter your card number';
-            isValid = false;
-        }
-
-        if (expiry.trim() === '') {
-            document.getElementById('expiryError').textContent = 'Please enter the expiry date';
-            isValid = false;
-        }
-
-        if (cvv.trim() === '') {
-            document.getElementById('cvvError').textContent = 'Please enter the CVV';
-            isValid = false;
-        }
-
-        // Submit the form if valid
-        if (isValid) {
-            // Your code to submit the form or perform further actions
-            // ...
-        }
-    } --}}
-{{-- </script> --}}
 
 @endsection
-
