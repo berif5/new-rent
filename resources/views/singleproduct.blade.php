@@ -1,12 +1,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 @extends('layout.master')
-
-@include('sweetalert::alert')
-
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -40,68 +35,66 @@
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <b> {{ $product->product_name }} </b></h1>
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">${{ $product->product_price }}</h1>
-            
             <p class="lead">{{ $product->product_description }}</p>
-                {{-- @guest
-                    <p>Please <a href="{{ route('login') }}">login</a> to book this product.</p>
-                @else --}}
-                    <form method="POST" action="{{ route('booking.store') }}" style="max-width: 400px; margin: 10px auto;">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <label for="start_date" style="display: block; margin-bottom: 10px; font-weight: bold;">Start Date:</label>
-                        <input readonly type="date" name="start_date" id="start_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" required>
-                        @error('start_date')
-                        <small style="color: red;">{{ $message }}</small>
-                        @enderror
 
-                        <label for="end_date" style="display: block; margin-bottom: 10px; font-weight: bold;">End Date:</label>
-                        <input readonly type="date" name="end_date" id="end_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" required>
-                        @error('end_date')
-                        <small style="color: red;">{{ $message }}</small>
-                        @enderror
+                <form method="POST" action="{{ route('booking.store') }}" style="max-width: 400px; margin: 10px auto;">
+                    @csrf
 
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <label for="start_date" style="display: block; margin-bottom: 10px; font-weight: bold;">Start Date:</label>
+                    <input  type="date" name="start_date" id="start_date" onchange="calculateNumOfDays()" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" >
+                    @error('start_date')
+                    <small style="color: red;">{{ $message }}</small>
+                    @enderror
+
+                    <label for="end_date" style="display: block; margin-bottom: 10px; font-weight: bold;">End Date:</label>
+                    <input  type="date" name="end_date" id="end_date" onchange="calculateNumOfDays()"  style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" min="{{ $product->start_available_date }}" max="{{ $product->end_available_date }}" >
+                    @error('end_date')
+                    <small style="color: red;">{{ $message }}</small>
+                    @enderror
 
 
-                        <label for="num_of_days" style="display: block; margin-bottom: 10px; font-weight: bold;">Number of Days:</label>
-                        <input type="number" name="num_of_days" id="num_of_days" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
 
-                        <input type="hidden" name="product_price" id="product_price" value="{{ $product->product_price }}" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
+                    <label for="num_of_days" style="display: block; margin-bottom: 10px; font-weight: bold;">Number of Days:</label>
+                    <input type="number" name="num_of_days" id="num_of_days" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" >
 
-                        <label for="total_price" style="display: block; margin-bottom: 10px; font-weight: bold;">Total Price:</label>
-                        <input type="text" name="total_price" id="total_price" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" required>
-                        <div >
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
-                                <input style=" width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="name" name="name_on_card" placeholder="Enter your name">
-                                @error('name_on_card')
-                                <small style="color: red;">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold;  font-size: 13px; margin-bottom: 5px;" for="card">Card Number:</label>
-                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="card" name="card_number" placeholder="Enter your card number">
-                                @error('card_number')
-                                <small style="color: red;">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="expiry">Expiry Date:</label>
-                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="expiry" name="expiration_month" placeholder="MM/YY">
-                                @error('expiration_month')
-                                <small style="color: red;">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="cvv">CVV:</label>
-                                <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="cvv" name="cvc" placeholder="Enter CVV">
-                                @error('cvc')
-                                <small style="color: red;">{{ $message }}</small>
-                                @enderror
-                            </div>
+                    <input type="hidden" name="product_price" id="product_price" value="{{ $product->product_price }}" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" >
+
+                    <label for="total_price" style="display: block; margin-bottom: 10px; font-weight: bold;">Total Price:</label>
+                    <input type="text" name="total_price" id="total_price" readonly style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;" >
+                    <div >
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="name">Name:</label>
+                            <input style=" width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="name" name="name_on_card" placeholder="Enter your name">
+                            @error('name_on_card')
+                            <small style="color: red;">{{ $message }}</small>
+                            @enderror
                         </div>
-                        <button  type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
-                    </form>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: bold;  font-size: 13px; margin-bottom: 5px;" for="card">Card Number:</label>
+                            <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 4px; " type="text" id="card" name="card_number" placeholder="Enter your card number">
+                            @error('card_number')
+                            <small style="color: red;">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="expiry">Expiry Date:</label>
+                            <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="expiry" name="expiration_month" placeholder="MM/YY">
+                            @error('expiration_month')
+                            <small style="color: red;">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px;" for="cvv">CVV:</label>
+                            <input style="width: 100%;  padding: 8px; border: 1px solid #ccc; border-radius: 5px; " type="text" id="cvv" name="cvc" placeholder="Enter CVV">
+                            @error('cvc')
+                            <small style="color: red;">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <button  type="submit" id="submit-payment-btn" style="padding: 10px 20px; background-color: #007495; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Pay Now</button>
+                </form>
             @livewireScripts
             @if (session('success'))
         <script>
@@ -110,23 +103,31 @@
             }
         </script>
     @endif
+
+    @if(session('alert'))
+    <script>
+        alert('{{ session('alert') }}');
+    </script>
+    @endif
+
+    {{--     @if(session('alert'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ session('alert') }}',
+            footer: '<a href="">Why do I have this issue?</a>'
+        });
+    </script>
+@endif --}}
+
+
           </div>
         </div>
     </div>
 
 
     @livewire('product-ratings', ['product' => $product], key($product->id))
-
-  {{--  --}}
-
-
-
-
-
-
-  {{--  --}}
-
-
 
 
 {{-- for booking --}}
@@ -160,44 +161,7 @@
 
 {{-- for not book a pre-booked --}}
 
-<script>
-    // const bookedDates = [@json($product->booked_dates)];
 
-    // $(function() {
-    //     $("#date_range").datepicker({
-    //         dateFormat: "yy-mm-dd",
-    //         onSelect: function(startDate, endDate) {
-    //             const selectedDates = getDatesRange(startDate, endDate);
-
-    //             for (const date of selectedDates) {
-    //                 if (bookedDates.includes(date)) {
-    //                     alert('The selected dates are already booked.');
-    //                     return;
-    //                 }
-    //             }
-
-    //             // Store the selected start and end dates in hidden inputs for form submission
-    //             $("#start_date").val(startDate);
-    //             $("#end_date").val(endDate);
-    //         }
-    //     });
-    // });
-
-    // function getDatesRange(startDate, endDate) {
-    //     const start = new Date(startDate);
-    //     const end = new Date(endDate);
-    //     const dates = [];
-    //     let currentDate = start;
-
-    //     while (currentDate <= end) {
-    //         const formattedDate = currentDate.toISOString().split('T')[0];
-    //         dates.push(formattedDate);
-    //         currentDate.setDate(currentDate.getDate() + 1);
-    //     }
-
-    //     return dates;
-    // }
-</script>
 
 <script language="javascript">
 $(document).ready(function() {
@@ -212,30 +176,18 @@ $(document).ready(function() {
     $('#end_date').attr('min', today);
 
 
+    // Disable previously selected dates
 
+    // $('#start_date, #end_date').datepicker({
+    //     beforeShowDay: function(date) {
+    //         var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+    //         return [!bookedDates.includes(dateString)]; // Disable booked dates
+    //     }
+    // });
 });
 
 </script>
 
-@if(Session::has('sweet_alert.alert'))
-    <script>
-        Swal.fire({
-            {!! Session::pull('sweet_alert.alert') !!}
-        });
-    </script>
-@endif
-
-@if(Session::has('success'))
-    <script>
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    </script>
-@endif
 
 
 

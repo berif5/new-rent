@@ -189,12 +189,18 @@
                         <div class="toast-body">
                             {{ $notification->data['message'] }}
                         </div>
-                        <button type="button" class="btn-close me-2 m-auto" aria-label="Close">&times;</button>
+                        <form class="delete-notification-form-{{ $notification->id }}" action="{{ route('notifications.delete', $notification->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-close me-2 m-auto" aria-label="Close">&times;</button>
+                        </form>
                     </div>
                 </div>
                 @endforeach
             </div>
         </div>
+
+
 
 
     </div>
@@ -214,7 +220,7 @@
 
             {{-- <a href="#" data-toggle="modal" data-target="#editProfileModal">Add New Item</a> --}}
             {{-- <br> --}}
-            <button type="button" class="btn  mybutton" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Nwe Item</button>
+            <button type="button" class=" mybutton" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Nwe Item</button>
 
 
             @if ($properties->isEmpty())
@@ -229,10 +235,12 @@
                             <h3 class="types_text">{{ $property->product_name }}</h3>
 
                             {{-- <h3 class="types_text"></h3> --}}
-                            <p class="looking_text">{{ $property->product_description }}</p>
+                            {{-- <p class="looking_text">{{ $property->product_description }}</p> --}}
                             <p class="looking_text">{{ $property->product_price }} JD</p>
                             <div class="read_bt">
-                                <a href="#" data-toggle="modal" data-target="#editPropertyModal{{ $property->id }}">Edit</a>
+                                {{-- <a href="#" data-toggle="modal" data-bs-target="#editPropertyModal{{ $property->id }}">Edit</a> --}}
+                                <button type="button" class=" mybutton" data-bs-toggle="modal" data-bs-target="#editPropertyModal{{ $property->id }}" data-bs-whatever="@fat">Edit</button>
+
                             </div>
                             <div class="read_bt">
                                 <a href="#" onclick="event.preventDefault(); deleteProperty({{ $property->id }})">Delete</a>
@@ -245,48 +253,49 @@
                     </div>
                     <!-- Display more property details as needed -->
 
-                    <div class="modal fade" id="editPropertyModal{{ $property->id }}" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel{{ $property->id }}" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="editPropertyModalLabel{{ $property->id }}">Edit Property</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Add form fields for editing the property -->
-                                    <form id="editPropertyForm{{ $property->id }}" method="POST" action="{{ route('property.update', ['id' => $property->id]) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <!-- Add form fields for editing the property information -->
-                                        <div>
-                                            <label for="product_name">Product Name:</label>
-                                            <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <select class="form-control" id="status" name="status" required>
-                                                <option value="0">Available</option>
-                                                <option value="1">Unavailable</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label for="product_description">Product Description:</label>
-                                            <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
-                                        </div>
-                                        <div>
-                                            <label for="product_price">Product Price:</label>
-                                            <input type="number" class="form-control" id="product_price" name="product_price" value="{{ $property->product_price }}">
-                                        </div>
-                                        <br>
-                                        <button type="submit" class="mybutton">Save</button>
-                                        <!-- Add more form fields for editing the property as needed -->
-                                    </form>
-                                </div>
+                    <div class="modal fade" id="editPropertyModal{{ $property->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Property</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                             </div>
+                            <div class="modal-body">
+                                <form id="editPropertyForm{{ $property->id }}" method="POST" action="{{ route('property.update', ['id' => $property->id]) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <!-- Add form fields for editing the property information -->
+                                    <div>
+                                        <label for="product_name">Product Name:</label>
+                                        <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status">Status</label>
+                                        <select class="form-control" id="status" name="status" required>
+                                            <option value="0">Available</option>
+                                            <option value="1">Unavailable</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="product_description">Product Description:</label>
+                                        <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
+                                    </div>
+                                    <div>
+                                        <label for="product_price">Product Price:</label>
+                                        <input type="number" class="form-control" id="product_price" name="product_price" value="{{ $property->product_price }}">
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="mybutton">Save</button>
+                                    <!-- Add more form fields for editing the property as needed -->
+                                </form>
+                            </div>
+                            {{-- <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Send message</button>
+                            </div> --}}
+                          </div>
                         </div>
-                    </div>
+                      </div>
 
                     @endforeach
                 </div>
@@ -312,13 +321,7 @@
 <!-- Edit Property Modal -->
 
 
-<!-- JavaScript code -->
-{{-- <script>
-function updateProperty(propertyId) {
-    const editForm = document.getElementById('editPropertyForm' + propertyId);
-    editForm.submit();
-}
-</script> --}}
+
 
 
 
@@ -337,27 +340,20 @@ function updateProperty(propertyId) {
 
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
-                    <input type="text" class="form-control" id="product_name" name="product_name" required>
+                    <input type="text" class="form-control" id="product_name" name="product_name" >
                 </div>
                 <div class="form-group">
                     <label for="product_description">Product Description</label>
-                    <textarea class="form-control" id="product_description" name="product_description" required></textarea>
+                    <textarea class="form-control" id="product_description" name="product_description" ></textarea>
                 </div>
                 <div class="form-group">
                     <label for="product_price">Product Price</label>
-                    <input type="number" class="form-control" id="product_price" name="product_price" required>
-                </div>
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <select class="form-control" id="status" name="status" required>
-                        <option value="0">Available</option>
-                        <option value="1">Unavailable</option>
-                    </select>
+                    <input type="number" class="form-control" id="product_price" name="product_price" >
                 </div>
 
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <select class="form-control" id="category" name="category" required>
+                    <select class="form-control" id="category" name="category" >
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                         @endforeach
@@ -395,6 +391,35 @@ function updateProperty(propertyId) {
                     </div>
                     <p id="file-name3"></p>
                   </div>
+
+
+                  <div class="form-group">
+                    <label for="gear_type">Gear Type</label>
+                    <select class="form-control" id="gear_type" name="gear_type" >
+                        <option value="automatic">Automatic</option>
+                        <option value="manual">Manual</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fuel_type">Fuel Type</label>
+                    <select class="form-control" id="fuel_type" name="fuel_type" >
+                        <option value="gasoline">Gasoline</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="electric">Electric</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+
+                  <div class="form-group">
+                    <label for="num_seats">Number Of Seats</label>
+                    <input type="number" class="form-control" id="num_seats" name="num_seats" >
+                </div>
+
+                <div class="form-group">
+                    <label for="manufacturing_year">Manufacturing Year</label>
+                    <input type="number" min="1900" max="2099" placeholder="YYYY" class="form-control" id="manufacturing_year" name="manufacturing_year" >
+                </div>
 
                 <button type="submit" class="mybutton">Save Property</button>
             </form>
@@ -441,7 +466,7 @@ document.getElementById('editableAddress').style.display = 'block';
 
     });
 </script>
-<script>
+{{-- <script>
     // Get all close buttons
     const closeButtons = document.querySelectorAll('.btn-close');
 
@@ -453,5 +478,5 @@ document.getElementById('editableAddress').style.display = 'block';
             toast.remove();
         });
     });
-</script>
+</script> --}}
 @endsection

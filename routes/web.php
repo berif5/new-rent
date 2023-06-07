@@ -253,4 +253,4 @@ Route::get('/map', function () {
  Route::get('/appProfile', [AppProfileController::class, 'index'])->name('appProfile');//admin profile
  Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
  Route::post('/profile/update',  [AppProfileController::class, 'update'])->name('update-profile');// admin profile edit
-
+ Route::delete('/notifications/{id}', [NotificationController::class, 'delete'])->name('notifications.delete');

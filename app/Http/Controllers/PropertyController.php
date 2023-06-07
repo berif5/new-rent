@@ -34,20 +34,29 @@ class PropertyController extends Controller
             'product_name' => 'required',
             'product_description' => 'required',
             'product_price' => 'required|numeric',
-            'status' => 'required',
+
             'product_type' => 'required',
             'category' => 'required',
             'image1' => 'required|image',
             'image2' => 'required|image',
             'image3' => 'required|image',
+            'gear_type' => 'required',
+            'fuel_type' => 'required',
+            'num_seats' => 'required',
+            'manufacturing_year' => 'required',
+
         ]);
 
         $product = new Product();
         $product->product_name = $validatedData['product_name'];
         $product->product_description = $validatedData['product_description'];
         $product->product_price = $validatedData['product_price'];
-        $product->status = $validatedData['status'];
         $product->product_type = $validatedData['product_type'];
+        $product->gear_type = $validatedData['gear_type'];
+        $product->fuel_type = $validatedData['fuel_type'];
+        $product->num_seats = $validatedData['num_seats'];
+        $product->manufacturing_year = $validatedData['manufacturing_year'];
+
         $product->category_id = $validatedData['category'];
         $product->lessor_id = Auth::id();
 
@@ -72,12 +81,12 @@ class PropertyController extends Controller
     }
 
     private function storeImage($file)
-    {
-        $extension = $file->getClientOriginalExtension();
-        $filename = time() . '.' . $extension;
-        $file->move(public_path('images'), $filename);
-        return $filename;
-    }
+{
+    $extension = $file->getClientOriginalExtension();
+    $filename = time() . '_' . uniqid() . '.' . $extension;
+    $file->move(public_path('images'), $filename);
+    return $filename;
+}
 
     /**
      * Display the specified resource.
@@ -109,6 +118,10 @@ class PropertyController extends Controller
         'product_description' => 'required',
         'product_price' => 'required',
         'status' => 'required',
+        'gear_type' => 'required',
+        'fuel_type' => 'required',
+        'num_seats' => 'required',
+        'manufacturing_year' => 'required',
     ]);
 
         $product = Product::findOrFail($id);

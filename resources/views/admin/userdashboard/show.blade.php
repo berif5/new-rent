@@ -28,3 +28,4 @@
         <a href="{{ route('userdashboard.index') }}" class="btn btn-primary mt-3">Back to Dashboard</a>
     </div>
 @endsection
+{{-- "{{ asset('images/'.$user->image) }}" --}}

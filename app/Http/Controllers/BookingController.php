@@ -5,10 +5,6 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
-
-
-
 class BookingController extends Controller
 {
 
@@ -19,10 +15,14 @@ class BookingController extends Controller
     $validatedData = $request->validate([
         'start_date' => 'required|date|after:now',
         'end_date' => 'required|date|after:start_date',
+        "num_of_days",
+        'product_price',
         'name_on_card' => 'required',
+        'total_price',
         'card_number' => 'required|digits_between:12,19',
-        'cvc' => 'required',
         'expiration_month' => 'required',
+        "expiration_year",
+        'cvc' => 'required',
     ]);
 
     $productId = $request->input('product_id');
@@ -38,12 +38,9 @@ class BookingController extends Controller
     $requestedDates = $this->getDatesRange($start, $end);
     $overlapDates = array_intersect($requestedDates, $bookedDates);
 
-    // if (!empty($overlapDates)) {
-    //     Alert::error('Oops...', 'Something went wrong!')->footer('<a href="">Why do I have this issue?</a>');
-    //     return redirect()->back()->withErrors(' ');
-    // }
-
-    
+    if (!empty($overlapDates)) {
+        return redirect()->back()->withErrors('The selected dates are already booked.')->with('alert', 'error');
+    }
 
     // Update the status for the product
     $bookedDates = array_merge($bookedDates, $requestedDates);

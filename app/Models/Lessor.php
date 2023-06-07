@@ -118,14 +118,22 @@ public function bookings()
             ->get();
 
         if ($bookings->count() > 0) {
+            $existingNotifications = $this->unreadNotifications()
+                ->whereIn('data->booking_id', $bookings->pluck('id'))
+                ->get();
+
+            $existingBookingIds = $existingNotifications->pluck('data.booking_id')->toArray();
+
             foreach ($bookings as $booking) {
-                $this->unreadNotifications()->create([
-                    'type' => NewBookingNotification::class,
-                    'data' => [
-                        'booking_id' => $booking->id,
-                        'message' => 'New booking received: ' . $booking->id,
-                    ],
-                ]);
+                if (!in_array($booking->id, $existingBookingIds)) {
+                    $this->unreadNotifications()->create([
+                        'type' => NewBookingNotification::class,
+                        'data' => [
+                            'booking_id' => $booking->id,
+                            'message' => 'New booking received: ' . $booking->id,
+                        ],
+                    ]);
+                }
             }
         }
     }

@@ -13,6 +13,8 @@ class Booking extends Model
     protected $fillable = [
         'start_date',
         'end_date',
+        "num_of_days",
+        'product_price',
         'total_price',
         'name_on_card',
         'card_number',
