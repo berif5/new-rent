@@ -104,13 +104,13 @@
         </script>
     @endif
 
-    @if(session('alert'))
+    {{-- @if(session('alert'))
     <script>
         alert('{{ session('alert') }}');
     </script>
-    @endif
+    @endif --}}
 
-    {{--     @if(session('alert'))
+        @if(session('alert'))
     <script>
         Swal.fire({
             icon: 'error',
@@ -119,7 +119,7 @@
             footer: '<a href="">Why do I have this issue?</a>'
         });
     </script>
-@endif --}}
+        @endif
 
 
           </div>
@@ -178,17 +178,14 @@ $(document).ready(function() {
 
     // Disable previously selected dates
 
-    // $('#start_date, #end_date').datepicker({
-    //     beforeShowDay: function(date) {
-    //         var dateString = $.datepicker.formatDate('yy-mm-dd', date);
-    //         return [!bookedDates.includes(dateString)]; // Disable booked dates
-    //     }
-    // });
+    $('#start_date, #end_date').datepicker({
+        beforeShowDay: function(date) {
+            var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+            return [!bookedDates.includes(dateString)]; // Disable booked dates
+        }
+    });
 });
 
 </script>
-
-
-
 
 @endsection
