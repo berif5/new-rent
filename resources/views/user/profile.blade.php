@@ -108,7 +108,7 @@
                         {{-- <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li> --}}
                         <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
                         <li class="list-group-item"><strong>Image:</strong> update your profile image </li>
-                        <li class="list-group-item"><strong>Change Password:</strong> ********** </li>
+                        <li class="list-group-item"><strong>Change Password</strong>  </li>
 
 
                         {{-- <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit Profile</a> --}}

@@ -25,7 +25,7 @@
 
                 <div>
                     @foreach ($users as $user)
-                    <img src="{{ $user->image }}" height="100" width="100" />
+                    <img src="{{asset('images/' . $user->image) }}" width="80px" />
 
                      <div class="name mt-3">{{ $user->name }}</div>
                     </div>

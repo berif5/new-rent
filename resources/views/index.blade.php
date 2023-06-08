@@ -154,13 +154,13 @@ input[type="range"] {
                                 @endforeach
                               </select>
                             </div>
-                            <div class="col-md-3 select-outline">
+                            {{-- <div class="col-md-3 select-outline">
                               <select name="status" id="statusSelect" class="form-select">
                                 <option value="" disabled selected>Any Status</option>
                                 <option value="0">Available</option>
                                 <option value="1">Unavailable</option>
                               </select>
-                            </div>
+                            </div> --}}
                             <div class="col-md-4 select-outline">
                               <label for="min_price"  class="form-label price">Minimum Price:</label>
                               <input type="range" class="form-range" id="min_price" name="min_price" min="0" max="300" step="20" value="0" class="form-range">
@@ -217,7 +217,7 @@ input[type="range"] {
                         </div>
                     </div>
                     @endforeach
-                    <div>{{ $products->links('pagination::bootstrap-4') }}</div>
+                    {{-- <div>{{ $products->links('pagination::bootstrap-4') }}</div> --}}
                     @endif
                 </div>
             </div>

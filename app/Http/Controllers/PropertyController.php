@@ -117,11 +117,10 @@ class PropertyController extends Controller
         'product_name' => 'required',
         'product_description' => 'required',
         'product_price' => 'required',
-        'status' => 'required',
-        'gear_type' => 'required',
-        'fuel_type' => 'required',
-        'num_seats' => 'required',
-        'manufacturing_year' => 'required',
+        // 'gear_type' => 'required',
+        // 'fuel_type' => 'required',
+        // 'num_seats' => 'required',
+        // 'manufacturing_year' => 'required',
     ]);
 
         $product = Product::findOrFail($id);

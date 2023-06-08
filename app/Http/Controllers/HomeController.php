@@ -43,8 +43,8 @@ class HomeController extends Controller
         }
 
         $products = $query->get();
-        $products = Product::paginate(6);
-        $paginationLinks = $products->links('pagination::bootstrap-4');
+        $products = Product::all();
+        // $paginationLinks = $products->links('pagination::bootstrap-4');
 
 
 

@@ -14,7 +14,7 @@
                         <th>product_name</th>
                         <th>product_description</th>
                          <th>product_price</th>
-                        <th>status</th>
+                        {{-- <th>status</th> --}}
                         <th>product_type</th>
                         <th>category_name</th>
                         <th>image1</th>
@@ -30,7 +30,7 @@
                             <td>{{ $product->product_name }}</td>
                             <td>{{  $product->product_description}}</td>
                              <td>{{ $product->product_price }}</td>
-                            <td>{{ $product->status }}</td>
+                            {{-- <td>{{ $product->status }}</td> --}}
                             <td>{{ $product->product_type }}</td>
                             <td>{{ $product->category->category_name }}</td>
                             <td><img src="{{ $product->image1 }}" alt="product image" width="100" height="100"></td>

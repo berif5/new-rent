@@ -15,7 +15,7 @@
                 <p class="card-text">product_description: {{ $product->product_description }}</p>
 
                 <p class="card-text">product_price: {{ $product->product_price }}</p>
-                <p class="card-text">status: {{ $product->status }}</p>
+                {{-- <p class="card-text">status: {{ $product->status }}</p> --}}
                 <p class="card-text">product_type : {{ $product->product_type  }}</p>
                 <p class="card-text">category_id: {{ $product->category_id }}</p>
                 <p class="card-text">image1:

@@ -1,6 +1,6 @@
 <div>
     <div>
-        <section class="w-full px-8 pt-4 pb-10 xl:px-8">
+        <section class="w-1/2 mx-auto px-8 pt-4 pb-10 xl:px-8">
             <div class="max-w-5xl mx-auto">
                 <div class="flex flex-col items-center md:flex-row">
 
@@ -18,28 +18,29 @@
                                     </p>
                                 @endif
                                 @if($hideForm != true)
-                                    <form wire:submit.prevent="rate()">
+                                    <form wire:submit.prevent="rate()" class="">
                                         <div class="block max-w-3xl px-1 py-2 mx-auto">
                                             <div class="flex space-x-1 rating">
                                                 <label for="star1">
                                                     <input hidden wire:model="rating" type="radio" id="star1" name="rating" value="1" />
-                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 1 ) text-indigo-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 1 ) text-yellow-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 </label>
+                                                {{-- text-yellow-500 --}}
                                                 <label for="star2">
                                                     <input hidden wire:model="rating" type="radio" id="star2" name="rating" value="2" />
-                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 2 ) text-indigo-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 2 ) text-yellow-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 </label>
                                                 <label for="star3">
                                                     <input hidden wire:model="rating" type="radio" id="star3" name="rating" value="3" />
-                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 3 ) text-indigo-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 3 ) text-yellow-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 </label>
                                                 <label for="star4">
                                                     <input hidden wire:model="rating" type="radio" id="star4" name="rating" value="4" />
-                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 4 ) text-indigo-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 4 ) text-yellow-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 </label>
                                                 <label for="star5">
                                                     <input hidden wire:model="rating" type="radio" id="star5" name="rating" value="5" />
-                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 5 ) text-indigo-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="cursor-pointer block w-8 h-8 @if($rating >= 5 ) text-yellow-500 @else text-grey @endif " fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 </label>
                                             </div>
                                             <div class="my-5">
@@ -50,12 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="block">
-                                            <button type="submit" class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">Rate</button>
-                                            @auth
-                                                @if($currentId)
-                                                    <button type="submit" class="w-full px-3 py-4 mt-4 font-medium text-white bg-red-400 rounded-lg" wire:click.prevent="delete({{ $currentId }})" class="text-sm cursor-pointer">Delete</button>
-                                                @endif
-                                            @endauth
+                                            <button type="submit" style="background: #273f54" class="w-full px-3 py-4 font-medium text-white  rounded-lg">Rate</button>
                                         </div>
                                     </form>
                                 @endif
@@ -84,46 +80,39 @@
                         </h2>
                     </div>
                 </div>
-                <div class="box-border flex grid flex-wrap justify-center gap-10 -mx-4 text-center text-indigo-900 lg:gap-16 lg:justify-start lg:text-left">
+                <div class="box-border flex grid flex-wrap justify-center -mx-4 text-center text-indigo-900  lg:justify-start lg:text-left">
                     @forelse ($comments as $comment)
-                    <div  class="flex col-span-1" >
+                    <div class="flex col-span-1  bg-gray-100 p-4 my-4">
 
-                        <div class="relative flex-shrink-0 w-20 h-20 text-left">
-                            <img src="{{ $comment->user->image }}" alt="">
-                            {{-- <a href="{{ '@' . $comment->user->image }}"> --}}
-                            {{-- </a> --}}
+                        <div class="relative flex-shrink-0 w-20 h-20 text-left my-2">
+                            <img src="{{ asset('images/' . $comment->user->image) }}" alt="">
                         </div>
-                        <div class="relative flex-shrink-0 w-20 h-20 text-left">
-                            <a href="{{ '@' . $comment->user->name }}">
-                            </a>
-                        </div>
+
                         <div class="relative px-4 mb-16 leading-6 text-left">
-
-
-                            <div class="box-border text-left text-gray-700" style="quotes: auto;">
-                                <a href="{{ '@' . $comment->user->username }}">
-                                    {{  $comment->user->name }}
-                                </a>
+                            <div class="box-border text-left text-gray-700 m-2" style="quotes: auto;">
+                                <h1><b>{{ $comment->user->name }}</b></h1>
                             </div>
-                             <div class="box-border mt-5 text-lg font-semibold text-indigo-900 uppercase">
-                                Rating:  @for ($i = 1; $i <= 5; $i++)
-                                @if ($i <= $comment->rating)
-                                ⭐
-                                @else
-                                ★
-                                @endif
-                            @endfor
+                            <div class="box-border text-lg font-semibold text-indigo-900 uppercase m-2">
+                                Rating:
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $comment->rating)
+                                        ⭐
+                                    @else
+                                        ★
+                                    @endif
+                                @endfor
                                 @auth
-                                    @if(auth()->user()->id == $comment->user_id || auth()->user()->role->name == 'admin' )
+                                    @if(auth()->user()->id == $comment->user_id || auth()->user()->role->name == 'admin')
                                         <a wire:click.prevent="delete({{ $comment->id }})" class="text-sm cursor-pointer">Delete</a>
                                     @endif
                                 @endauth
                             </div>
-                             <div class="box-border text-lg font-medium text-gray-600">
+                            <div class="box-border text-lg font-medium text-gray-600 m-2">
                                 {{ $comment->comment }}
                             </div>
                         </div>
                     </div>
+
                 @empty
                 <div class="flex col-span-1">
                     <div class="relative px-4 mb-16 leading-6 text-left">

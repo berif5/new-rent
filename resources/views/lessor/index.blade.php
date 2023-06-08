@@ -183,7 +183,7 @@
         <div class="col-md-6 profile">
             <a href="#" class="notification-link">Your Notifications</a>
             <div id="notificationsContainer">
-                @foreach($notifications as $notification)
+                {{-- @foreach($notifications as $notification)
                 <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body">
@@ -196,7 +196,7 @@
                         </form>
                     </div>
                 </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
 
@@ -216,7 +216,7 @@
 
         <div class="col-md-12 properties">
 
-            <h3>Your Properties</h3>
+            <h3>Your Items </h3>
 
             {{-- <a href="#" data-toggle="modal" data-target="#editProfileModal">Add New Item</a> --}}
             {{-- <br> --}}
@@ -269,13 +269,7 @@
                                         <label for="product_name">Product Name:</label>
                                         <input type="text" id="product_name" class="form-control" name="product_name" value="{{ $property->product_name }}">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="status">Status</label>
-                                        <select class="form-control" id="status" name="status" required>
-                                            <option value="0">Available</option>
-                                            <option value="1">Unavailable</option>
-                                        </select>
-                                    </div>
+                                    
                                     <div>
                                         <label for="product_description">Product Description:</label>
                                         <textarea id="product_description" class="form-control" name="product_description">{{ $property->product_description }}</textarea>
